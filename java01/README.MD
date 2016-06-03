@@ -87,4 +87,6 @@
 - Exam061.java : 명령어 흐름을 제어하는 문법 - if ~ else if ~ else if ~ else(2)
 - Exam062.java : 명령어 흐름을 제어하는 문법 - if ~ else if ~ else if ~ else(3)
 - Exam063.java : 명령어 흐름을 제어하는 문법 - else의 소속
+- Exam064.java : 명령어 흐름을 제어하는 문법 - switch 문
+- Exam065.java : 명령어 흐름을 제어하는 문법 - switch와 break
 ##
