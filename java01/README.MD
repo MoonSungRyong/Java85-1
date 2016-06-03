@@ -75,6 +75,16 @@
 
 ## step05
 명령어의 흐름을 제어하는 조건문, 반복문의 사용법
-
-
+- Exam052.java : 명령어 흐름을 제어하는 문법 - 명령어들의 묶음(block)
+- Exam053.java : 명령어 흐름을 제어하는 문법 - 블록 안에 선언된 변수
+- Exam054.java : 명령어 흐름을 제어하는 문법 - 조건문 if
+- Exam055.java : 명령어 흐름을 제어하는 문법 - 조건문 if가 적용되는 범위
+- Exam056.java : 명령어 흐름을 제어하는 문법 - if 와 블록
+- Exam057.java : 명령어 흐름을 제어하는 문법 - if ~ else
+- Exam058.java : 명령어 흐름을 제어하는 문법 - if ~ else의 잘못된 사용
+- Exam059.java : 명령어 흐름을 제어하는 문법 - if ~ else와 블록
+- Exam060.java : 명령어 흐름을 제어하는 문법 - if ~ else if ~ else if ~ else(1)
+- Exam061.java : 명령어 흐름을 제어하는 문법 - if ~ else if ~ else if ~ else(2)
+- Exam062.java : 명령어 흐름을 제어하는 문법 - if ~ else if ~ else if ~ else(3)
+- Exam063.java : 명령어 흐름을 제어하는 문법 - else의 소속
 ##
