@@ -5,22 +5,24 @@
 최대 값: 8
 최소 값: 1
 
-힌
 */
 public class Test05 {
   public static void main(String[] args) {
-    int num = Integer.parseInt(args[0]);
-    int evenCount = 0, oddCount = 0;
-
+    int num = Integer.parseInt(args[0]); //예)57822447
+    int maxNum = num % 10, // 7
+        minNum = maxNum; // 7
+    num /= 10; // 5782244
+    int remainder = 0;
     while (num > 0) {
-      if (num % 2 == 0)
-        evenCount++;
-      else
-        oddCount++;
+      remainder = num % 10;
+      if (remainder > maxNum)
+        maxNum = remainder;
+      if (remainder < minNum)
+        minNum = remainder;
       num /= 10;
     }
 
-    System.out.printf("짝수: %d\n", evenCount);
-    System.out.printf("홀수: %d\n", oddCount);
+    System.out.printf("최대 값: %d\n", maxNum);
+    System.out.printf("최소 값: %d\n", minNum);
   }
 }
