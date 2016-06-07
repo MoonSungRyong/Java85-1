@@ -1,4 +1,4 @@
-//주제: 명령어 흐름을 제어하는 문법 - 반복문 while와 break, continue
+//주제: 명령어 흐름을 제어하는 문법 - 반복문 while과 break, continue
 
 public class Exam073 {
   public static void main(String[] args) {
