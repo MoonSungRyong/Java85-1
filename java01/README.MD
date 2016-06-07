@@ -92,4 +92,5 @@
 - Exam066.java : 명령어 흐름을 제어하는 문법 - 반복문 while
 - Exam067.java : 명령어 흐름을 제어하는 문법 - 반복문 for
 - Exam068.java : 명령어 흐름을 제어하는 문법 - 반복문 for 응용
+- Exam068.java : 명령어 흐름을 제어하는 문법 - 반복문 for와 break
 ##
