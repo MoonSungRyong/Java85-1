@@ -4,8 +4,8 @@
 int[] list1 = {1, 2, 4, 7, 11, 9};
 int[] list2 = new int[list1.length];
 3) 출력 예:
-list1: 1 2 4 7 11 9
-list2: 1 2 4 7 11 9
+list1: 1, 2, 4, 7, 11, 9
+list2: 1, 2, 4, 7, 11, 9
 
 */
 
@@ -24,8 +24,20 @@ public class Test14 {
        list2에 들어있는 값을 출력한다.
     */
     for (int i = 0; i < list1.length; i++) {
-      
+      list2[i] = list1[i];
     }
+    System.out.print("list1 : ");
+    for (int i = 0; i < list1.length; i++) {
+      System.out.printf("%s%d", (i == 0) ? "" : ", ", list1[i]);
+    }
+    System.out.println();
+
+    System.out.print("list2 : ");
+    for (int i = 0; i < list2.length; i++) {
+      System.out.printf("%s%d", (i == 0) ? "" : ", ", list2[i]);
+    }
+    System.out.println();
+
   }
 }
 
