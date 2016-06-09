@@ -19,6 +19,7 @@ public class Test17 {
       list[length + i] = list[i];
       list[i] = tmp;
     }
+    
     System.out.print("배열 :");
     for (int i = 0; i < list.length; i++) {
       if (i > 0) {

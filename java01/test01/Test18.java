@@ -30,9 +30,16 @@ public class Test18 {
         System.out.print(", ");
       System.out.print(list[i]);
     }
+    /* 방법1
     System.out.printf("} : %s\n",
       (result ? "등비수열입니다." : "등비수열이 아닙니다."));
-
+    */
+    //방법2
+    if (result) {
+      System.out.println("} : 등비수열입니다.");
+    } else {
+      System.out.println("} : 등비수열이 아닙니다.");
+    }
   }
 
 }
