@@ -1,7 +1,7 @@
 /*문제
 1) 주어진 문자열의 알파벳의 개수를 센다.
 2) 실행 및 출력 예:
->java Test21 circleOfNumbers
+>java Test21 circleofnumbers
 b:1
 c:2
 e:2
@@ -26,7 +26,25 @@ u:1
 
 public class Test22 {
   public static void main(String[] args) {
+    char[] chars = args[0].toUpperCase().toCharArray();
+    int[] counts = new int[26];
 
+    // 알파벳 개수를 0으로 초기화
+    for (int i = 0; i < counts.length; i++) {
+      counts[i] = 0;
+    }
+
+    // 알파벳을 센다.
+    for (int i = 0; i < chars.length; i++) {
+      counts[chars[i] - 'A']++;
+    }
+
+    // 알파벳의 개수를 출력
+    for (int i = 0; i < counts.length; i++) {
+      if (counts[i] <= 0)
+        continue;
+      System.out.printf("%c: %d\n", (char)(i + 'A'), counts[i]);
+    }
   }
 
 
