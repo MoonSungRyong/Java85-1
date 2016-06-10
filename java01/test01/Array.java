@@ -12,9 +12,13 @@ public class Array {
     }
   }
 
-  static void printAll(int[] arr) {
+  static void printAll(int[] arr, int keyIndex) {
     for (int i = 0; i < arr.length; i++) {
-      System.out.printf("%d ", arr[i]);
+      if (keyIndex >= 0 && i == keyIndex) {
+        System.out.printf("[%d] ", arr[i]);
+      } else {
+        System.out.printf("%d ", arr[i]);
+      }
     }
     System.out.println();
   }
