@@ -1,8 +1,5 @@
 /bin/
-/test.pdf
-/*.data
 /.settings/
 /.gradle/
 /.classpath
 /.project
-/download/
