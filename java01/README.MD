@@ -96,5 +96,10 @@
 - Exam070.java : 명령어 흐름을 제어하는 문법 - 중첩 반복문 탈출 1
 - Exam071.java : 명령어 흐름을 제어하는 문법 - 중첩 반복문 탈출 2
 - Exam072.java : 명령어 흐름을 제어하는 문법 - 반복문 for와 continue
-- Exam072.java : 명령어 흐름을 제어하는 문법 - 반복문 while과 break, continue
-##
+- Exam073.java : 명령어 흐름을 제어하는 문법 - 반복문 while과 break, continue
+## step06
+- Exam074.java : 기타 - 문자열을 가지고 문자 배열을 만들기
+- Exam075.java : 기타 - 프로그램 아규먼트를 가지고 숫자와 문자 배열 만들기
+- Exam076.java : 기타 - 문자열을 대문자 또는 소문자로 만들기
+- Exam077.java : 기타 - 사용자 도구(method) 추가하기
+  Other.java
