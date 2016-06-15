@@ -33,4 +33,8 @@
 
 ## step04(java02/src/step04)
 - Exam024.java : 반복문 사용 - do ~ while
-- Exam025.java : 반복문 사용 - for ( : ) 
+- Exam025.java : 반복문 사용 - for ( : )
+
+## step05(java02/src/step05)
+- Exam026.java : 사용자 정의 데이터 타입 다루기 - 새 데이터 타입 정의하기
+- Exam027.java : 사용자 정의 데이터 타입 다루기 - 사용자 정의 연산자 추가하기
