@@ -29,3 +29,8 @@
 - Exam020.java : 연산자 사용 - 비트 논리 연산자 활용
 - Exam021.java : 연산자 사용 - 비트 이동 연산자
 - Exam022.java : 연산자 사용 - 비트 이동 연산자 활용
+- Exam023.java : 연산자 사용 - 비트 이동 연산자 활용2
+
+## step04(java02/src/step04)
+- Exam024.java : 반복문 사용 - do ~ while
+- Exam025.java : 반복문 사용 - for ( : ) 
