@@ -12,7 +12,7 @@
 *
 
 */
-public class Test36 {
+public class Test37 {
   public static void main(String[] args) throws Exception {
     int len = Integer.parseInt(args[0]);
     if (len % 2 == 0) {
@@ -20,16 +20,16 @@ public class Test36 {
     }
 
     int starLen = 1;
-    int add = 1;
     for (int i = 0; i < len; i++) {
       for (int j = 0; j < starLen; j++) {
         System.out.print("*");
       }
       System.out.println();
-      if (starLen > len / 2) {
-        add = -1;
+      if (i < len / 2) {
+        starLen++;
+      } else {
+        starLen--;
       }
-      starLen += add;
     }
 
 
