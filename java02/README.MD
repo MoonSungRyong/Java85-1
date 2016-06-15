@@ -38,3 +38,10 @@
 ## step05(java02/src/step05)
 - Exam026.java : 사용자 정의 데이터 타입 다루기 - 새 데이터 타입 정의하기
 - Exam027.java : 사용자 정의 데이터 타입 다루기 - 사용자 정의 연산자 추가하기
+- Exam028.java : 사용자 정의 데이터 타입 다루기 - 메서드 문법
+- Exam029.java : 사용자 정의 데이터 타입 다루기 - call by value, call by reference
+- Exam030.java : 사용자 정의 데이터 타입 다루기 - static 메서드
+- Exam031.java : 사용자 정의 데이터 타입 다루기 - 메서드들을 분류하는 문법 "클래스"
+  Array.java <= 배열과 관련된 기능을 모아둔 클래스
+- Exam032.java : 사용자 정의 데이터 타입 다루기 - static 변수  
+  Array2.java <= 배열을 저장할 static 변수를 선언
