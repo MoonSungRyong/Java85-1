@@ -45,3 +45,5 @@
   Array.java <= 배열과 관련된 기능을 모아둔 클래스
 - Exam032.java : 사용자 정의 데이터 타입 다루기 - static 변수  
   Array2.java <= 배열을 저장할 static 변수를 선언
+- Exam033.java : 사용자 정의 데이터 타입 다루기 - instance 변수  
+  Array3.java <= instance 변수를 사용하여 배열을 개별적으로 관리
