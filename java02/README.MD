@@ -68,3 +68,14 @@
 
 ### 연습2(ex02)
 - Test00.java : 객체지향 구조로 소스 코드를 변환하기 전.
+- Test01.java : 1단계 - 자주 사용할 명령어를 별도의 블록으로 묶어 놓는다.
+- Test01_2.java : sum() 메서드 개선, 기타 기능 메서드화.
+- Test02.java : 2단계 - 클래스 문법을 사용하여 메서드를 분류한다.
+  Score.java
+- Test03.java : 3단계 - 메서드가 공통으로 사용하는 데이터는 클래스 변수(static 변수)에 저장해두자!
+  Score2.java
+- Test03_2.java : 스태틱 변수의 한계 경험
+- Test04.java : 4단계 - 메서드와 데이터 타입의 결합
+  Score3.java
+- Test05.java : 5단계 - 데이터 타입의 연사자로서 메서드를 정의하기
+  Score4.java
