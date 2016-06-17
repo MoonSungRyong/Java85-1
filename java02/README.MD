@@ -51,6 +51,8 @@
   Array3.java <= instance 변수를 사용하여 배열을 개별적으로 관리
 - Exam036.java : 사용자 정의 데이터 타입 다루기 - instance 메서드
   Array4.java <= instance 메서드를 사용하여 인스턴스 주소를 자동으로 받기
+- Exam037.java : 클래스 실행
+- Exam038.java : JVM이 관리하는 메모리 영역과 변수
 
 ### 연습1(ex01)
 - Test01.java : 스태틱 메서들르 사용하여 명령들을 재사용하기 좋게 기능 별로 묶기
