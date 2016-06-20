@@ -87,4 +87,14 @@
 
 ### 연습1(ex01)
 - Test01.java : 데이터 타입 정의 - 자동차 정보 다루기
-  Car.java 
+  Car.java
+- Test02.java : 데이터 타입 정의 - 도서 정보 다루기
+  Book.java
+- Test03.java : 데이터 타입 정의 - 주문 정보 다루기
+  Order.java       
+- Test04.java : 데이터 타입 정의 - 게시물 정보 다루기
+  Board.java
+- Test05.java : 데이터 타입 정의 - 회원 정보 다루기
+  User.java
+- Test06.java : 데이터 타입 정의 - 연락처 정보 다루기
+  Contact.java
