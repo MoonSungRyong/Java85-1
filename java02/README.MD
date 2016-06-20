@@ -82,4 +82,9 @@
 - Exam037.java : JVM 메모리 영역 - 클래스 실행
 - Exam038.java : JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수
 - Exam039.java : JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수2
-- Exam040.java : JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수3
+- Exam040.java : JVM 메모리 영역 - 클래스 로딩 시점 확인1
+- Exam041.java : JVM 메모리 영역 - 클래스 로딩 시점 확인2
+
+### 연습1(ex01)
+- Test01.java : 데이터 타입 정의 - 자동차 정보 다루기
+  Car.java 
