@@ -1,5 +1,5 @@
-// 주제: JVM이 관리하는 메모리 영역과 변수2
-package step05;
+// 주제: JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수2
+package step06;
 
 public class Exam039 {
   static int s1 = 10;
@@ -21,7 +21,7 @@ public class Exam039 {
                         // 가비지는 JVM이 사용할 메모리가 부족할 때,
                         // JVM이 한가할 때 해제된다.
                         // 그래서 그 메모리 영역을 다른 인스턴스를 위해
-                        // 사용할 수 있게 한다. 
+                        // 사용할 수 있게 한다.
 
   }
 }

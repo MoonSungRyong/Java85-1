@@ -1,5 +1,5 @@
-// 주제: 클래스 실행
-package step05;
+// 주제: JVM 메모리 영역 - 클래스 실행
+package step06;
 
 public class Exam037 {
   public static void main(String[] args) {

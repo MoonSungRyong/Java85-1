@@ -1,5 +1,5 @@
-// 주제: JVM이 관리하는 메모리 영역과 변수
-package step05;
+// 주제: JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수
+package step06;
 
 public class Exam038 {
   static int a = 10; // 클래스 변수(필드,속성) = 스태틱 변수
