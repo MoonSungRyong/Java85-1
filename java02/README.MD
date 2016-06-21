@@ -106,3 +106,10 @@
   Board2.java  
 - Exam044.java : 생성자 - 생성자 용도
   Board3.java
+- Exam045.java : 생성자 - 파라미터가 있는 생성자
+  Board4.java
+- Exam046.java : 생성자 - this() => 생성자에서 다른 생성자를 호출하기
+  Board5.java  
+- Exam047.java : 생성자 - 기본 생성자가 없고 파라미터를 받는 생성자만 있는 경우
+  Board6.java  
+- Exam048.java : 기타 - 사용자로부터 키보드 입력 받기

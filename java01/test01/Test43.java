@@ -1,21 +1,15 @@
 /* 문제:
+다음과 같이 사용자로부터 구구단의 특정 단 값을 입력 받아 구구단을 출력하라!
+예)
+> java Test43
+출력할 구구단? 8
+8 * 1 = 8
+8 * 2 = 16
+...
 */
 public class Test43 {
   public static void main(String[] args) throws Exception {
-    int i = 2, j = 1;
-    while (i <= 9) {
-      if (i % 3 == 0) {
-        i++;
-        continue;
-      }
-      j = 1;
-      while (j <= 9) {
-        System.out.printf("%d * %d = %d\n", i, j, i * j);  
-        j++;
-      }
 
-      i++;
-    }
   }
 }
 
