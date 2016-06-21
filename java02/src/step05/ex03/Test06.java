@@ -1,7 +1,7 @@
 // 주제: 데이터 타입 정의 - 연락처 정보 다루기
 // => 주문 데이터를 저장할 타입 : Contact
 // => 다룰 데이터: 이름, 성, 직위, 회사, 홈페이지, 팩스, 전화번호, 이메일
-package step06.ex01;
+package step05.ex03;
 
 public class Test06 {
   public static void main(String[] args) {

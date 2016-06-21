@@ -1,7 +1,7 @@
 // 주제: 데이터 타입 정의 - 주문 정보 다루기
 // => 주문 데이터를 저장할 타입 : Order
 // => 다룰 데이터: 주문번호, 책번호, 주문자아이디, 수량, 주문일, 택배비지불여부
-package step06.ex01;
+package step05.ex03;
 
 public class Test03 {
   public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class Test03 {
     order1.quantity = 2;
     order1.isDeliveryPay = true;
     order1.registeredDate = "2016-06-20";
-    
+
   }
 }
 

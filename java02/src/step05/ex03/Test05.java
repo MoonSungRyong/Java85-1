@@ -1,7 +1,7 @@
 // 주제: 데이터 타입 정의 - 회원 정보 다루기
 // => 주문 데이터를 저장할 타입 : User
 // => 다룰 데이터: 아이디, 비밀번호, 이름, 우편번호, 기본주소, 상세주소, 전화번호, 이메일
-package step06.ex01;
+package step05.ex03;
 
 public class Test05 {
   public static void main(String[] args) {

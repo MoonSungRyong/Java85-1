@@ -1,7 +1,7 @@
 // 주제: 데이터 타입 정의 - 도서 정보 다루기
 // => 도서 데이터를 저장할 타입 : Book
 // => 다룰 데이터: 제목, 저자, 출판사, 출판일, 국내서여부, 페이지수
-package step06.ex01;
+package step05.ex03;
 
 public class Test02 {
   public static void main(String[] args) {

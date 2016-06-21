@@ -1,4 +1,4 @@
-package step06.ex01;
+package step05.ex03;
 
 public class Order {
   int no;

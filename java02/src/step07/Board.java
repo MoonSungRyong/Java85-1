@@ -1,4 +1,4 @@
-package step06.ex01;
+package step06;
 
 public class Board {
   int no;
@@ -7,4 +7,5 @@ public class Board {
   String writer;
   String createdDate;
   int viewCount;
+  String password;
 }

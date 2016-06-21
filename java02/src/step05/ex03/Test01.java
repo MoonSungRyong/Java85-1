@@ -2,7 +2,7 @@
 // => 자동차 데이터를 저장할 데이터 타입 => Car
 // => 다룰 데이터: 모델명, 제조사, cc, 주행거리, 탑승인원, 썬루프여부,
 //                   에어콘여부
-package step06.ex01;
+package step05.ex03;
 
 public class Test01 {
   public static void main(String[] args) {

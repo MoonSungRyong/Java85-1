@@ -78,6 +78,20 @@
 - Test05.java : 5단계 - 데이터 타입의 연사자로서 메서드를 정의하기
   Score4.java
 
+  ### 연습3(ex03)
+  - Test01.java : 데이터 타입 정의 - 자동차 정보 다루기
+    Car.java
+  - Test02.java : 데이터 타입 정의 - 도서 정보 다루기
+    Book.java
+  - Test03.java : 데이터 타입 정의 - 주문 정보 다루기
+    Order.java       
+  - Test04.java : 데이터 타입 정의 - 게시물 정보 다루기
+    Board.java
+  - Test05.java : 데이터 타입 정의 - 회원 정보 다루기
+    User.java
+  - Test06.java : 데이터 타입 정의 - 연락처 정보 다루기
+    Contact.java
+
 ## step06(java02/src/step06)
 - Exam037.java : JVM 메모리 영역 - 클래스 실행
 - Exam038.java : JVM 메모리 영역 - JVM이 관리하는 메모리 영역과 변수
@@ -85,16 +99,7 @@
 - Exam040.java : JVM 메모리 영역 - 클래스 로딩 시점 확인1
 - Exam041.java : JVM 메모리 영역 - 클래스 로딩 시점 확인2
 
-### 연습1(ex01)
-- Test01.java : 데이터 타입 정의 - 자동차 정보 다루기
-  Car.java
-- Test02.java : 데이터 타입 정의 - 도서 정보 다루기
-  Book.java
-- Test03.java : 데이터 타입 정의 - 주문 정보 다루기
-  Order.java       
-- Test04.java : 데이터 타입 정의 - 게시물 정보 다루기
+## step07(java02/src/step07)
+- Exam042.java : 사용자 정의 데이터 타입 - 데이터 타입 정의
   Board.java
-- Test05.java : 데이터 타입 정의 - 회원 정보 다루기
-  User.java
-- Test06.java : 데이터 타입 정의 - 연락처 정보 다루기
-  Contact.java
+- Exam043.java : 사용자 정의 데이터 타입 - 생성자를 이용한 인스턴스 변수 초기화
