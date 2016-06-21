@@ -100,6 +100,9 @@
 - Exam041.java : JVM 메모리 영역 - 클래스 로딩 시점 확인2
 
 ## step07(java02/src/step07)
-- Exam042.java : 사용자 정의 데이터 타입 - 데이터 타입 정의
+- Exam042.java : 생성자 - 생성자 사용 전
   Board.java
-- Exam043.java : 사용자 정의 데이터 타입 - 생성자를 이용한 인스턴스 변수 초기화
+- Exam043.java : 생성자 - 기본 생성자
+  Board2.java  
+- Exam044.java : 생성자 - 생성자 용도
+  Board3.java

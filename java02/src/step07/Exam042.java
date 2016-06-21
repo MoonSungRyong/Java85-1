@@ -1,6 +1,6 @@
-// 주제: 사용자 정의 데이터 타입 - 데이터 타입 정의
+// 주제: 생성자 - 데이터 타입 정의
 // => 게시물 데이터를 저장할 데이터 타입을 정의
-package step06;
+package step07;
 
 public class Exam042 {
   public static void main(String[] args) {
