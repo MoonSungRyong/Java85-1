@@ -117,4 +117,5 @@
                       - 패키지 클래스 사용법
 - Exam050.java : 기타 - import 사용법
 - Exam051.java : 기타 - import 사용법2
-- Exam052.java : 기타 - import 사용법
+- Exam052.java : 인스턴스 활용 - 사용자 입력과 객체 생성
+- Exam053.java : 인스턴스 활용 - 배열을 활용하여 여러 개의 데이터를 객체에 담기
