@@ -113,3 +113,8 @@
 - Exam047.java : 생성자 - 기본 생성자가 없고 파라미터를 받는 생성자만 있는 경우
   Board6.java  
 - Exam048.java : 기타 - 사용자로부터 키보드 입력 받기
+- Exam049.java : 기타 - 사용자로부터 키보드 입력 받기2
+                      - 패키지 클래스 사용법
+- Exam050.java : 기타 - import 사용법
+- Exam051.java : 기타 - import 사용법2
+- Exam052.java : 기타 - import 사용법
