@@ -1,6 +1,6 @@
-/* 주제: 인스턴스 활용 - 배열을 활용하여 여러 개의 데이터를 객체에 담기
+/* 주제: 레퍼런스 배열 연습 - 배열 사용 전
  => 예)
-> java -cp bin Exam053
+> java -cp bin step07.ex01.Test01
 제목? aaaa
 내용? bbbb
 암호? 1111
@@ -12,13 +12,12 @@
 1, aaaa, bbbb, 1111, 2016-06-22, 0
 2, abab, cccc, 2222, 2016-06-22, 0
 */
-package step07;
+package step07.ex01;
 
 import java.util.*;
 
-public class Exam053_1 {
+public class Test01 {
   public static void main(String[] args) {
-    // v01 = 한 개의 게시물 데이터 입력 받기
     Scanner keyScanner = new Scanner(System.in);
 
     Board5 board = new Board5();
