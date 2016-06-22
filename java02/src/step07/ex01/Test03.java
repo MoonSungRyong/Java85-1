@@ -49,6 +49,13 @@ public class Test03 {
       if (answer.equals("n"))
         break;
     }
+
+    // 레퍼런스 배열에 저장된 모든 Board5의 값을 출력해 보자!
+    for (int x = 0; x < i; x++) {
+      System.out.printf("%d, %s, %s, %s, %s, %d\n",
+        boards[x].no, boards[x].title, boards[x].contents, boards[x].password,
+        boards[x].createdDate, boards[x].viewCount);
+    }
   }
 }
 
