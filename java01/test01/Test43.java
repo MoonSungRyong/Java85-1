@@ -9,7 +9,14 @@
 */
 public class Test43 {
   public static void main(String[] args) throws Exception {
+    java.util.Scanner keyScanner = new java.util.Scanner(System.in);
 
+    System.out.print("출력할 구구단?");
+    int num = Integer.parseInt(keyScanner.nextLine());
+
+    for (int i = 1; i <= 9; i++) {
+      System.out.printf("%d * %d = %d\n", num, i, num * i);
+    }
   }
 }
 
