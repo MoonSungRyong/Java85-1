@@ -21,7 +21,20 @@ import java.util.*;
 
 public class Test01 {
   public static void main(String[] args) {
+    Scanner keyScanner = new Scanner(System.in);
 
+    Contact contact = new Contact();
+
+    System.out.print("이름? ");
+    contact.name = keyScanner.nextLine();
+    System.out.print("전화? ");
+    contact.tel = keyScanner.nextLine();
+    System.out.print("이메일? ");
+    contact.email = keyScanner.nextLine();
+    System.out.print("회사? ");
+    contact.company = keyScanner.nextLine();
+    System.out.print("직위? ");
+    contact.position = keyScanner.nextLine();
   }
 }
 

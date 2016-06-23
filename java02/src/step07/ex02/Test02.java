@@ -21,7 +21,28 @@ import java.util.*;
 
 public class Test02 {
   public static void main(String[] args) {
+    Scanner keyScanner = new Scanner(System.in);
 
+    Contact contact;
+    String answer;
+    while (true) {
+      contact = new Contact();
+      System.out.print("이름? ");
+      contact.name = keyScanner.nextLine();
+      System.out.print("전화? ");
+      contact.tel = keyScanner.nextLine();
+      System.out.print("이메일? ");
+      contact.email = keyScanner.nextLine();
+      System.out.print("회사? ");
+      contact.company = keyScanner.nextLine();
+      System.out.print("직위? ");
+      contact.position = keyScanner.nextLine();
+
+      System.out.print("계속 입력하시겠습니까?(y/N) ");
+      answer = keyScanner.nextLine();
+      if (answer.equals("n") || answer.equals("") || answer.equals("N"))
+        break;
+    }
   }
 }
 
