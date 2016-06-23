@@ -27,10 +27,6 @@ public class Test01 {
     board.contents = keyScanner.nextLine();
     System.out.print("암호? ");
     board.password = keyScanner.nextLine();
-
-    System.out.print("계속 입력하시겠습니까?(y/n) ");
-    String answer = keyScanner.nextLine();
-    System.out.println(answer);
   }
 }
 
