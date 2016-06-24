@@ -1,0 +1,2 @@
+//1) 사용할 gradle 플러그인 가져오기
+apply plugin: 'eclipse'
