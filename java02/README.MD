@@ -156,7 +156,19 @@
 3) MainApp에서 만든 키보드 스캐너를 BoardController와 ContactController가 공유하기
   => 중복해서 인스턴스를 만들지 않기 때문에 자원(메모리) 절약할 수 있다.
 
-
+### 연습6(ex06) - 게시판 + 연락처(4단계)
+1) 여러 개의 게시판을 만들기
+  => BoardController는 오직 한 개의 게시판 데이터만 다룬다.
+  => 해결책: BoardController를 여러 개 복제하여 사용한다.
+  => 문제점: 반복해서 코드를 추가 삭제해야 한다. 유지보수 불편!
+  
+### 연습7(ex07) - 게시판 + 연락처(5단계)
+1) BoardController가 갖고 있는 데이터 중에서 각 게시판 별로 
+   따로 관리해야 하는 변수는 인스턴스 변수로 선언한다.
+   => Board[] boards, int i, String boardName
+2) ContactController에 대해서도 여러 개의 연락처를 개별적으로 관리할 수 있도록
+   처리한다.
+  
 
 
 
