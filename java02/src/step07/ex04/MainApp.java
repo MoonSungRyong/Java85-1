@@ -1,4 +1,4 @@
-/* 주제: 게시판+연락처 - 2단계, 게시판 업무를 처리하는 클래스 도입하기
+/* 주제: 게시판+연락처 - 2단계, 게시판 및 연락처 업무를 처리하는 클래스 도입하기
  * [메뉴]
  * 1. 게시판
  * 2. 연락처
@@ -10,7 +10,18 @@
  * 내용? bbbb
  * 암호? 1111
  * 계속 입력하시겠습니까?(y/N) n
+ * [메인 > 게시판]
  * 1, aaaa, null, 2016-06-24, 0
+ * 메뉴 번호를 입력하세요> 2
+ * [메인 > 연락처]
+ * 이름? 홍길동
+ * 전화? 1111-2222
+ * 이메일? hong@test.com
+ * 회사? 비트캠프
+ * 직위? 대리
+ * 계속 입력하시겠습니까?(y/N) n
+ * [메인 > 연락처]
+ * 홍길동, 1111-2222, 비트캠프, 대리
  */
 package step07.ex04;
 
@@ -36,7 +47,7 @@ public class MainApp {
         BoardController.main(null);
         break;
       case "2":
-        System.out.println("연락처");
+        ContactController.main(null);
         break;
       case "0":
         break label1;

@@ -136,5 +136,22 @@
 - Test03.java : 레퍼런스 배열 연습 - 3단계: 입력 받은 데이터를 배열에 보관하기
 - Test04.java : 레퍼런스 배열 연습 - 명령어들을 재사용하고 관리하기 좋게 블록으로 묶는다.
 
-### 연습3(ex03) - 게시판 + 연락처
-- MainApp.java : 메뉴 출력
+### 연습3(ex03) - 게시판 + 연락처(1단계)
+- MainApp.java : 메인 메뉴 출력
+
+### 연습4(ex04) - 게시판 + 연락처(2단계)
+1) 메인 메뉴 출력: MainApp.java
+2) 값 객체: Board.java, Contact.java
+3) 게시판 처리: BoardController.java
+4) 연락처 처리: ContactController.java
+
+### 연습5(ex05) - 게시판 + 연락처(3단계)
+1)  
+
+
+
+
+
+
+
+
