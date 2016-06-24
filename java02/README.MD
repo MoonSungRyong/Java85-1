@@ -136,16 +136,16 @@
 - Test03.java : 레퍼런스 배열 연습 - 3단계: 입력 받은 데이터를 배열에 보관하기
 - Test04.java : 레퍼런스 배열 연습 - 명령어들을 재사용하고 관리하기 좋게 블록으로 묶는다.
 
-### 연습3(ex03) - 게시판 + 연락처(1단계)
+### 연습3(ex03) - 게시판 + 연락처(1단계: 메인 메뉴 기능 추가)
 - MainApp.java : 메인 메뉴 출력
 
-### 연습4(ex04) - 게시판 + 연락처(2단계)
+### 연습4(ex04) - 게시판 + 연락처(2단계: 게시판, 연락처 클래스 추가)
 1) 메인 메뉴 출력: MainApp.java
 2) 값 객체: Board.java, Contact.java
 3) 게시판 처리: BoardController.java
 4) 연락처 처리: ContactController.java
 
-### 연습5(ex05) - 게시판 + 연락처(3단계)
+### 연습5(ex05) - 게시판 + 연락처(3단계: 클래스 변수 사용)
 1) BoardController와 ContactController의 main()메서드 이름을 service() 변경
   => 실행할 수 있는 클래스를 MainApp로 한정한다.
 2) BoardController와 ContactController는 service()를 호출할 때 마다
@@ -156,13 +156,13 @@
 3) MainApp에서 만든 키보드 스캐너를 BoardController와 ContactController가 공유하기
   => 중복해서 인스턴스를 만들지 않기 때문에 자원(메모리) 절약할 수 있다.
 
-### 연습6(ex06) - 게시판 + 연락처(4단계)
+### 연습6(ex06) - 게시판 + 연락처(4단계: 인스턴스 변수 사용 전)
 1) 여러 개의 게시판을 만들기
   => BoardController는 오직 한 개의 게시판 데이터만 다룬다.
   => 해결책: BoardController를 여러 개 복제하여 사용한다.
   => 문제점: 반복해서 코드를 추가 삭제해야 한다. 유지보수 불편!
   
-### 연습7(ex07) - 게시판 + 연락처(5단계)
+### 연습7(ex07) - 게시판 + 연락처(5단계: 인스턴스 변수 사용 후 )
 1) BoardController가 갖고 있는 데이터 중에서 각 게시판 별로 
    따로 관리해야 하는 변수는 인스턴스 변수로 선언한다.
    => Board[] boards, int i, String boardName
