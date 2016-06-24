@@ -146,7 +146,15 @@
 4) 연락처 처리: ContactController.java
 
 ### 연습5(ex05) - 게시판 + 연락처(3단계)
-1)  
+1) BoardController와 ContactController의 main()메서드 이름을 service() 변경
+  => 실행할 수 있는 클래스를 MainApp로 한정한다.
+2) BoardController와 ContactController는 service()를 호출할 때 마다
+  새로 레퍼런스 배열을 만들어서 작업을 처리한다.
+  즉 메서드 호출이 끝나면 레러펀스 배열이 제거된다.
+  기존에 입력한 내용을 날린다.
+  => service()에 있던 배열 레퍼런스와 인덱스를 클래스 변수로 만든다.
+3) MainApp에서 만든 키보드 스캐너를 BoardController와 ContactController가 공유하기
+  => 중복해서 인스턴스를 만들지 않기 때문에 자원(메모리) 절약할 수 있다.
 
 
 
