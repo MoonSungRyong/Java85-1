@@ -38,23 +38,17 @@ public class ContactController {
   }
   
   public void service() {
-    Contact contact;
-    
     while (true) {
       System.out.printf("[메인 > %s]\n", this.contactName);
-      contact = inputContact();
-      this.contacts[this.i++] = contact;
+      this.input();
       if (!prompt())
         break;
     }
-
     System.out.printf("[메인 > %s]\n", this.contactName);
-    for (int x = 0; x < this.i; x++) {
-      printContact(this.contacts[x]);
-    }
+    this.printAll();
   }
 
-  static Contact inputContact() {
+  void input() {
     Contact contact = new Contact();
     System.out.print("이름? ");
     contact.name = keyScanner.nextLine();
@@ -66,7 +60,8 @@ public class ContactController {
     contact.company = keyScanner.nextLine();
     System.out.print("직위? ");
     contact.position = keyScanner.nextLine();
-    return contact;
+    
+    this.contacts[this.i++] = contact;
   }
 
   static boolean prompt() {
@@ -77,9 +72,14 @@ public class ContactController {
     return true;
   }
 
-  static void printContact(Contact contact) {
-    System.out.printf("%s, %s, %s, %s\n",
-      contact.name, contact.tel, contact.company, contact.position);
+  void printAll() {
+    for (int x = 0; x < i; x++) {
+      System.out.printf("%s, %s, %s, %s\n",
+          this.contacts[x].name, 
+          this.contacts[x].tel, 
+          this.contacts[x].company, 
+          this.contacts[x].position);
+    }
   }
 }
 
