@@ -71,6 +71,8 @@ public class MainApp {
       System.out.println("3. 개발부 게시판");
       System.out.println("4. 직원 연락처");
       System.out.println("5. 고객 연락처");
+      System.out.println("6. 회원");
+      System.out.println("7. 프로젝트");
       System.out.println("0. 종료");
       System.out.println("------------------------------");
       System.out.print("메뉴 번호를 입력하세요> ");
