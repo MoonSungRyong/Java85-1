@@ -50,8 +50,11 @@ public class BoardController {
   void list() {
     for (int x = 0; x < this.i; x++) {
       System.out.printf("%d, %s, %s, %s, %d\n",
-        x, this.boards[x].title, this.boards[x].writer,
-        this.boards[x].createdDate, this.boards[x].viewCount);
+        x, 
+        this.boards[x].title, 
+        this.boards[x].writer,
+        this.boards[x].createdDate, 
+        this.boards[x].viewCount);
     }
   }
 
@@ -79,7 +82,7 @@ public class BoardController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= i) {
+    if (no < 0 || no >= this.i) {
       System.out.println("해당 게시물이 없습니다.");
       return;
     }
@@ -96,7 +99,7 @@ public class BoardController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= i) {
+    if (no < 0 || no >= this.i) {
       System.out.println("해당 게시물이 없습니다.");
       return;
     }

@@ -38,17 +38,37 @@ public class ContactController {
   }
   
   public void service() {
-    while (true) {
-      System.out.printf("[메인 > %s]\n", this.contactName);
-      this.input();
-      if (!prompt())
+    String command;
+    label1: while (true) {
+      System.out.printf("메인/%s> ", this.contactName);
+      command = keyScanner.nextLine();
+      
+      switch (command) {
+      case "main":
+        break label1;
+      case "add":
+        this.add();
         break;
+      case "list":
+        this.list();
+        break;
+      case "detail":
+        this.detail();
+        break;
+      case "update":
+        this.update();
+        break;
+      case "delete":
+        this.delete();
+        break;
+      default:
+        System.out.println("사용할 수 없는 명령입니다.");
+      }
     }
-    System.out.printf("[메인 > %s]\n", this.contactName);
-    this.printAll();
+    
   }
 
-  void input() {
+  void add() {
     Contact contact = new Contact();
     System.out.print("이름? ");
     contact.name = keyScanner.nextLine();
@@ -72,14 +92,69 @@ public class ContactController {
     return true;
   }
 
-  void printAll() {
-    for (int x = 0; x < i; x++) {
-      System.out.printf("%s, %s, %s, %s\n",
+  void list() {
+    for (int x = 0; x < this.i; x++) {
+      System.out.printf("%d, %s, %s, %s, %s\n",
+          x,
           this.contacts[x].name, 
           this.contacts[x].tel, 
           this.contacts[x].company, 
           this.contacts[x].position);
     }
+  }
+  
+  void detail() {
+    System.out.print("번호? ");
+    int no = Integer.parseInt(keyScanner.nextLine());
+    
+    if (no < 0 || no >= this.i) {
+      System.out.println("해당 연락처가 없습니다.");
+      return;
+    }
+    
+    Contact contact = this.contacts[no];
+    System.out.printf("이름: %s\n", contact.name);
+    System.out.printf("전화: %s\n", contact.tel);
+    System.out.printf("이메일: %s\n", contact.email);
+    System.out.printf("회사: %s\n", contact.company);
+    System.out.printf("직위: %s\n", contact.position);
+  }
+  
+  void update() {
+    System.out.print("번호? ");
+    int no = Integer.parseInt(keyScanner.nextLine());
+    
+    if (no < 0 || no >= this.i) {
+      System.out.println("해당 연락처가 없습니다.");
+      return;
+    }
+    
+    Contact contact = this.contacts[no];
+    System.out.printf("이름(%s)? ", contact.name);
+    contact.name = keyScanner.nextLine();
+    System.out.printf("전화(%s)? ", contact.tel);
+    contact.tel = keyScanner.nextLine();
+    System.out.printf("이메일(%s)? ", contact.email);
+    contact.email = keyScanner.nextLine();
+    System.out.printf("회사(%s)? ", contact.company);
+    contact.company = keyScanner.nextLine();
+    System.out.printf("직위(%s)? ", contact.position);
+    contact.position = keyScanner.nextLine();
+  }
+  
+  void delete() {
+    System.out.print("번호? ");
+    int no = Integer.parseInt(keyScanner.nextLine());
+    
+    if (no < 0 || no >= this.i) {
+      System.out.println("해당 연락처가 없습니다.");
+      return;
+    }
+    
+    for (int x = no; x < this.i; x++) {
+      contacts[x] = contacts[x + 1];
+    }
+    this.i--;
   }
 }
 
