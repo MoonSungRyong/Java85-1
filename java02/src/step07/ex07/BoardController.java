@@ -38,28 +38,22 @@ public class BoardController {
   // => 인스턴스 변수를 다루기 위해 파라미터로 인스턴스 주소를 받을 필요가 없기 때문이다.
   // => 인스턴스 주소는 this에 자동 저장되기 때문이다.
   public void service() {
-    Board board;
-
     while (true) {
       System.out.printf("[메인 > %s]\n", this.boardName);
-      board = inputBoard();
-      this.boards[this.i++] = board;
+      this.input();
       if (!prompt())
         break;
     }
-
     System.out.printf("[메인 > %s]\n", this.boardName);
-    for (int x = 0; x < this.i; x++) {
-      printBoard(this.boards[x]);
-    }
+    this.printAll();
   }
 
-  // 인스턴스 변수를 사용하지 않기 때문에 그냥 스태틱 메서드로 둔다.
-  // 왜? this를 사용하지 않기 때문이다.
-  static void printBoard(Board board) {
-    System.out.printf("%d, %s, %s, %s, %d\n",
-      board.no, board.title, board.writer,
-      board.createdDate, board.viewCount);
+  void printAll() {
+    for (int x = 0; x < this.i; x++) {
+      System.out.printf("%d, %s, %s, %s, %d\n",
+        this.boards[x].no, this.boards[x].title, this.boards[x].writer,
+        this.boards[x].createdDate, this.boards[x].viewCount);
+    }
   }
 
   //인스턴스 변수를 사용하지 않기 때문에 그냥 스태틱 메서드로 둔다.
@@ -71,8 +65,7 @@ public class BoardController {
     return true;
   }
 
-  //인스턴스 변수를 사용하지 않기 때문에 그냥 스태틱 메서드로 둔다.
-  static Board inputBoard() {
+  void input() {
     Board board = new Board();
     System.out.print("제목? ");
     board.title = keyScanner.nextLine();
@@ -80,7 +73,8 @@ public class BoardController {
     board.contents = keyScanner.nextLine();
     System.out.print("암호? ");
     board.password = keyScanner.nextLine();
-    return board;
+    
+    this.boards[this.i++] = board;
   }
 }
 
