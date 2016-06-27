@@ -18,14 +18,32 @@ public class BoardController {
   
   public void service() {
     String command;
-    while (true) {
-      System.out.print("메인 / %s> ");
+    
+    label1: while (true) {
+      System.out.printf("메인/%s> ", boardName);
       command = keyScanner.nextLine();
-      System.out.println(command);
+      
+      switch (command) {
+      case "main":
+        break label1;
+      case "add":
+        this.add();
+        break;
+      case "list":
+        this.list();
+        break;
+      case "detail":
+      case "update":
+      case "delete":
+        System.out.println(command);        
+        break;
+      default:
+        System.out.println("사용할 수 없는 명령입니다.");
+      }
     }
   }
 
-  void printAll() {
+  void list() {
     for (int x = 0; x < this.i; x++) {
       System.out.printf("%d, %s, %s, %s, %d\n",
         this.boards[x].no, this.boards[x].title, this.boards[x].writer,
@@ -41,7 +59,7 @@ public class BoardController {
     return true;
   }
 
-  void input() {
+  void add() {
     Board board = new Board();
     System.out.print("제목? ");
     board.title = keyScanner.nextLine();
