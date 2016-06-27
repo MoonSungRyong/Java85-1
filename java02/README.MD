@@ -170,8 +170,8 @@
    처리한다.
   
 ### 연습8(ex08) - 게시판 + 연락처(6단계: CRUD 명령 처리)
-1) BoardController의 service() 메서드를 변경한다.
-
+1) BoardController의 service() 등 메서드를 변경한다.
+2) ContactController의 service() 등 메서드를 변경한다.
 
 
 
