@@ -29,7 +29,7 @@ public class BoardDao {
   
   int delete(int no) {
     if (no >= 0 && no < this.length) {
-      for (int i = 0; i < this.length; i++) {
+      for (int i = no; i < this.length; i++) {
         this.boards[i] = this.boards[i + 1];
       }
       this.length--;

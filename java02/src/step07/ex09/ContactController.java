@@ -1,35 +1,13 @@
-/* 역할: 역할처 관리(등록Create/조회Read,Retrieve/변경Update/삭제Delete); CRUD
- => 예)
-[메인 > 게시판]
-이름? 홍길동
-전화? 010-2222-3333
-이메일? hong@test.com
-회사? 비트캠프
-직위? 대리
-계속 입력하시겠습니까?(y/n) y
-[메인 > 게시판]
-이름? 임꺽정
-전화? 010-2222-3334
-이메일? leem@test.com
-회사? 비트캠프
-직위? 사원
-계속 입력하시겠습니까?(y/n) n
-[메인 > 게시판]
-홍길동, 010-2222-3333, 비트캠프, 대리
-임꺽정, 010-2222-3334, 비트캠프, 사원
-*/
+/* 역할: 역할처 관리(등록Create/조회Read,Retrieve/변경Update/삭제Delete); CRUD*/
 package step07.ex09;
 
 import java.util.Scanner;
 
 public class ContactController {
-  // 공통으로 사용할 변수는 클래스 변수(스태틱 변수)로 선언하라!
   static Scanner keyScanner;
-  
-  // 개별적으로 관리할 변수는 인스턴스 변수로 선언하라!
-  Contact[] contacts = new Contact[100];
-  int i = 0;
   String contactName;
+
+  ContactDao contactDao = new ContactDao();// 배열과 인덱스 메모리가 준비됨.
 
   public ContactController() {}
   
@@ -81,7 +59,7 @@ public class ContactController {
     System.out.print("직위? ");
     contact.position = keyScanner.nextLine();
     
-    this.contacts[this.i++] = contact;
+    contactDao.insert(contact);
   }
 
   static boolean prompt() {
@@ -93,13 +71,14 @@ public class ContactController {
   }
 
   void list() {
-    for (int x = 0; x < this.i; x++) {
+    Contact[] contacts = contactDao.selectList();
+    for (int x = 0; x < contacts.length; x++) {
       System.out.printf("%d, %s, %s, %s, %s\n",
           x,
-          this.contacts[x].name, 
-          this.contacts[x].tel, 
-          this.contacts[x].company, 
-          this.contacts[x].position);
+          contacts[x].name, 
+          contacts[x].tel, 
+          contacts[x].company, 
+          contacts[x].position);
     }
   }
   
@@ -107,12 +86,13 @@ public class ContactController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Contact contact = contactDao.selectOne(no);
+    
+    if (contact == null) {
       System.out.println("해당 연락처가 없습니다.");
       return;
     }
     
-    Contact contact = this.contacts[no];
     System.out.printf("이름: %s\n", contact.name);
     System.out.printf("전화: %s\n", contact.tel);
     System.out.printf("이메일: %s\n", contact.email);
@@ -124,37 +104,52 @@ public class ContactController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Contact originContact = contactDao.selectOne(no);
+    if (originContact == null) {
       System.out.println("해당 연락처가 없습니다.");
       return;
     }
     
-    Contact contact = this.contacts[no];
-    System.out.printf("이름(%s)? ", contact.name);
-    contact.name = keyScanner.nextLine();
-    System.out.printf("전화(%s)? ", contact.tel);
-    contact.tel = keyScanner.nextLine();
-    System.out.printf("이메일(%s)? ", contact.email);
-    contact.email = keyScanner.nextLine();
-    System.out.printf("회사(%s)? ", contact.company);
-    contact.company = keyScanner.nextLine();
-    System.out.printf("직위(%s)? ", contact.position);
-    contact.position = keyScanner.nextLine();
+    Contact newContact = new Contact();
+    System.out.printf("이름(%s)? ", originContact.name);
+    newContact.name = keyScanner.nextLine();
+    System.out.printf("전화(%s)? ", originContact.tel);
+    newContact.tel = keyScanner.nextLine();
+    System.out.printf("이메일(%s)? ", originContact.email);
+    newContact.email = keyScanner.nextLine();
+    System.out.printf("회사(%s)? ", originContact.company);
+    newContact.company = keyScanner.nextLine();
+    System.out.printf("직위(%s)? ", originContact.position);
+    newContact.position = keyScanner.nextLine();
+    
+    System.out.print("변경하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
+    
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      contactDao.update(no, newContact);
+      System.out.println("변경하였습니다.");
+    } else {
+      System.out.println("변경 취소하였습니다.");
+    }
   }
   
   void delete() {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
-      System.out.println("해당 연락처가 없습니다.");
-      return;
-    }
+    System.out.print("삭제하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
     
-    for (int x = no; x < this.i; x++) {
-      contacts[x] = contacts[x + 1];
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      int count = contactDao.delete(no);
+      if (count > 0) {
+        System.out.println("삭제하였습니다.");
+      } else {
+        System.out.println("해당 연락처가 없습니다.");
+      }
+    } else {
+      System.out.println("삭제 취소하였습니다.");
     }
-    this.i--;
   }
 }
 
