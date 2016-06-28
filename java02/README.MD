@@ -178,8 +178,10 @@
 ### 연습9(ex09) - 게시판 + 연락처(7단계: DAO 도입)
 1) BoardController에서 데이터 처리 부분을 BoardDao 클래스로 이전
   => BoardDao 클래스 생성
+2) ContactController, MemberController, ProjectController도 처리
 
-
+## step08(java02/src/step08)
+- ex01/Exam055.java : 상속 - 메서드 상속받기
 
 
 
