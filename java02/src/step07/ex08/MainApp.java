@@ -58,9 +58,14 @@ public class MainApp {
     BoardController board3 = new BoardController("개발부 게시판");
     
     ContactController.keyScanner = keyScanner;
-    
     ContactController contact1 = new ContactController("직원 연락처");
     ContactController contact2 = new ContactController("고객 연락처");
+    
+    MemberController.keyScanner = keyScanner;
+    MemberController member = new MemberController("회원 관리");
+    
+    ProjectController.keyScanner = keyScanner;
+    ProjectController project = new ProjectController("프로젝트 관리");
     
     label1:
     while (true) {
@@ -93,7 +98,13 @@ public class MainApp {
         break;
       case "5":
         contact2.service();
-        break;  
+        break; 
+      case "6":
+        member.service();
+        break; 
+      case "7":
+        project.service();
+        break;   
       case "0":
         break label1;
       default:

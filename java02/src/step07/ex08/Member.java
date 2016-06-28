@@ -6,9 +6,14 @@ public class Member {
   String password;
   String signedUpDate;
   
-  public Member() {}
+  public Member() {
+    java.sql.Date today = new java.sql.Date(System.currentTimeMillis());
+    String str = today.toString();
+    this.signedUpDate = str;
+  }
   
   public Member(String name, String email, String password) {
+    this();
     this.name = name;
     this.email = email;
     this.password = password;
