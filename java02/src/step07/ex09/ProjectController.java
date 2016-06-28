@@ -5,10 +5,9 @@ import java.util.Scanner;
 
 public class ProjectController {
   static Scanner keyScanner;
-  
-  Project[] projects = new Project[100];
-  int i = 0;
   String menuName;
+  
+  ProjectDao projectDao = new ProjectDao();
 
   public ProjectController() {}
   
@@ -58,7 +57,7 @@ public class ProjectController {
     System.out.print("종료일? ");
     project.endDate = keyScanner.nextLine();
     
-    this.projects[this.i++] = project;
+    projectDao.insert(project);
   }
 
   static boolean prompt() {
@@ -70,12 +69,13 @@ public class ProjectController {
   }
 
   void list() {
-    for (int x = 0; x < this.i; x++) {
+    Project[] projects = projectDao.selectList();
+    for (int x = 0; x < projects.length; x++) {
       System.out.printf("%d, %s, %s, %s\n",
           x,
-          this.projects[x].title, 
-          this.projects[x].startDate, 
-          this.projects[x].endDate);
+          projects[x].title, 
+          projects[x].startDate, 
+          projects[x].endDate);
     }
   }
   
@@ -83,12 +83,13 @@ public class ProjectController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Project project = projectDao.selectOne(no);
+    
+    if (project == null) {
       System.out.println("해당 프로젝트 정보가 없습니다.");
       return;
     }
     
-    Project project = this.projects[no];
     System.out.printf("제목: %s\n", project.title);
     System.out.printf("내용: %s\n", project.description);
     System.out.printf("시작일: %s\n", project.startDate);
@@ -99,35 +100,51 @@ public class ProjectController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Project originProject = projectDao.selectOne(no);
+    
+    if (originProject == null) {
       System.out.println("해당 프로젝트 정보가 없습니다.");
       return;
     }
     
-    Project project = this.projects[no];
-    System.out.printf("제목(%s)? ", project.title);
-    project.title = keyScanner.nextLine();
-    System.out.printf("내용(%s)? ", project.description);
-    project.description = keyScanner.nextLine();
-    System.out.printf("시작일(%s)? ", project.startDate);
-    project.startDate = keyScanner.nextLine();
-    System.out.printf("종료일(%s)? ", project.endDate);
-    project.endDate = keyScanner.nextLine();
+    Project newProject = new Project();
+    System.out.printf("제목(%s)? ", originProject.title);
+    newProject.title = keyScanner.nextLine();
+    System.out.printf("내용(%s)? ", originProject.description);
+    newProject.description = keyScanner.nextLine();
+    System.out.printf("시작일(%s)? ", originProject.startDate);
+    newProject.startDate = keyScanner.nextLine();
+    System.out.printf("종료일(%s)? ", originProject.endDate);
+    newProject.endDate = keyScanner.nextLine();
+    
+    System.out.print("변경하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
+    
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      projectDao.update(no, newProject);
+      System.out.println("변경하였습니다.");
+    } else {
+      System.out.println("변경 취소하였습니다.");
+    }
   }
   
   void delete() {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
-      System.out.println("해당 프로젝트 정보가 없습니다.");
-      return;
-    }
+    System.out.print("삭제하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
     
-    for (int x = no; x < this.i; x++) {
-      projects[x] = projects[x + 1];
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      int count = projectDao.delete(no);
+      if (count > 0) {
+        System.out.println("삭제하였습니다.");
+      } else {
+        System.out.println("해당 프로젝트가 없습니다.");
+      }
+    } else {
+      System.out.println("삭제 취소하였습니다.");
     }
-    this.i--;
   }
 }
 
