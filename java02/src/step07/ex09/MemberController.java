@@ -5,10 +5,9 @@ import java.util.Scanner;
 
 public class MemberController {
   static Scanner keyScanner;
-  
-  Member[] members = new Member[100];
-  int i = 0;
   String menuName;
+  
+  MemberDao memberDao = new MemberDao();
 
   public MemberController() {}
   
@@ -56,7 +55,7 @@ public class MemberController {
     System.out.print("암호? ");
     member.password = keyScanner.nextLine();
     
-    this.members[this.i++] = member;
+    memberDao.insert(member);
   }
 
   static boolean prompt() {
@@ -68,12 +67,13 @@ public class MemberController {
   }
 
   void list() {
-    for (int x = 0; x < this.i; x++) {
+    Member[] members = memberDao.selectList();
+    for (int x = 0; x < members.length; x++) {
       System.out.printf("%d, %s, %s, %s\n",
           x,
-          this.members[x].name, 
-          this.members[x].email, 
-          this.members[x].signedUpDate);
+          members[x].name, 
+          members[x].email, 
+          members[x].signedUpDate);
     }
   }
   
@@ -81,12 +81,13 @@ public class MemberController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Member member = memberDao.selectOne(no);
+    
+    if (member == null) {
       System.out.println("해당 회원 정보가 없습니다.");
       return;
     }
     
-    Member member = this.members[no];
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("이메일: %s\n", member.email);
     System.out.printf("가입일: %s\n", member.signedUpDate);
@@ -96,33 +97,49 @@ public class MemberController {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
+    Member originMember = memberDao.selectOne(no);
+    
+    if (originMember == null) {
       System.out.println("해당 회원 정보가 없습니다.");
       return;
     }
     
-    Member member = this.members[no];
-    System.out.printf("이름(%s)? ", member.name);
-    member.name = keyScanner.nextLine();
-    System.out.printf("이메일(%s)? ", member.email);
-    member.email = keyScanner.nextLine();
+    Member newMember = new Member();
+    System.out.printf("이름(%s)? ", originMember.name);
+    newMember.name = keyScanner.nextLine();
+    System.out.printf("이메일(%s)? ", originMember.email);
+    newMember.email = keyScanner.nextLine();
     System.out.printf("암호(*****)? ");
-    member.password = keyScanner.nextLine();
+    newMember.password = keyScanner.nextLine();
+    
+    System.out.print("변경하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
+    
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      memberDao.update(no, newMember);
+      System.out.println("변경하였습니다.");
+    } else {
+      System.out.println("변경 취소하였습니다.");
+    }
   }
   
   void delete() {
     System.out.print("번호? ");
     int no = Integer.parseInt(keyScanner.nextLine());
     
-    if (no < 0 || no >= this.i) {
-      System.out.println("해당 회원 정보가 없습니다.");
-      return;
-    }
+    System.out.print("삭제하시겠습니까?(Y/n) ");
+    String answer = keyScanner.nextLine();
     
-    for (int x = no; x < this.i; x++) {
-      members[x] = members[x + 1];
+    if (answer.equals("y") || answer.equals("") || answer.equals("Y")) {
+      int count = memberDao.delete(no);
+      if (count > 0) {
+        System.out.println("삭제하였습니다.");
+      } else {
+        System.out.println("해당 회원 정보가 없습니다.");
+      }
+    } else {
+      System.out.println("삭제 취소하였습니다.");
     }
-    this.i--;
   }
 }
 
