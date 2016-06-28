@@ -112,6 +112,8 @@ public class BoardController {
     newBoard.title = keyScanner.nextLine();
     System.out.printf("내용(%s)? ", originBoard.contents);
     newBoard.contents = keyScanner.nextLine();
+    // 원래 값을 새 메모리에 복사한다.
+    newBoard.password = originBoard.password;
     
     System.out.print("변경하시겠습니까?(Y/n) ");
     String answer = keyScanner.nextLine();
