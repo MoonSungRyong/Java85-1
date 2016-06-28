@@ -175,6 +175,9 @@
 3) 사용자 정보 CRUD 추가
 4) 프로젝트 정보 CRUD 추가
 
+### 연습9(ex09) - 게시판 + 연락처(7단계: DAO 도입)
+1) BoardController에서 데이터 처리 부분을 BoardDao 클래스로 이전
+  => BoardDao 클래스 생성
 
 
 
