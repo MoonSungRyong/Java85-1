@@ -182,7 +182,10 @@
 
 ## step08(java02/src/step08)
 - ex01/Exam055_*.java : 상속 사용 전
-- ex02/Exam056_*.java : 상속 적용 후  
+- ex02/Exam056_*.java : 상속 적용 후 - 인스턴스 변수 상속
+  ex03/Exam057.java : 상속 - 스태틱 변수
+  A.java, B.java 
+- ex03/Exam058_*.java : 상속 - 인스턴스 메서드 상속 
 
 
 
