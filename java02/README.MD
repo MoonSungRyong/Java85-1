@@ -181,7 +181,7 @@
 2) ContactController, MemberController, ProjectController도 처리
 
 ## step08(java02/src/step08)
-- ex01/Exam055.java : 상속 - 메서드 상속받기
+- ex01/Exam055.java : 상속 - 변수 상속받기
 
 
 
