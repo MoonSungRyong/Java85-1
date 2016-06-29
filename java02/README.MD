@@ -184,7 +184,10 @@
 - ex01/Exam055_*.java : 상속 사용 전
 - ex02/Exam056_*.java : 상속 적용 후 - 인스턴스 변수 상속
 - ex03/Exam057_*.java : 상속 - 인스턴스 메서드 상속 
-- ex03/Exam058.java : 상속 - 스태틱 변수 상속
+- ex04/Exam058.java : 상속 - 스태틱 변수 상속
+       Exam059_*.java : 클래스 로딩 
+       Exam060_*.java : 생성자 호출
+- ex05/Exam061_*.java : 각종 초기화 블록 실행 순서
 
 
 

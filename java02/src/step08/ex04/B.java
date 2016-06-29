@@ -1,6 +1,12 @@
-package step08.ex02;
+package step08.ex04;
 
 public class B extends A {
+  /* 수퍼클래스 A의 스태틱 변수는 클래스 소속이기 때문에
+   * 직접 상속 받는 것은 아니다. 
+   * => 대신 자신의 것처럼 사용할 수 있다.
+   */
+  //static int var1;
+  
   static int var3;
   
   static void m() {

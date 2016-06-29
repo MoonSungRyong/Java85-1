@@ -1,4 +1,4 @@
-package step08.ex02;
+package step08.ex04;
 
 public class A {
   static int var1;

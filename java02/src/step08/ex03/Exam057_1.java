@@ -1,7 +1,7 @@
 /* 주제: 상속 - 인스턴스 메서드 상속 */
 package step08.ex03;
 
-public class Exam058_1 {
+public class Exam057_1 {
   public static void main(String[] args) {
     Calculator calc = null;
     // 인스턴스를 사용하지 않는 메서드를 호출하더라도

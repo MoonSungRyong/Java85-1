@@ -4,7 +4,7 @@
  */
 package step08.ex03;
 
-public class Exam058_2 {
+public class Exam057_2 {
   public static void main(String[] args) {
     Calculator2 calc = new Calculator2();
     // Calculator로부터 상속받은 메서드 호출
