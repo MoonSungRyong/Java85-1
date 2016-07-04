@@ -198,3 +198,16 @@
 - Exam067_*.java : String 클래스
 - Exam068_*.java : StringBuffer 클래스
 - Exam069_*.java : Date 클래스
+- Exam070_*.java : Collection 클래스
+
+
+
+
+
+
+
+
+
+
+
+

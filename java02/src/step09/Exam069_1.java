@@ -1,4 +1,4 @@
-/* 주제: Date 클래스 - 소개
+/* 주제: Date 클래스 - java.util.Date 소개
  */
 package step09;
 
