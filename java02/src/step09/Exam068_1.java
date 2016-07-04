@@ -1,32 +1,41 @@
-/* 주제: Date 클래스 - 소개
+/* 주제: StringBuffer 클래스 - 소개 
+ * 버퍼(buffer)?
+ * => 데이터를 보관하는 메모리 영역. 보통 배열로 만든다.
+ * 캐쉬(cache)?
+ * => 데이터가 백업되는 메모리 영역. 보통 하드 디스크의 임시 폴더.
  */
 package step09;
 
-import java.util.Date;
-
 public class Exam068_1 /*extends Object*/ {
   public static void main(String[] args) {
-    //1) 현재 시간 및 날짜 정보를 가져오기
-    long currTime = System.currentTimeMillis(); // 1970년 1월 1일 0시 0분 0초부터 현재까지의 흐른 시간을 
-                                // 1/1000초(micro seconds)단위의 값으로 리턴한다.
+    StringBuffer buf1 = new StringBuffer("hello");
     
-    //2) 밀리초를 년,월,일,시,분,초 정보로 분석하자!
-    Date today = new Date(currTime);
+    // StringBuffer는 Mutable 객체이다.
+    // => 데이터를 변경할 수 있다.
+    // => 계속 문자열을 변경해야 하는 에디터를 만들 때 사용할 수 있다.
+    buf1.append(", world!");
     
-    System.out.printf("%d-%d-%d %d:%d:%d\n", 
-        today.getYear() + 1900, today.getMonth() + 1, today.getDate(),
-        today.getHours(), today.getMinutes(), today.getSeconds());
     
-    //3) 생성자에 시간을 지정하지 않으면 현재 시간이 자동 계산된다.
-    today = new Date();
-    
-    System.out.printf("%d-%d-%d %d:%d:%d\n", 
-        today.getYear() + 1900, today.getMonth() + 1, today.getDate(),
-        today.getHours(), today.getMinutes(), today.getSeconds());
-    
+    System.out.println(buf1);
   }
 
 }
+
+
+/* String vs StringBuffer vs StringBuilder?
+ * 1) Immutable vs Mutable 
+ *    => String은 Immutable 객체로서 데이터를 변경할 수 없다.
+ *    => StringBuffer와 StringBuilder는 Mutable 객체로서 데이터를 변경할 수 있다.
+ * 2) Thread-safe 여부
+ *    => StringBuffer는 thread-safe하다. 즉 여러 스레드가 동시에 접근하더라도,
+ *       한 번에 한 스레드만이 데이터를 변경하도록 관리해준다.
+ *    => StringBuilder는 thread-safe하지 않다. 즉 여러 스레드가 동시에 접근하여
+ *       값을 바꿀 수 있다. 데이터가 일치하지 않는 문제가 발생한다.
+ *       
+ */
+
+
+
 
 
 
