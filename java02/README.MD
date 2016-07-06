@@ -202,7 +202,10 @@
 - Exam071_*.java : Collection 클래스
 - Exam072_*.java : Iterator 패턴 활용
 
-
+## step10(java02/src/step10)
+- Exam073.java : OOP 문법 활용 - 상속 활용 전
+- Exam074.java : OOP 문법 활용 - 상속 활용 후
+ 
 
 
 
