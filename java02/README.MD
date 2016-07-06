@@ -200,7 +200,7 @@
 - Exam069_*.java : Date 클래스
 - Exam070_*.java : 랩퍼(Wrapper) 클래스
 - Exam071_*.java : Collection 클래스
-
+- Exam072_*.java : Iterator 패턴 활용
 
 
 
