@@ -1,4 +1,4 @@
-/* 주제: OOP 문법 활용 - 배치 관리자 사용법 : FlowLayout 사용법
+/* 주제: OOP 문법 활용 - FlowLayout 배치관리자 사용법
  */
 package step10;
 

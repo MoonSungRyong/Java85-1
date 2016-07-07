@@ -1,4 +1,4 @@
-/* 주제: OOP 문법 활용 - 배치 관리자 사용법 : BorderLayout (Frame 기본 배치 관리자)
+/* 주제: OOP 문법 활용 - BorderLayout 배치관리자 사용법
  */
 package step10;
 
