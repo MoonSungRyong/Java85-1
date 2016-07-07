@@ -213,6 +213,14 @@
 - 
 
 
+# 디자인 패턴(java02/src/designpatterns)
+## factorymethod : 팩토리 메서드 패턴 소개
+## iterator : 이터레이터 패턴 소개
+- step01/*.java : iterator 적용 전
+- step02/*.java : 객체화 + 이터레이터 적용
+- step03/*.java : 상속 + 추상클래스
+
+
 
 
 

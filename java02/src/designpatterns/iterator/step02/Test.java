@@ -1,3 +1,4 @@
+/* 주제: 객체화 및 이터레이터 적용 */
 package designpatterns.iterator.step02;
 
 public class Test {

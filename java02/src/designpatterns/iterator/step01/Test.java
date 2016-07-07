@@ -1,3 +1,4 @@
+/* 주제: Iterator 적용 전 */
 package designpatterns.iterator.step01;
 
 public class Test {
