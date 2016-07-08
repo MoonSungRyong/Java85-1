@@ -222,7 +222,8 @@
 - step04/*.java : 추상 클래스와 추상 메서드 
 ## observer : 옵서버 패턴 소개
 - step01/*.java : 옵서버 적용 전
-
+- step02/*.java : WordCounter가 새로 등장 
+- step03/*.java : MyObserver가 등장
 
 
 
