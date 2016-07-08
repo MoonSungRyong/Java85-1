@@ -1,7 +1,9 @@
-package designpatterns.observer.step03;
+package designpatterns.observer.step04;
 
 public class WordCounter {
-  MyObserver observer;
+  // 특정 클래스를 지칭하는 대신, 규격에 맞는다면 어떤 클래스의 객체라도 
+  // 담을 수 있는 변수를 선언하라!
+  Observer observer; // => Observer 규칙에 따라 만든 클래스의 인스턴스 주소를 담겠다!
   
   public int count(String str) {
     int words = 0;
@@ -38,7 +40,7 @@ public class WordCounter {
     return words;
   }
 
-  public void addObserver(MyObserver observer) {
+  public void addObserver(Observer observer) {
     this.observer = observer;
   }
 }

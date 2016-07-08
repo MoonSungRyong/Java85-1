@@ -28,6 +28,7 @@ public class MainApp {
     }
     
     System.out.printf("단어 개수: %d\n", words);
+    keyScan.close();
   }
 }
 
