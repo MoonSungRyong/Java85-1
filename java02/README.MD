@@ -221,7 +221,8 @@
 - step02/*.java : 객체화 + 이터레이터 적용
 - step03/*.java : 상속 - generalization
 - step04/*.java : 추상 클래스와 추상 메서드 
-
+- step05/*.java : 추상 클래스의 한계
+- step06/*.java : 인터페이스의 이점
 ## observer : 옵서버 패턴 소개
 - step01/*.java : 옵서버 적용 전
 - step02/*.java : WordCounter가 새로 등장 
