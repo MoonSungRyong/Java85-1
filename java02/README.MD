@@ -211,15 +211,17 @@
 - Exam078.java : OOP 문법 활용 - FlowLayout 배치관리자 사용법
 - exam079/*.java : OOP 문법 활용 - 객체 간의 협력을 이해하기
 - exam080/*.java : OOP 문법 활용 - 이벤트 처리와 리스너
-
+- exam081/*.java : 인터페이스 사용법
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개
+
 ## iterator : 이터레이터 패턴 소개
 - step01/*.java : iterator 적용 전
 - step02/*.java : 객체화 + 이터레이터 적용
 - step03/*.java : 상속 - generalization
 - step04/*.java : 추상 클래스와 추상 메서드 
+
 ## observer : 옵서버 패턴 소개
 - step01/*.java : 옵서버 적용 전
 - step02/*.java : WordCounter가 새로 등장 
