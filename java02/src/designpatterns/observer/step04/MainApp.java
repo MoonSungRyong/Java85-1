@@ -27,7 +27,7 @@ public class MainApp {
     int words = counter.count(str);
     System.out.printf("단어 개수: %d\n", words);
     
-    System.out.printf("관사 is의 개수: %d\n", observer.words);
+    System.out.printf("관사 a의 개수: %d\n", observer.words);
     
     keyScan.close();
   }
