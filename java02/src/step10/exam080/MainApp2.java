@@ -1,6 +1,6 @@
 /* 주제: OOP 문법 활용 - 버튼 클릭 이벤트와 리스너
  */
-package step10.exam082;
+package step10.exam080;
 
 import java.awt.Button;
 import java.awt.FlowLayout;
