@@ -1,3 +1,4 @@
+/* 주제: inner class 사용 전 */
 package step10.exam082;
 
 import java.awt.Button;

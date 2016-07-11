@@ -213,7 +213,7 @@
 - exam080/*.java : OOP 문법 활용 - 이벤트 처리와 리스너
 - exam081/*.java : 인터페이스 사용법
 - exam082/*.java : inner class 사용 전
-
+- exam083/*.java : inner class 사용 후
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개
