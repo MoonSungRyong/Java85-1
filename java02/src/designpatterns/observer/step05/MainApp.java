@@ -21,12 +21,12 @@ public class MainApp {
     
     // 또한 필요할 때 기능을 마음대로 추가할 수 있는 이점이 있다.
     BeCountingObserver observer2 = new BeCountingObserver();
-    //counter.addObserver(observer2);
+    counter.addObserver(observer2);
     
     int words = counter.count(str);
     System.out.printf("단어 개수: %d\n", words);
     System.out.printf("관사 a의 개수: %d\n", observer.words);
-    //System.out.printf("be 동사의 개수: %d\n", observer2.words);
+    System.out.printf("be 동사의 개수: %d\n", observer2.words);
     
     keyScan.close();
   }

@@ -1,4 +1,4 @@
-/* 주제: OOP 문법 활용 - inner class 활용
+/* 주제: OOP 문법 활용 - 옵저버 패턴과 이벤트 리스너
  */
 package step10.exam082;
 
@@ -20,7 +20,8 @@ public class MainApp extends Frame {
     
     // 사용자가 프로그램 닫기 버튼(x)을 클릭했을 때 JVM을 종료시킬 객체를 등록해야 한다.
     // WindowListener => WindowEvent를 처리하는 담당자
-    f.addWindowListener(new MyWindowListener());
+    //f.addWindowListener(new MyWindowListener()); 
+    f.addWindowListener(new MyWindowListener2());
     
     f.setVisible(true);
   }
