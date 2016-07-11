@@ -11,6 +11,8 @@ public class ComputeBtnListener implements ActionListener {
   TextField tf2;
   TextField tf3;
   
+  public ComputeBtnListener() {}
+      
   public ComputeBtnListener(Choice opChooser, TextField tf1, TextField tf2, TextField tf3) {
     this.opChooser = opChooser;
     this.tf1 = tf1;

@@ -37,7 +37,13 @@ public class MyCalculator extends Frame {
     
     setSize(640, 200);
     addWindowListener(new MyWindowListener());
-    computeBtn.addActionListener(new ComputeBtnListener(opChooser, tf1, tf2, tf3));
+    //computeBtn.addActionListener(new ComputeBtnListener(opChooser, tf1, tf2, tf3));
+    ComputeBtnListener listener = new ComputeBtnListener();
+    listener.opChooser = opChooser;
+    listener.tf1 = tf1;
+    listener.tf2 = tf2;
+    listener.tf3 = tf3;
+    computeBtn.addActionListener(listener);
   }
   
   public static void main(String[] args) {
