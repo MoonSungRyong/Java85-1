@@ -17,6 +17,26 @@ public class Test12 extends Frame {
     Button btn = new Button("오호라");
     add(btn);
     
+    /* 1) ActionListener를 로컬 이너 클래스로 구현
+    class MyActionListener implements ActionListener {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.out.println("오호라...눌렀음");
+      }
+    }
+    btn.addActionListener(new MyActionListener());
+    */
+    
+    /* 2) ActionListener를 익명 이너 클래스로 구현 
+    ActionListener listener = new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.out.println("오호라...눌렀음");
+      }
+    };
+    btn.addActionListener(listener);
+    */
+    
     // 인터페이스를 구현한 익명 이너 클래스 선언과 객체 생성
     btn.addActionListener(new ActionListener() {
       @Override
