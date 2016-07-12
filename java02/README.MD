@@ -214,6 +214,7 @@
 - exam081/*.java : 인터페이스 사용법
 - exam082/*.java : inner class 사용 전
 - exam083/*.java : inner class 사용 후
+- exam083/*.java : 이너 클래스 사용법
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개
