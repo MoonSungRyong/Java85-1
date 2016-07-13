@@ -223,6 +223,8 @@
 ### exam03 : Panel 사용 및 교체 방법
 ### exam04 : CardLayout 사용법
 ### exam05 : BoardPanel UI 구현 - 목록 및 입력 폼 
+### exam06 : BoardDao 적용
+
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개

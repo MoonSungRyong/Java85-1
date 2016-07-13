@@ -10,15 +10,8 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BoardPanel extends Panel implements ActionListener {
-  TextArea listTA;
-  TextField titleTF;
-  TextField passwordTF;
-  TextArea contentTA;
-  Button addBtn;
-  Button cancelBtn;
-  
-  public BoardPanel() {
+public class BoardPanel01 extends Panel {
+  public BoardPanel01() {
     setLayout(new FlowLayout(FlowLayout.LEFT));
     
     Label label = new Label("게시판 화면");
@@ -29,9 +22,9 @@ public class BoardPanel extends Panel implements ActionListener {
     label.setPreferredSize(new Dimension(400, 30));
     add(label);
     
-    listTA = new TextArea();
-    listTA.setPreferredSize(new Dimension(400, 200));
-    add(listTA);
+    TextArea ta = new TextArea();
+    ta.setPreferredSize(new Dimension(400, 200));
+    add(ta);
     
     label = new Label("게시물 입력/상세정보");
     label.setPreferredSize(new Dimension(400, 30));
@@ -42,7 +35,7 @@ public class BoardPanel extends Panel implements ActionListener {
     label.setPreferredSize(new Dimension(40, 30));
     rowPanel.add(label);
     
-    titleTF = new TextField();
+    TextField titleTF = new TextField();
     titleTF.setPreferredSize(new Dimension(350, 30));
     rowPanel.add(titleTF);
     add(rowPanel);
@@ -52,7 +45,7 @@ public class BoardPanel extends Panel implements ActionListener {
     label.setPreferredSize(new Dimension(40, 30));
     rowPanel.add(label);
     
-    contentTA = new TextArea();
+    TextArea contentTA = new TextArea();
     contentTA.setPreferredSize(new Dimension(350, 80));
     rowPanel.add(contentTA);
     add(rowPanel);
@@ -62,34 +55,27 @@ public class BoardPanel extends Panel implements ActionListener {
     label.setPreferredSize(new Dimension(40, 30));
     rowPanel.add(label);
     
-    passwordTF = new TextField();
+    TextField passwordTF = new TextField();
     passwordTF.setPreferredSize(new Dimension(350, 30));
     passwordTF.setEchoChar('*');
     rowPanel.add(passwordTF);
     add(rowPanel);
     
     rowPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
-    addBtn = new Button("등록");
-    addBtn.addActionListener(this);
+    Button addBtn = new Button("등록");
+    addBtn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.out.println(titleTF.getText());
+        System.out.println(contentTA.getText());
+        System.out.println(passwordTF.getText());
+      }
+    });
     rowPanel.add(addBtn);
-    cancelBtn = new Button("취소");
-    cancelBtn.addActionListener(this);
+    Button cancelBtn = new Button("취소");
     rowPanel.add(cancelBtn);
     add(rowPanel);
     
-  }
-  
-  @Override
-  public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == addBtn) {
-      System.out.println(titleTF.getText());
-      System.out.println(contentTA.getText());
-      System.out.println(passwordTF.getText());
-    } else {
-      titleTF.setText("");
-      contentTA.setText("");
-      passwordTF.setText("");
-    }
   }
 }
 
