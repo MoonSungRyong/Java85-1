@@ -1,8 +1,9 @@
-/* 3단계: 메뉴 선택 시 패털 출력
+/* 4단계: CardLayout 이용한 화면 교체 관리 
  */
-package step11.ex03;
+package step11.ex04;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -18,12 +19,16 @@ public class MainApp extends Frame implements ActionListener {
   ProjectPanel projectPanel = new ProjectPanel();
   MemberPanel memberPanel = new MemberPanel();
   ContactPanel contactPanel = new ContactPanel();
-  Panel currPanel;
+  CardLayout cardLayout = new CardLayout();
   
   public MainApp() {
     super("비트캠프 울트라 예제");
     
+    setLayout(cardLayout); // 레이아웃 관리자 교체: BorderLayout --> CardLayout
+    
     prepareMenu();
+    
+    preparePanels();
     
     addWindowListener(new WindowAdapter() {
       @Override
@@ -64,25 +69,17 @@ public class MainApp extends Frame implements ActionListener {
     
   }
   
+  private void preparePanels() {
+    add(boardPanel, "board"); 
+    add(projectPanel, "project"); 
+    add(memberPanel, "member"); 
+    add(contactPanel, "contact"); 
+  }
+  
   @Override
   public void actionPerformed(ActionEvent e) {
-    Panel selectedPanel = null;
-    
-    switch (e.getActionCommand()) {
-    case "board": selectedPanel = boardPanel; break;
-    case "project": selectedPanel = projectPanel; break;
-    case "contact": selectedPanel = contactPanel; break;
-    case "member": selectedPanel = memberPanel; break;
-    }
-    
-    if (currPanel != selectedPanel) {
-      if (currPanel != null) {
-        remove(currPanel); // 기존에 출력된 패널이 있다면 제거한다.
-      }
-      add(selectedPanel, BorderLayout.CENTER);
-      currPanel = selectedPanel;
-      revalidate(); // 화면을 갱신하라!
-    }
+    cardLayout.show(this, e.getActionCommand());
+    revalidate(); // 화면을 갱신하라!
   }
   
   public static void main(String[] args) {
