@@ -223,7 +223,7 @@
 ### exam03 : Panel 사용 및 교체 방법
 ### exam04 : CardLayout 사용법
 ### exam05 : BoardPanel UI 구현 - 목록 및 입력 폼 
-### exam06 : BoardDao 적용
+### exam06 : BoardDao 적용, TextArea 대신 List 사용하여 게시물 목록 출력
 
 
 # 디자인 패턴(java02/src/designpatterns)

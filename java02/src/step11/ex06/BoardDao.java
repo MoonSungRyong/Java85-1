@@ -1,45 +1,40 @@
 package step11.ex06;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BoardDao {
-  Board[] boards = new Board[100];
-  int length = 0;
+  ArrayList<Board> list = new ArrayList<>();
   
   void insert(Board board) {
-    this.boards[this.length++] = board;
+    list.add(board);
   }
   
-  Board[] selectList() {
-    Board[] dataArray = new Board[this.length];
-    for (int i = 0; i < this.length; i++) {
-      dataArray[i] = this.boards[i];
-    }
-    return dataArray;
+  List<Board> selectList() {
+    return list;
   }
   
   Board selectOne(int no) {
-    if (no >= 0 && no < this.length) {
-      return this.boards[no];
-    }
+    if (no >= 0 && no < list.size()) {
+      return list.get(no);
+    } 
     return null;
   }
   
-  void update(Board board) {
-    this.boards[board.no] = board;
-  }
-  
-  int delete(int no) {
-    if (no >= 0 && no < this.length) {
-      for (int i = no; i < this.length; i++) {
-        this.boards[i] = this.boards[i + 1];
-      }
-      this.length--;
+  int update(Board board) {
+    if (board.no >= 0 && board.no < list.size()) {
+      list.set(board.no, board);
       return 1;
-    } 
+    }
     return 0;
   }
   
-  int size() {
-    return this.length;
+  int delete(int no) {
+    if (no >= 0 && no < list.size()) {
+      list.remove(no);
+      return 1;
+    } 
+    return 0;
   }
 }
 
