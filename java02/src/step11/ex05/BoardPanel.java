@@ -7,6 +7,8 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class BoardPanel extends Panel {
   public BoardPanel() {
@@ -61,6 +63,14 @@ public class BoardPanel extends Panel {
     
     rowPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
     Button addBtn = new Button("등록");
+    addBtn.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.out.println(titleTF.getText());
+        System.out.println(contentTA.getText());
+        System.out.println(passwordTF.getText());
+      }
+    });
     rowPanel.add(addBtn);
     Button cancelBtn = new Button("취소");
     rowPanel.add(cancelBtn);
