@@ -16,9 +16,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
-public class BoardPanel extends Panel implements ActionListener {
+public class BoardPanel03 extends Panel implements ActionListener {
   java.awt.List boardLST;
   TextField titleTF;
   TextField passwordTF;
@@ -27,11 +25,10 @@ public class BoardPanel extends Panel implements ActionListener {
   Button cancelBtn;
   Button deleteBtn;
   Button updateBtn;
-  Panel toolPanel;
   
   BoardDao boardDao;
   
-  public BoardPanel() {
+  public BoardPanel03() {
     boardDao = new BoardDao();
     
     setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -93,21 +90,18 @@ public class BoardPanel extends Panel implements ActionListener {
     rowPanel.add(passwordTF);
     add(rowPanel);
     
-    toolPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
+    rowPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
     addBtn = new Button("등록");
     addBtn.addActionListener(this);
-    toolPanel.add(addBtn);
+    rowPanel.add(addBtn);
     cancelBtn = new Button("취소");
     cancelBtn.addActionListener(this);
-    toolPanel.add(cancelBtn);
+    rowPanel.add(cancelBtn);
     deleteBtn = new Button("삭제");
     deleteBtn.setEnabled(false);
     deleteBtn.addActionListener(this);
-    toolPanel.add(deleteBtn);
-    updateBtn = new Button("변경");
-    updateBtn.addActionListener(this);
-    //toolPanel.add(updateBtn); // 처음에는 변경 버튼을 보이지 않는다.
-    add(toolPanel);
+    rowPanel.add(deleteBtn);
+    add(rowPanel);
     
   }
   
@@ -131,33 +125,10 @@ public class BoardPanel extends Panel implements ActionListener {
       cleanForm();
       
     } else if (e.getSource() == deleteBtn) {
-      if (!checkAuth()) {
-        JOptionPane.showMessageDialog(null, "암호가 맞지 않습니다!");
-        return;
-      }
-      
-      int answer = JOptionPane.showConfirmDialog(null, "정말 삭제하시겠습니까?", "삭제 알림!", 
-          JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-      
-      if (answer != JOptionPane.YES_OPTION)
+      if (!checkAuth())
         return;
 
       boardDao.delete(boardLST.getSelectedIndex());
-      cleanForm();
-      loadList();
-      
-    } else if (e.getSource() == updateBtn) {
-      if (!checkAuth()) {
-        JOptionPane.showMessageDialog(null, "암호가 맞지 않습니다!");
-        return;
-      }
-      
-      Board board = new Board();
-      board.title = titleTF.getText();
-      board.contents = contentTA.getText();
-      board.no = boardLST.getSelectedIndex();
-      
-      boardDao.update(board);
       cleanForm();
       loadList();
     }
@@ -180,10 +151,6 @@ public class BoardPanel extends Panel implements ActionListener {
     passwordTF.setText("");
     
     deleteBtn.setEnabled(false);
-    toolPanel.add(addBtn, 0); // 맨 앞에 버튼을 추가하라.
-    toolPanel.remove(updateBtn);
-    toolPanel.revalidate(); // 툴 패널을 다시 자리 배치하라.
-    boardLST.deselect(boardLST.getSelectedIndex()); // 현재 선택된 것을 취소한다.
   }
   
   private void loadList() {
@@ -207,11 +174,6 @@ public class BoardPanel extends Panel implements ActionListener {
     titleTF.setText(board.title);
     contentTA.setText(board.contents);
     deleteBtn.setEnabled(true);
-    
-    toolPanel.remove(addBtn);
-    toolPanel.add(updateBtn, 0);
-    toolPanel.revalidate();
-    
   }
 }
 
