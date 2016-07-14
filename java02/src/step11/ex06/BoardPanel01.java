@@ -16,19 +16,17 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
 
-public class BoardPanel extends Panel implements ActionListener {
+public class BoardPanel01 extends Panel implements ActionListener {
   java.awt.List boardLST;
   TextField titleTF;
   TextField passwordTF;
   TextArea contentTA;
   Button addBtn;
   Button cancelBtn;
-  Button deleteBtn;
-  Button updateBtn;
   
   BoardDao boardDao;
   
-  public BoardPanel() {
+  public BoardPanel01() {
     boardDao = new BoardDao();
     
     setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -97,10 +95,6 @@ public class BoardPanel extends Panel implements ActionListener {
     cancelBtn = new Button("취소");
     cancelBtn.addActionListener(this);
     rowPanel.add(cancelBtn);
-    deleteBtn = new Button("삭제");
-    deleteBtn.setEnabled(false);
-    deleteBtn.addActionListener(this);
-    rowPanel.add(deleteBtn);
     add(rowPanel);
     
   }
@@ -121,25 +115,14 @@ public class BoardPanel extends Panel implements ActionListener {
       // => 취소 버튼에 ActionEvent 보내기 => 사용자가 취소 버튼을 클릭하는 효과를 냈다.
       cancelBtn.dispatchEvent(new ActionEvent(cancelBtn, ActionEvent.ACTION_PERFORMED, null));
       
-    } else if (e.getSource() == cancelBtn) {
-      cleanForm();
-      
-    } else if (e.getSource() == deleteBtn) {
-      boardDao.delete(boardLST.getSelectedIndex());
-      cleanForm();
-      loadList();
+    } else {
+      titleTF.setText(" ");
+      titleTF.setText("");
+      contentTA.setText(" ");
+      contentTA.setText("");
+      passwordTF.setText(" ");
+      passwordTF.setText("");
     }
-  }
-
-  private void cleanForm() {
-    titleTF.setText(" ");
-    titleTF.setText("");
-    contentTA.setText(" ");
-    contentTA.setText("");
-    passwordTF.setText(" ");
-    passwordTF.setText("");
-    
-    deleteBtn.setEnabled(false);
   }
   
   private void loadList() {
@@ -162,7 +145,6 @@ public class BoardPanel extends Panel implements ActionListener {
     
     titleTF.setText(board.title);
     contentTA.setText(board.contents);
-    deleteBtn.setEnabled(true);
   }
 }
 
