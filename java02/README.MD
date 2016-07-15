@@ -225,6 +225,10 @@
 ### exam05 : BoardPanel UI 구현 - 목록 및 입력 폼 
 ### exam06 : BoardDao 적용, TextArea 대신 List 사용하여 게시물 목록 출력
 ### exam07 : 데이터를 파일로 쓰고, 읽기
+- Exam086_* : 파일을 다루는 도구 - File 클래스 사용법
+- Exam087_* : 파일을 다루는 도구 - FileOutputStream/FileInputStream 사용법
+
+
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개
