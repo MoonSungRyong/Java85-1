@@ -1,5 +1,7 @@
- /* 주제: 파일을 다루는 도구 - FileOutputStream/FileInputStream 사용법7 
- * => 배열 단위로 바이트를 읽고 쓰는 "보조 도구" 사용하기
+ /* 주제: 데이터 가공 스트림 클래스 - BufferedOutputStream/BufferedInputStream 사용법 
+  * => 직접 파일의 데이터를 읽고 쓸순 없다.
+  * => 중간에서 데이터를 가공하는 일을 한다.
+  * => 어떤 일? 버퍼 기능을 제공하는 일.
  */
 package step11;
 
@@ -8,7 +10,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class Exam087_11 {
+public class Exam089_1 {
 
   public static void main(String[] args) throws Exception {
     FileInputStream in = new FileInputStream("jvms8.pdf");
