@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 public class Exam087_4 {
 
   public static void main(String[] args) throws Exception {
-    FileInputStream in = new FileInputStream("test02.dat");
+    FileInputStream in = new FileInputStream("Exam087_3.dat");
     
     int b;
     //1) read():int => 이 메서드는 무조건 1바이트를 읽어들인다.

@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 public class Exam087_3 {
 
   public static void main(String[] args) throws Exception {
-    FileOutputStream out = new FileOutputStream("test02.dat");
+    FileOutputStream out = new FileOutputStream("Exam087_3.dat");
     
     // '문자' => 2바이트 유니코드 값을 리턴한다.
     out.write('A');    // 0x0041 => 실제 출력은 0x41

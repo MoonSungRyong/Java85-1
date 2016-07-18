@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 public class Exam087_1 {
 
   public static void main(String[] args) throws Exception {
-    File f = new File("test01.dat");
+    File f = new File("Exam087_1.dat");
     FileOutputStream out = new FileOutputStream(f);
     
     //1) write(int) => 이 메서드는 무조건 1바이트를 출력한다.

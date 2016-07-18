@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 public class Exam087_2 {
 
   public static void main(String[] args) throws Exception {
-    File f = new File("test01.dat");
+    File f = new File("Exam087_1.dat");
     FileInputStream in = new FileInputStream(f);
     
     int b;

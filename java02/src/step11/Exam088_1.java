@@ -18,8 +18,7 @@ public class Exam088_1 {
     // => 유니코드를 OS 기본 문자집합으로 변환하여 출력한다.
     //    예) A => 0x0041(유니코드) => 0x41(출력값)
     //    예) 가 => 0xAC00(유니코드) => 0xEAB080(UTF-8), 0xB0A1(MS949)
-    // => 예) Windows OS(MS949), MacOS(UTF-8)
-    //                        값     => Windows OS(MS949),   MacOS(UTF-8)   
+    //                        값     => Windows OS(MS949), MacOS(UTF-8)   
     out.write(100);    // 0x00000064 => 0x64             , 0x64
     out.write(256);    // 0x00000100 => 0x3f             , 0xC480
     out.write(100);    // 0x00000064 => 0x64             , 0x64
