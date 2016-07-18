@@ -2,7 +2,7 @@
 */
 import java.util.Scanner;
 
-public class Test52 {
+public class Test53 {
   public static void main(String[] args) throws Exception {
     //1) while만 이용하여 구구단 출력
     //2) 밑변 입력 받아 삼각형 출력
