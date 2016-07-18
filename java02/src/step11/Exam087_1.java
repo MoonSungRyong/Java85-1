@@ -13,9 +13,9 @@ public class Exam087_1 {
     FileOutputStream out = new FileOutputStream(f);
     
     //1) write(int) => 이 메서드는 무조건 1바이트를 출력한다.
-    out.write(100); // 0x64  => 실제 출력은 0x64
-    out.write(256); // 0x0100 =>  실제 출력은 0x00
-    out.write(180243); // 0x02c013 => 실제 출력 0x13
+    out.write(100);    // 0x00000064 => 실제 출력은 0x64
+    out.write(256);    // 0x00000100 => 실제 출력은 0x00
+    out.write(180243); // 0x0002c013 => 실제 출력은 0x13
     
     //출력을 종료해야지 제대로 저장을 완료한다.
     out.close();
