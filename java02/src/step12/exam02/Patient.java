@@ -14,12 +14,12 @@ public class Patient {
       this.age = age;
   }
   
-  public void setWeight(int weight) {
+  public void setWeight(float weight) {
     if (weight > 0 && weight < 500)
       this.weight = weight;
   }
   
-  public void setHeight(int height) {
+  public void setHeight(float height) {
     if (height > 0 && height < 300)
       this.height = height;
   }
