@@ -228,13 +228,13 @@
 - Exam086_*.java : 파일을 다루는 도구 - File 클래스 사용법
 - Exam087_*.java : 파일을 다루는 도구 - FileOutputStream/FileInputStream 사용법
 - Exam088_*.java : 파일을 다루는 도구 - FileWriter/FileReader 사용법
-- Exam089_*.java : 데이터 가공 스트림 클래스 사용법
+- Exam089_*.java : 데이터 가공 스트림 클래스 사용법, transient 옵션의 사용법.
 
 ## step12(java02/src/step12)
 ### exam01 : 캡슐화의 도입 배경
 ### exam02 : 캡슐화 도입 장점
 ### exam03 : 캡슐화 문법 정리 
-
+### exam04 : 캡슐화 사용법 확인!
 
 
 
