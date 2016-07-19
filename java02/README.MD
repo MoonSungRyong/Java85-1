@@ -230,6 +230,9 @@
 - Exam088_*.java : 파일을 다루는 도구 - FileWriter/FileReader 사용법
 - Exam089_*.java : 데이터 가공 스트림 클래스 사용법
 
+## step12(java02/src/step12)
+### exam01 : 캡슐화의 도입 배경
+
 
 
 # 디자인 패턴(java02/src/designpatterns)
@@ -250,7 +253,12 @@
 - step04/*.java : 인터페이스 적용
 - step05/*.java : 컬렉션 객체를 이용하여 여러 개의 옵서버를 관리하기
 
+## decorator : 데코레이터 패턴 소개
+- *.java
 
+
+# 알고리즘(java02/src/algorithms)
+## sort.quick : 퀵 소트 소개
 
 
 
