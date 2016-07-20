@@ -1,14 +1,12 @@
-/* 7단계: 게시물 데이터를 파일로 읽고 쓰기 
+/* 1단계: 데이터베이스 도입 
  */
 package step13.ex01;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;

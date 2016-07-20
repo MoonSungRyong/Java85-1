@@ -245,6 +245,7 @@
    => 프로젝트의 컨텍스트메뉴 > Build Path > Configure Build Path... 클릭
    => Library 탭 선택 > Add Jars... 버튼 클릭 > mysql****.jar 파일 선택 > OK
 => step11/ex07의 파일을 복사해온다.
+=> BoardDao 클래스를 변경한다.
 => 나머지는 소스코드에서 확인하라!
 
 
