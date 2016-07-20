@@ -218,13 +218,13 @@
 - exam085/*.java : final 사용법
 
 ## step11(java02/src/step11)
-### exam01 : 상속, 옵저버(리스너) 패턴, 익명 이너 클래스
-### exam02 : 메뉴 사용법, 익명 이너 클래스, 인터페이스 구현
-### exam03 : Panel 사용 및 교체 방법
-### exam04 : CardLayout 사용법
-### exam05 : BoardPanel UI 구현 - 목록 및 입력 폼 
-### exam06 : BoardDao 적용, TextArea 대신 List 사용하여 게시물 목록 출력
-### exam07 : 데이터를 파일로 쓰고, 읽기
+### ex01 : 상속, 옵저버(리스너) 패턴, 익명 이너 클래스
+### ex02 : 메뉴 사용법, 익명 이너 클래스, 인터페이스 구현
+### ex03 : Panel 사용 및 교체 방법
+### ex04 : CardLayout 사용법
+### ex05 : BoardPanel UI 구현 - 목록 및 입력 폼 
+### ex06 : BoardDao 적용, TextArea 대신 List 사용하여 게시물 목록 출력
+### ex07 : 데이터를 파일로 쓰고, 읽기
 - Exam086_*.java : 파일을 다루는 도구 - File 클래스 사용법
 - Exam087_*.java : 파일을 다루는 도구 - FileOutputStream/FileInputStream 사용법
 - Exam088_*.java : 파일을 다루는 도구 - FileWriter/FileReader 사용법
@@ -237,6 +237,15 @@
 ### exam04 : 캡슐화 사용법 확인!
 
 ## step13(java02/src/step13)
+### ex01 : JDBC 적용
+=> JDBC 드라이버를 클래스 경로에 추가해야 한다.
+1) java02 프로젝트 폴더에 libs 폴더를 생성한다.
+2) MySQL JDBC Driver 파일을 복사해온다.
+3) JDBC Driver를 컴파일할 때 찾을 수 있도록 클래스 경로에 추가한다.
+   => 프로젝트의 컨텍스트메뉴 > Build Path > Configure Build Path... 클릭
+   => Library 탭 선택 > Add Jars... 버튼 클릭 > mysql****.jar 파일 선택 > OK
+=> step11/ex07의 파일을 복사해온다.
+=> 나머지는 소스코드에서 확인하라!
 
 
 
