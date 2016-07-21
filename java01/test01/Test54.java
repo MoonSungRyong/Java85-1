@@ -11,23 +11,20 @@ public class Test54 {
   }
   
   static void quickSort(int startIndex, int endIndex) {
-    if((endIndex - startIndex) <= 0){
+    if ((endIndex - startIndex) <= 0)
       return;
-    }
     int pivotIndex = startIndex;
     int storeIndex = pivotIndex + 1;
     
-    for(int i = pivotIndex + 1; i <= endIndex; i++){
+    for (int i = pivotIndex + 1; i <= endIndex; i++) {
       if (element[i] < element[pivotIndex]) {
         swap(i, storeIndex);
         storeIndex++;
       }
     }
-    swap(pivotIndex, storeIndex - 1);
-    quickSort(startIndex, storeIndex - 2);
+    swap(pivotIndex, storeIndex -1);
+    quickSort(startIndex, storeIndex -2);
     quickSort(storeIndex, endIndex);
-   
-    
   }
   
   static void swap(int index1, int index2) {
