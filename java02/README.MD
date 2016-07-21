@@ -248,6 +248,8 @@
 => BoardDao 클래스를 변경한다.
 => 나머지는 소스코드에서 확인하라!
 
+- Exam090_*.java : try...catch... 예외처리 사용법
+- Exam091_*.java : JDBC 사용법
 
 
 # 디자인 패턴(java02/src/designpatterns)

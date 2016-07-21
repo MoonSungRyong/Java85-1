@@ -11,13 +11,16 @@ public class BoardDao {
   void insert(Board board) {}
   
   List<Board> selectList() {
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
     try {
       ArrayList<Board> list = new ArrayList<>();
       Class.forName("com.mysql.jdbc.Driver");
-      Connection con = DriverManager.getConnection(
+      con = DriverManager.getConnection(
           "jdbc:mysql://localhost:3306/java85db", "java85", "1111");
-      Statement stmt = con.createStatement();
-      ResultSet rs = stmt.executeQuery("select * from boards");
+      stmt = con.createStatement();
+      rs = stmt.executeQuery("select * from boards");
       Board board;
       while (rs.next()) {
         board = new Board();
@@ -31,7 +34,10 @@ public class BoardDao {
     } catch (Exception e) {
       
     } finally {
-      
+      // 자원을 해제할 때는 의존 순으로 해제한다. 
+      try {rs.close();} catch (Exception e) {}
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
     }
     return null;
   }
