@@ -16,13 +16,40 @@ public class Test02 {
     
     print(n1);
 
-    Node node = reverseLinkedList(n1);
+    Node node = reverseLinkedList2(n1);
     
     print(node);
   }
   
   static Node reverseLinkedList(Node head) {
-    return null;
+    Node currNode = head;
+    Node prevNode = null;
+    Node temp = null;
+    
+    while (currNode.next != null) {
+      temp = currNode.next;
+      currNode.next = prevNode;
+      prevNode = currNode;
+      currNode = temp;
+    }
+    
+    currNode.next = prevNode;
+    return currNode;
+  }
+  
+  static Node reverseLinkedList2(Node head) {
+    Node currNode = head;
+    Node prevNode = null;
+    Node temp = null;
+    
+    do {
+      temp = currNode.next;
+      currNode.next = prevNode;
+      prevNode = currNode;
+      currNode = temp;
+    } while (currNode != null);
+    
+    return prevNode;
   }
   
   static void print(Node node) {
