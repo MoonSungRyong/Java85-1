@@ -28,7 +28,8 @@ public class MyLinkedList {
     Node temp;
     
     //1) 인덱스 바로 전 노드를 찾는다.
-    while (--index > 0) {
+    int currIndex = index;
+    while (--currIndex > 0) {
       currNode = currNode.next;
     }
     
