@@ -18,9 +18,10 @@ public class BoardDao {
     
     try {
       stmt = con.prepareStatement(
-          "insert into boards(title,conts,cre_dt) values(?,?,now())");
+          "insert into boards(title,conts,cre_dt,password) values(?,?,now(),password(?))");
       stmt.setString(1, board.getTitle());
       stmt.setString(2, board.getContents());
+      stmt.setString(3, board.getPassword());
       return stmt.executeUpdate();
       
     } finally {
