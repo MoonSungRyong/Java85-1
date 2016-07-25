@@ -1,4 +1,5 @@
-package step13.ex01;
+/* 주제: 연결 객체를 공유 */
+package step13;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,15 +8,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardDao {
+public class BoardDao5 {
   Connection con;
   
-  public BoardDao() throws Exception {
+  public BoardDao5() throws Exception {
     Class.forName("com.mysql.jdbc.Driver");
     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
   }
   
-  public int insert(Board board) throws Exception {
+  public int insert(Board2 board) throws Exception {
     PreparedStatement stmt = null;
     
     try {
@@ -30,7 +31,7 @@ public class BoardDao {
     }
   }
   
-  public List<Board> selectList() throws Exception {
+  public List<Board2> selectList() throws Exception {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
@@ -38,10 +39,10 @@ public class BoardDao {
       stmt = con.prepareStatement("select no,title,cre_dt,vw_cnt from boards");
       rs = stmt.executeQuery();
       
-      ArrayList<Board> boards = new ArrayList<>();
-      Board board;
+      ArrayList<Board2> boards = new ArrayList<>();
+      Board2 board;
       while (rs.next()) {
-        board = new Board();
+        board = new Board2();
         board.setNo(rs.getInt("no"));
         board.setTitle(rs.getString("title"));
         board.setCreatedDate(rs.getDate("cre_dt"));
@@ -56,7 +57,7 @@ public class BoardDao {
     }
   }
   
-  public Board selectOne(int no) throws Exception {
+  public Board2 selectOne(int no) throws Exception {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
@@ -67,10 +68,9 @@ public class BoardDao {
       rs = stmt.executeQuery();
       
       if (rs.next()) {
-        Board board = new Board();
+        Board2 board = new Board2();
         board.setNo(rs.getInt("no"));
         board.setTitle(rs.getString("title"));
-        board.setContents(rs.getString("conts"));
         board.setCreatedDate(rs.getDate("cre_dt"));
         board.setViewCount(rs.getInt("vw_cnt"));
         return board;
@@ -83,7 +83,7 @@ public class BoardDao {
     }
   }
   
-  public int update(Board board) throws Exception {
+  public int update(Board2 board) throws Exception {
     PreparedStatement stmt = null;
     
     try {
@@ -112,8 +112,6 @@ public class BoardDao {
   }
   
 }
-
-
 
 
 

@@ -17,6 +17,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class BoardPanel extends Panel implements ActionListener {
+  private static final long serialVersionUID = 1L;
+  
   java.awt.List boardLST;
   TextField titleTF;
   TextField passwordTF;
@@ -30,7 +32,11 @@ public class BoardPanel extends Panel implements ActionListener {
   BoardDao boardDao;
   
   public BoardPanel() {
-    boardDao = new BoardDao();
+    try {
+      boardDao = new BoardDao();
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "DB 연결 중 오류가 발생했습니다.");
+    }
     
     setLayout(new FlowLayout(FlowLayout.LEFT));
     
@@ -119,7 +125,11 @@ public class BoardPanel extends Panel implements ActionListener {
       board.contents = contentTA.getText();
       board.password = passwordTF.getText();
     
-      boardDao.insert(board);
+      try {
+        boardDao.insert(board);
+      } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "DB에 저장하는 중 오류가 발생했습니다.");
+      }
 
       loadList();
 
@@ -142,7 +152,11 @@ public class BoardPanel extends Panel implements ActionListener {
       if (answer != JOptionPane.YES_OPTION)
         return;
 
-      boardDao.delete(boardLST.getSelectedIndex());
+      try {
+        boardDao.delete(boardLST.getSelectedIndex());
+      } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "DB의 데이터 삭제 중 오류가 발생했습니다.");
+      }
       cleanForm();
       loadList();
       
@@ -157,7 +171,11 @@ public class BoardPanel extends Panel implements ActionListener {
       board.contents = contentTA.getText();
       board.no = boardLST.getSelectedIndex();
       
-      boardDao.update(board);
+      try {
+        boardDao.update(board);
+      } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "DB의 데이터 변경 중 오류가 발생했습니다.");
+      }
       cleanForm();
       loadList();
     }
@@ -165,9 +183,13 @@ public class BoardPanel extends Panel implements ActionListener {
 
   private boolean checkAuth() {
     int selectedBoardNo = boardLST.getSelectedIndex();
-    Board board = boardDao.selectOne(selectedBoardNo);
-    if (board.password.equals(passwordTF.getText()) || passwordTF.getText().equals("dhghfk"))
-      return true;
+    try {
+      Board board = boardDao.selectOne(selectedBoardNo);
+      if (board.password.equals(passwordTF.getText()) || passwordTF.getText().equals("dhghfk"))
+        return true;
+    } catch (Exception ex) {
+      JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
+    }
     return false;
   }
   
@@ -189,31 +211,45 @@ public class BoardPanel extends Panel implements ActionListener {
   private void loadList() {
     boardLST.removeAll();
     
-    List<Board> boards = boardDao.selectList();
-    for (Board board : boards) {
-      boardLST.add(
-          board.getNo() + "," +
-          board.getTitle() + "," + 
-          board.getCreatedDate() + "," + 
-          board.getViewCount());
+    try {
+      List<Board> boards = boardDao.selectList();
+      for (Board board : boards) {
+        boardLST.add(
+            board.getNo() + "," +
+            board.getTitle() + "," + 
+            board.getCreatedDate() + "," + 
+            board.getViewCount());
+      }
+    } catch (Exception ex) {
+      JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
     }
   }
   
-  private void loadForm(int no) {
-    Board board = boardDao.selectOne(no);
-    if (board == null) 
-      return;
-    
-    titleTF.setText(board.title);
-    contentTA.setText(board.contents);
-    passwordTF.setText(" ");
-    passwordTF.setText("");
-    
-    deleteBtn.setEnabled(true);
-    
-    toolPanel.remove(addBtn);
-    toolPanel.add(updateBtn, 0);
-    toolPanel.revalidate();
+  private void loadForm(int listItemIndex) {
+    /*
+    String data = boardLST.getItem(listItemIndex); // 예) "1,aaaa,2016-5-5,0"
+    String[] arr = data.split(","); // 예) ["1","aaaa","2016-5-5","0"]
+    int no = Integer.parseInt(arr[0]);
+    */
+    int no = Integer.parseInt(boardLST.getItem(listItemIndex).split(",")[0]);
+    try {
+      Board board = boardDao.selectOne(no);
+      if (board == null) 
+        return;
+      
+      titleTF.setText(board.title);
+      contentTA.setText(board.contents);
+      passwordTF.setText(" ");
+      passwordTF.setText("");
+      
+      deleteBtn.setEnabled(true);
+      
+      toolPanel.remove(addBtn);
+      toolPanel.add(updateBtn, 0);
+      toolPanel.revalidate();
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
+    }
     
   }
 }

@@ -1,4 +1,4 @@
-/* 주제: JDBC - 삭제하기3 : PreparedStatement 사용하기 */
+/* 주제: JDBC - 변경하기3 : PreparedStatement 사용하기 */
 package step13;
 
 import java.sql.Connection;

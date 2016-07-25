@@ -319,7 +319,11 @@ insert into boards(title, conts, cre_dt) values('0000','xxxx',now());
 7. 입력 확인
 select * from boards;
   
+8. boards 테이블에 컬럼 추가
+alter table boards
+  add password varchar(100);
   
+update boards set password = password('1111');
   
   
   
