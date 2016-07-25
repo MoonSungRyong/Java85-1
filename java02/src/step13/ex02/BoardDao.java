@@ -1,7 +1,6 @@
 package step13.ex02;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,11 +9,10 @@ import java.util.List;
 public class BoardDao {
   Connection con;
   
-  public BoardDao() throws Exception {
-    Class.forName("com.mysql.jdbc.Driver");
-    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
+  public void setConnection(Connection con) {
+    this.con = con;
   }
-  
+
   public int insert(Board board) throws Exception {
     PreparedStatement stmt = null;
     
@@ -64,6 +62,34 @@ public class BoardDao {
       stmt = con.prepareStatement(
           "select no,title,conts,cre_dt,vw_cnt from boards where no=?");
       stmt.setInt(1, no);
+      rs = stmt.executeQuery();
+      
+      if (rs.next()) {
+        Board board = new Board();
+        board.setNo(rs.getInt("no"));
+        board.setTitle(rs.getString("title"));
+        board.setContents(rs.getString("conts"));
+        board.setCreatedDate(rs.getDate("cre_dt"));
+        board.setViewCount(rs.getInt("vw_cnt"));
+        return board;
+      }
+      return null;
+      
+    } finally {
+      try {rs.close();} catch (Exception e) {}
+      try {stmt.close();} catch (Exception e) {}
+    }
+  }
+  
+  public Board selectOne(int no, String password) throws Exception {
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    try {
+      stmt = con.prepareStatement(
+          "select no,title,conts,cre_dt,vw_cnt from boards where no=? and password=password(?)");
+      stmt.setInt(1, no);
+      stmt.setString(2, password);
       rs = stmt.executeQuery();
       
       if (rs.next()) {

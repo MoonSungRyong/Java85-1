@@ -151,7 +151,8 @@ public class BoardPanel extends Panel implements ActionListener {
         return;
 
       try {
-        boardDao.delete(boardLST.getSelectedIndex());
+        boardDao.delete(getSelectedBoardNo());
+        
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(null, "DB의 데이터 삭제 중 오류가 발생했습니다.");
       }
@@ -165,9 +166,9 @@ public class BoardPanel extends Panel implements ActionListener {
       }
       
       Board board = new Board();
+      board.no = getSelectedBoardNo();
       board.title = titleTF.getText();
       board.contents = contentTA.getText();
-      board.no = boardLST.getSelectedIndex();
       
       try {
         boardDao.update(board);
@@ -180,10 +181,9 @@ public class BoardPanel extends Panel implements ActionListener {
   }
 
   private boolean checkAuth() {
-    int selectedBoardNo = boardLST.getSelectedIndex();
     try {
-      Board board = boardDao.selectOne(selectedBoardNo);
-      if (board.password.equals(passwordTF.getText()) || passwordTF.getText().equals("dhghfk"))
+      Board board = boardDao.selectOne(getSelectedBoardNo(), passwordTF.getText());
+      if (board != null)
         return true;
     } catch (Exception ex) {
       JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
@@ -219,6 +219,7 @@ public class BoardPanel extends Panel implements ActionListener {
             board.getViewCount());
       }
     } catch (Exception ex) {
+      ex.printStackTrace();
       JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
     }
   }
@@ -249,6 +250,10 @@ public class BoardPanel extends Panel implements ActionListener {
       JOptionPane.showMessageDialog(null, "DB 조회 중 오류가 발생했습니다.");
     }
     
+  }
+  
+  private int getSelectedBoardNo() {
+    return Integer.parseInt(boardLST.getSelectedItem().split(",")[0]);
   }
 }
 

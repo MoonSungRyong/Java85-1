@@ -1,7 +1,6 @@
 package step13.ex02;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,10 +8,9 @@ import java.util.List;
 
 public class ProjectDao {
   Connection con;
-  
-  public ProjectDao() throws Exception {
-    Class.forName("com.mysql.jdbc.Driver");
-    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
+
+  public void setConnection(Connection con) {
+    this.con = con;
   }
   
   public int insert(Board board) throws Exception {

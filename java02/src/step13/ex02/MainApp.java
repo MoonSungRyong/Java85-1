@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import javax.swing.JOptionPane;
 
@@ -27,6 +29,7 @@ public class MainApp extends Frame implements ActionListener {
   ProjectDao projectDao;
   MemberDao memberDao;
   ContactDao contactDao;
+  Connection con;
   
   CardLayout cardLayout = new CardLayout();
   
@@ -57,16 +60,25 @@ public class MainApp extends Frame implements ActionListener {
     contactPanel = new ContactPanel();
     
     try {
+      Class.forName("com.mysql.jdbc.Driver");
+      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
+      
       boardDao = new BoardDao();
       projectDao = new ProjectDao();
       memberDao = new MemberDao();
       contactDao = new ContactDao();
+      
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "DAO 생성 중 오류가 발생했습니다.");
     }
   }
   
   private void injectDependencies() {
+    boardDao.setConnection(con);
+    projectDao.setConnection(con);
+    memberDao.setConnection(con);
+    contactDao.setConnection(con);
+
     boardPanel.setBoardDao(boardDao);
     projectPanel.setProjectDao(projectDao);
     memberPanel.setMemberDao(memberDao);
