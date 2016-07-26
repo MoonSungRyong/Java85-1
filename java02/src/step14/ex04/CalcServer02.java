@@ -5,45 +5,29 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class CalcServer {
+public class CalcServer02 {
   public static void main(String[] args) throws Exception {
     ServerSocket serverSocket = new ServerSocket(8888);
     System.out.println("서버 실행 중...");
     
-    // 여러 사용자의 접속을 수용한다.
-    Socket socket;
-    while (true) {
-      socket = serverSocket.accept();
-      service(socket);
-    }
+    Socket socket = serverSocket.accept();
     
-    //serverSocket.close();
+    Scanner in = new Scanner(socket.getInputStream());
+    PrintStream out = new PrintStream(socket.getOutputStream());
+    
+    String command;
+    do {
+      command = in.nextLine();
+      processCommand(command, out);
+    } while (!command.equals("quit"));
+    
+    in.close();
+    out.close();
+    socket.close();
+    
+    serverSocket.close();
   }
 
-  private static void service(Socket socket) {
-    Scanner in = null;
-    PrintStream out = null;
-    String command = null;
-    
-    try {
-      in = new Scanner(socket.getInputStream());
-      out = new PrintStream(socket.getOutputStream());
-      
-      do {
-        command = in.nextLine();
-        processCommand(command, out);
-      } while (!command.equals("quit"));
-      
-    } catch (Exception e) {
-      System.out.println("클라이언트 요청을 처리하는 중에 오류 발생!");
-      
-    } finally {
-      try {in.close();} catch (Exception e) {}
-      try {out.close();} catch (Exception e) {}
-      try {socket.close();} catch (Exception e) {}
-    }
-  }
-  
   private static void processCommand(String command, PrintStream out) {
     switch (command) {
     case "help":
