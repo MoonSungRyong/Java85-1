@@ -33,7 +33,11 @@ public class CalcServer {
     case "help":
       out.println("[연산자]");
       out.println("더하기: +");
-      out.println("빼기: -");
+      out.println("빼기  : -"); 
+      out.println("곱하기: *"); 
+      out.println("나누기: /"); 
+      out.println("나머지: %"); 
+      out.println("거듭제곱: **"); 
       out.println("[사용법]");
       out.println("> 2 + 3");
       out.println("5");
@@ -51,6 +55,7 @@ public class CalcServer {
         out.println();
       }
     }
+    out.flush();
   }
 
   private static int compute(String command) throws Exception {
@@ -62,6 +67,14 @@ public class CalcServer {
       return a + b;
     case "-":
       return a - b;
+    case "*":
+      return a * b;
+    case "/":
+      return a / b;
+    case "%":
+      return a % b;
+    case "**":
+      return (int)Math.pow(a, b);  
     default:
       throw new Exception("지원하지 않는 연산자 입니다.");    
     }

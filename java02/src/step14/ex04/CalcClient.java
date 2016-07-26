@@ -22,6 +22,7 @@ public class CalcClient {
       System.out.print("> ");
       command = keyScan.nextLine();
       out.println(command);
+      out.flush();
       
       do {
         message = in.readLine();
