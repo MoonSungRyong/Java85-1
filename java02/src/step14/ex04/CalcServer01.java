@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class CalcServer {
+public class CalcServer01 {
   public static void main(String[] args) throws Exception {
     ServerSocket serverSocket = new ServerSocket(8888);
     System.out.println("서버 실행 중...");
@@ -15,11 +15,8 @@ public class CalcServer {
     Scanner in = new Scanner(socket.getInputStream());
     PrintStream out = new PrintStream(socket.getOutputStream());
     
-    String command;
-    do {
-      command = in.nextLine();
-      processCommand(command, out);
-    } while (!command.equals("quit"));
+    String command = in.nextLine();
+    processCommand(command, out);
     
     in.close();
     out.close();

@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class CalcClient {
+public class CalcClient01 {
 
   public static void main(String[] args) throws Exception {
     Scanner keyScan = new Scanner(System.in);
@@ -15,19 +15,15 @@ public class CalcClient {
     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     PrintStream out = new PrintStream(socket.getOutputStream());
     
-    String command;
-    String message;
+    System.out.print("> ");
+    String command = keyScan.nextLine();
+    out.println(command);
     
+    String message;
     do {
-      System.out.print("> ");
-      command = keyScan.nextLine();
-      out.println(command);
-      
-      do {
-        message = in.readLine();
-        System.out.println(message);
-      } while (!message.equals(""));
-    } while (!command.equals("quit"));
+      message = in.readLine();
+      System.out.println(message);
+    } while (!message.equals(""));
     
     in.close();
     out.close();
