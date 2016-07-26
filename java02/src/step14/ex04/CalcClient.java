@@ -10,7 +10,7 @@ public class CalcClient {
 
   public static void main(String[] args) throws Exception {
     Scanner keyScan = new Scanner(System.in);
-    Socket socket = new Socket("localhost", 8888);
+    Socket socket = new Socket("192.168.0.46", 8888);
 
     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     PrintStream out = new PrintStream(socket.getOutputStream());
