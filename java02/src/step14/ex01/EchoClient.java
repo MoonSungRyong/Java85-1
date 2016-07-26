@@ -1,34 +1,44 @@
 package step14.ex01;
 
-import java.io.PrintStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class EchoClient {
 
   public static void main(String[] args) throws Exception {
-    Scanner keyScan = new Scanner(System.in);
+    //서버와 연결을 수행을 객체를 생성한다.
+    Socket socket = new Socket("localhost", 8888);
+    System.out.println("서버와 연결되었습니다.");
+
+    //소켓으로부터 입출력 스트림 객체 꺼내기
+    InputStream in = socket.getInputStream();
+    OutputStream out = socket.getOutputStream();
     
-    System.out.print("연결할 서버 주소? ");
-    String serverAddr = keyScan.nextLine();
+    //입출력 스트림 객체에 데코레이터 붙이기
+    BufferedReader in2 = new BufferedReader(new InputStreamReader(in));
+    PrintWriter out2 = new PrintWriter(new OutputStreamWriter(out));
     
-    System.out.print("포트번호? ");
-    int port = Integer.parseInt(keyScan.nextLine());
+    //서버로 데이터 출력하기
+    out2.println("hello");
+    out2.flush(); // 소켓 내부의 임시 버퍼에 출력된 것을 서버로 내보낸다.
     
-    Socket socket = new Socket(serverAddr, port); // 서버와 연결하기
-    Scanner in = new Scanner(socket.getInputStream());
-    PrintStream out = new PrintStream(socket.getOutputStream());
+    //서버가 보낸 데이터 읽기
+    String message = in2.readLine();
+    System.out.println(message);
     
-    System.out.print("보낼 메시지? ");
-    String message = keyScan.nextLine();
+    in2.close();
+    out2.close();
     
-    out.println(message);  // 서버에게 메시지 보내기
-    String receivedMessage = in.nextLine();
-    
-    System.out.println(receivedMessage);
-    
+    //입출력 스트림을 사용한 후에는 반드시 닫아야 한다.
     in.close();
     out.close();
+    
+    //소켓을 사용한 후에는 반드시 자원을 해제시켜야 한다.
     socket.close();
   }
 
