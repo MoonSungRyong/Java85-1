@@ -44,8 +44,12 @@ public class Exam093_2 {
 }
 
 /* JVM 스레드 맵
- * [main TG]
- *   => main T
+  => [system]
+    * Reference Handler (레퍼런스 관리)
+    * Finalizer (가비지 해제)
+    * Signal Dispatcher
+    => [main]
+      * main (main() 메서드 호출)
  * 
  * 
  * 메인 스레드?
