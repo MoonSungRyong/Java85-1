@@ -281,10 +281,13 @@
 ## decorator : 데코레이터 패턴 소개
 - *.java
 
+## singleton : 싱글톤 패턴 소개
+- *.java
+
 
 # 알고리즘(java02/src/algorithms)
 ## sort.quick : 퀵 소트 소개
-
+## list.linkedlist : 연결 리스트 소개
 
 # MySQL 설정
 1. root 암호 변경

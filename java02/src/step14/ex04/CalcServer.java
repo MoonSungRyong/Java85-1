@@ -1,3 +1,4 @@
+// 4단계 : 여러 번의 동시 연결을 허용하기
 package step14.ex04;
 
 import java.io.PrintStream;
@@ -6,6 +7,41 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class CalcServer {
+  // Thread를 상속 받은 클래스는 독립적으로 작업을 진행할 수 있다.
+  static class Worker extends Thread {
+    Socket socket;
+    
+    public Worker(Socket socket) {
+      this.socket = socket;
+    }
+    
+    // 독립적으로 수행해야 하는 작업을 기술한다.
+    @Override
+    public void run() {
+      Scanner in = null;
+      PrintStream out = null;
+      String command = null;
+      
+      try {
+        in = new Scanner(socket.getInputStream());
+        out = new PrintStream(socket.getOutputStream());
+        
+        do {
+          command = in.nextLine();
+          processCommand(command, out);
+        } while (!command.equals("quit"));
+        
+      } catch (Exception e) {
+        System.out.println("클라이언트 요청을 처리하는 중에 오류 발생!");
+        
+      } finally {
+        try {in.close();} catch (Exception e) {}
+        try {out.close();} catch (Exception e) {}
+        try {socket.close();} catch (Exception e) {}
+      }
+    }
+  }
+  
   public static void main(String[] args) throws Exception {
     ServerSocket serverSocket = new ServerSocket(8888);
     System.out.println("서버 실행 중...");
@@ -14,36 +50,12 @@ public class CalcServer {
     Socket socket;
     while (true) {
       socket = serverSocket.accept();
-      service(socket);
+      new Worker(socket).start(); // Worker 객체를 독립적으로 실행한다. 그리고 즉시 리턴한다.
     }
     
     //serverSocket.close();
   }
 
-  private static void service(Socket socket) {
-    Scanner in = null;
-    PrintStream out = null;
-    String command = null;
-    
-    try {
-      in = new Scanner(socket.getInputStream());
-      out = new PrintStream(socket.getOutputStream());
-      
-      do {
-        command = in.nextLine();
-        processCommand(command, out);
-      } while (!command.equals("quit"));
-      
-    } catch (Exception e) {
-      System.out.println("클라이언트 요청을 처리하는 중에 오류 발생!");
-      
-    } finally {
-      try {in.close();} catch (Exception e) {}
-      try {out.close();} catch (Exception e) {}
-      try {socket.close();} catch (Exception e) {}
-    }
-  }
-  
   private static void processCommand(String command, PrintStream out) {
     switch (command) {
     case "help":
