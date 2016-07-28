@@ -1,8 +1,4 @@
-/* 2단계: 의존 객체 주입(Dependencies Injection)
- * => 각 객체가 자신이 사용할 객체를 준비하는 대신
- *    중앙에서 각 객체가 사용할 의존 객체를 생성하고 주입해준다. 
- */
-package step14.ex05;
+package step14.ex05.client;
 
 import java.awt.CardLayout;
 import java.awt.Frame;
@@ -13,38 +9,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
-import javax.swing.JOptionPane;
+import step14.ex05.MainApp;
 
-import step14.ex05.client.BoardPanel;
-import step14.ex05.client.ContactPanel;
-import step14.ex05.client.MemberPanel;
-import step14.ex05.client.ProjectPanel;
-import step14.ex05.server.BoardDao;
-
-public class MainApp extends Frame implements ActionListener {
+public class ClientApp extends Frame implements ActionListener {
   private static final long serialVersionUID = 1L;
   
   BoardPanel boardPanel;
   ProjectPanel projectPanel;
   MemberPanel memberPanel;
   ContactPanel contactPanel;
-  BoardDao boardDao;
-  ProjectDao projectDao;
-  MemberDao memberDao;
-  ContactDao contactDao;
-  Connection con;
   
   CardLayout cardLayout = new CardLayout();
   
-  public MainApp() {
+  public ClientApp() {
     super("비트캠프 울트라 예제 v0.6 ");
-    
-    createObjects();
-    injectDependencies();
 
+    boardPanel = new BoardPanel();
+    projectPanel = new ProjectPanel();
+    memberPanel = new MemberPanel();
+    contactPanel = new ContactPanel();
+    
     setLayout(cardLayout); // 레이아웃 관리자 교체: BorderLayout --> CardLayout
     prepareMenu();
     preparePanels();
@@ -57,38 +42,6 @@ public class MainApp extends Frame implements ActionListener {
     });
     
     setSize(500, 600);
-  }
-  
-  private void createObjects() {
-    boardPanel = new BoardPanel();
-    projectPanel = new ProjectPanel();
-    memberPanel = new MemberPanel();
-    contactPanel = new ContactPanel();
-    
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
-      
-      boardDao = new BoardDao();
-      projectDao = new ProjectDao();
-      memberDao = new MemberDao();
-      contactDao = new ContactDao();
-      
-    } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "DAO 생성 중 오류가 발생했습니다.");
-    }
-  }
-  
-  private void injectDependencies() {
-    boardDao.setConnection(con);
-    projectDao.setConnection(con);
-    memberDao.setConnection(con);
-    contactDao.setConnection(con);
-
-    boardPanel.setBoardDao(boardDao);
-    projectPanel.setProjectDao(projectDao);
-    memberPanel.setMemberDao(memberDao);
-    contactPanel.setContactDao(contactDao);
   }
   
   private void prepareMenu() {
@@ -139,14 +92,3 @@ public class MainApp extends Frame implements ActionListener {
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-

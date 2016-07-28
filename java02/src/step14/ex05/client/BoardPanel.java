@@ -1,4 +1,4 @@
-package step14.ex05;
+package step14.ex05.client;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import step14.ex05.server.BoardDao;
+import step14.ex05.vo.Board;
 
 public class BoardPanel extends Panel implements ActionListener {
   private static final long serialVersionUID = 1L;
@@ -30,8 +30,6 @@ public class BoardPanel extends Panel implements ActionListener {
   Button deleteBtn;
   Button updateBtn;
   Panel toolPanel;
-  
-  BoardDao boardDao;
   
   public BoardPanel() {
     setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -109,22 +107,18 @@ public class BoardPanel extends Panel implements ActionListener {
     //toolPanel.add(updateBtn); // 처음에는 변경 버튼을 보이지 않는다.
     add(toolPanel);
     
-  }
-  
-  public void setBoardDao(BoardDao boardDao) {
-    this.boardDao = boardDao;
-    // BoardDao가 준비한 데이터를 출력한다.
     loadList();
   }
+  
 
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == addBtn) {
       Board board = new Board();
-      board.title = titleTF.getText();
-      board.contents = contentTA.getText();
-      board.password = passwordTF.getText();
-    
+      board.setTitle(titleTF.getText());
+      board.setContents(contentTA.getText());
+      board.setPassword(passwordTF.getText());
+      
       try {
         boardDao.insert(board);
       } catch (Exception ex) {

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import step14.ex05.vo.Board;
+
 public class BoardDao {
   Connection con;
   

@@ -1,7 +1,9 @@
-package step14.ex05;
+package step14.ex05.client;
 
 import java.awt.Label;
 import java.awt.Panel;
+
+import step14.ex05.MemberDao;
 
 public class MemberPanel extends Panel {
   private static final long serialVersionUID = 1L;

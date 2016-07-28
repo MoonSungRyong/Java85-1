@@ -7,10 +7,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
 
-public class BoardServer {
+public class ServerApp {
   BoardDao boardDao;
   
-  public BoardServer() throws Exception {
+  public ServerApp() throws Exception {
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection(
         "jdbc:mysql://localhost:3306/java85db", "java85", "1111"); 
@@ -33,7 +33,7 @@ public class BoardServer {
   
   public static void main(String[] args) {
     try {
-      BoardServer server = new BoardServer();
+      ServerApp server = new ServerApp();
       server.execute();
       
     } catch (Exception e) {
