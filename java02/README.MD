@@ -256,15 +256,17 @@
 - Exam092_*.java : DAO 적용
 
 ## step14(java02/src/step14)
-- ex01/* : 네트워크 프로그래밍 소개
-- ex02/* : 바이너리 데이터 송수신
-- ex03/* : 미니 웹브라우저 만들기
-- ex04/* : 서버 계산기 => Application Server의 도입
+### ex01/* : 네트워크 프로그래밍 소개
+### ex02/* : 바이너리 데이터 송수신
+### ex03/* : 미니 웹브라우저 만들기
+### ex04/* : 서버 계산기 => Application Server의 도입
   CalcServer01.java : 1단계 - 한 번 연결에 한 개의 명령처리
   CalcServer02.java : 2단계 - 한 번 연결에 여러 개의 명령처리
   CalcServer03.java : 3단계 - 순차적으로 여러 번의 연결 허용
   CalcServer04.java : 4단계 - 동시 연결 허용
   CalcServer.java : 5단계 - Connectionful 방식을 Connectionless 방식으로 전환
+### ex05/* : 게시판 => Application Server 도입
+  
 - Exam093_*.java : 스레드 사용법
 - Exam094_*.java : 동기화, 세마포어(Semaphore), 뮤텍스(Mutex), 
                    크리티컬 섹션(Critical Section)
