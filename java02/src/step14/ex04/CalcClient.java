@@ -1,3 +1,4 @@
+// 3단계 : Connectionful 방식을 Connectionless 방식으로 전환
 package step14.ex04;
 
 import java.io.BufferedReader;
@@ -10,30 +11,48 @@ public class CalcClient {
 
   public static void main(String[] args) throws Exception {
     Scanner keyScan = new Scanner(System.in);
-    Socket socket = new Socket("192.168.0.50", 8888);
-
-    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-    PrintStream out = new PrintStream(socket.getOutputStream());
-    
     String command;
-    String message;
     
-    do {
+    while (true) {
       System.out.print("> ");
       command = keyScan.nextLine();
+      if (command.equals("quit"))
+        break;
+      
+      request(command);
+    }
+    
+    keyScan.close();
+  }
+  
+  static void request(String command) {
+    Socket socket = null;
+    BufferedReader in = null;
+    PrintStream out = null;
+    
+    try {
+      socket = new Socket("192.168.0.50", 8888);
+      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      out = new PrintStream(socket.getOutputStream());
+      
+      // 서버에 명령어 전송
       out.println(command);
       out.flush();
       
+      // 서버로부터 응답 수신
+      String message = null;
       do {
         message = in.readLine();
         System.out.println(message);
       } while (!message.equals(""));
-    } while (!command.equals("quit"));
-    
-    in.close();
-    out.close();
-    socket.close();
-    keyScan.close();
+      
+    } catch (Exception e) {
+      
+    } finally {
+      try {in.close();} catch (Exception e) {}
+      try {out.close();} catch (Exception e) {}
+      try {socket.close();} catch (Exception e) {}
+    }
   }
 
 }

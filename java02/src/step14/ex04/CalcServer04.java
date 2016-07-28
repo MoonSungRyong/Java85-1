@@ -1,24 +1,4 @@
-// 5단계 : Connectionful 방식에서 Connectionless 방식으로 바꾸기
-/* 1) Connectionful(Stateful)
- *    => 연결 한 후 요청/응답 실행
- *    => 연결을 끊기 전까지 요청/응답 실행할 수 있다.
- *    => 예) 전화, Telnet, FTP, 채팅 
- *    => 단점
- *       . 계속 연결을 유지해야 하기 때문에 메모리 낭비 및 CPU 낭비가 있다.
- *       . 많은 클라이언트 요청을 처리할 수 없다.
- *       . 자원을 비효율적으로 관리한다.
- *    => 장점
- *       . 계속 연결이 되어 있기 때문에 클라이언트의 상태를 유지할 수 있다.
- *   
- * 2) Connectionless(Stateless)
- *    => 요청할 때 마다 연결하고 응답을 하면 연결을 끊는다.
- *    => 예) 114, 웹, 메신저
- *    => 단점
- *       . 연결을 유지하지 않기 때문에 클라이언트 상태를 유지할 수 없다.
- *    => 장점
- *       . 보다 많은 클라이언트의 요청을 처리할 수 있다.
- *       . 메모리, CPU 자원을 효율적으로 사용한다.
- */
+// 4단계 : 여러 번의 동시 연결을 허용하기
 package step14.ex04;
 
 import java.io.PrintStream;
@@ -26,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class CalcServer {
+public class CalcServer04 {
   // Thread를 상속 받은 클래스는 독립적으로 작업을 진행할 수 있다.
   static class Worker extends Thread {
     Socket socket;
@@ -46,9 +26,10 @@ public class CalcServer {
         in = new Scanner(socket.getInputStream());
         out = new PrintStream(socket.getOutputStream());
         
-        // 딱 한 번만 요청을 처리한다. 그리고 즉시 연결을 끊는다. => Connectionless(Stateless)
-        command = in.nextLine();
-        processCommand(command, out);
+        do {
+          command = in.nextLine();
+          processCommand(command, out);
+        } while (!command.equals("quit"));
         
       } catch (Exception e) {
         System.out.println("클라이언트 요청을 처리하는 중에 오류 발생!");
@@ -90,6 +71,9 @@ public class CalcServer {
       out.println("5");
       out.println();
       break;
+    case "quit":
+      out.println("안녕히 가세요!");
+      out.println();
     default:
       try {
         out.println(compute(command));
