@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -120,7 +123,7 @@ public class BoardPanel extends Panel implements ActionListener {
       board.setPassword(passwordTF.getText());
       
       try {
-        boardDao.insert(board);
+        //boardDao.insert(board);
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(null, "DB에 저장하는 중 오류가 발생했습니다.");
       }
@@ -147,7 +150,7 @@ public class BoardPanel extends Panel implements ActionListener {
         return;
 
       try {
-        boardDao.delete(getSelectedBoardNo());
+        //boardDao.delete(getSelectedBoardNo());
         
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(null, "DB의 데이터 삭제 중 오류가 발생했습니다.");
@@ -162,12 +165,12 @@ public class BoardPanel extends Panel implements ActionListener {
       }
       
       Board board = new Board();
-      board.no = getSelectedBoardNo();
-      board.title = titleTF.getText();
-      board.contents = contentTA.getText();
+      board.setNo(getSelectedBoardNo());
+      board.setTitle(titleTF.getText());
+      board.setContents(contentTA.getText());
       
       try {
-        boardDao.update(board);
+        //boardDao.update(board);
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(null, "DB의 데이터 변경 중 오류가 발생했습니다.");
       }
@@ -178,7 +181,7 @@ public class BoardPanel extends Panel implements ActionListener {
 
   private boolean checkAuth() {
     try {
-      Board board = boardDao.selectOne(getSelectedBoardNo(), passwordTF.getText());
+      Board board = null; //boardDao.selectOne(getSelectedBoardNo(), passwordTF.getText());
       if (board != null)
         return true;
     } catch (Exception ex) {
@@ -206,7 +209,7 @@ public class BoardPanel extends Panel implements ActionListener {
     boardLST.removeAll();
     
     try {
-      List<Board> boards = boardDao.selectList();
+      List<Board> boards = (List<Board>) send("/board/list.do");
       for (Board board : boards) {
         boardLST.add(
             board.getNo() + "," +
@@ -221,19 +224,14 @@ public class BoardPanel extends Panel implements ActionListener {
   }
   
   private void loadForm(int listItemIndex) {
-    /*
-    String data = boardLST.getItem(listItemIndex); // 예) "1,aaaa,2016-5-5,0"
-    String[] arr = data.split(","); // 예) ["1","aaaa","2016-5-5","0"]
-    int no = Integer.parseInt(arr[0]);
-    */
     int no = Integer.parseInt(boardLST.getItem(listItemIndex).split(",")[0]);
     try {
-      Board board = boardDao.selectOne(no);
+      Board board = null; //boardDao.selectOne(no);
       if (board == null) 
         return;
       
-      titleTF.setText(board.title);
-      contentTA.setText(board.contents);
+      titleTF.setText(board.getTitle());
+      contentTA.setText(board.getContents());
       passwordTF.setText(" ");
       passwordTF.setText("");
       
@@ -250,6 +248,19 @@ public class BoardPanel extends Panel implements ActionListener {
   
   private int getSelectedBoardNo() {
     return Integer.parseInt(boardLST.getSelectedItem().split(",")[0]);
+  }
+  
+  private Object send(String command) throws Exception {
+    try (
+      Socket socket = new Socket("localhost", 8888);
+      ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+      ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+    ) {
+      out.writeUTF(command);
+      out.flush();
+      
+      return in.readObject();
+    } 
   }
 }
 

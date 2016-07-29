@@ -85,7 +85,7 @@ public class MainApp extends Frame implements ActionListener {
     memberDao.setConnection(con);
     contactDao.setConnection(con);
 
-    boardPanel.setBoardDao(boardDao);
+    //boardPanel.setBoardDao(boardDao);
     projectPanel.setProjectDao(projectDao);
     memberPanel.setMemberDao(memberDao);
     contactPanel.setContactDao(contactDao);

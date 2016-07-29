@@ -24,9 +24,15 @@ public class ServerApp {
     System.out.println("서버 실행 중...");
     
     Socket socket;
+    RequestHandler handler;
+    
     while (true) {
       socket = serverSocket.accept();
-      new RequestHandler(socket).start(); 
+
+      handler = new RequestHandler();
+      handler.setSocket(socket);
+      handler.setBoardDao(boardDao);
+      handler.start();
     }
     
   }
