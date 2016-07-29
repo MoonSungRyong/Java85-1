@@ -14,9 +14,6 @@ public class ClientApp extends Frame implements ActionListener {
   private static final long serialVersionUID = 1L;
   
   BoardPanel boardPanel;
-  ProjectPanel projectPanel;
-  MemberPanel memberPanel;
-  ContactPanel contactPanel;
   
   CardLayout cardLayout = new CardLayout();
   
@@ -24,9 +21,6 @@ public class ClientApp extends Frame implements ActionListener {
     super("비트캠프 울트라 예제 v0.6 ");
 
     boardPanel = new BoardPanel();
-    projectPanel = new ProjectPanel();
-    memberPanel = new MemberPanel();
-    contactPanel = new ContactPanel();
     
     setLayout(cardLayout); // 레이아웃 관리자 교체: BorderLayout --> CardLayout
     prepareMenu();
@@ -73,9 +67,6 @@ public class ClientApp extends Frame implements ActionListener {
   
   private void preparePanels() {
     add(boardPanel, "board"); 
-    add(projectPanel, "project"); 
-    add(memberPanel, "member"); 
-    add(contactPanel, "contact"); 
   }
   
   @Override
