@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import step14.ex05.vo.Board;
+
 class RequestHandler extends Thread {
   BoardDao boardDao;
   Socket socket;
@@ -39,7 +41,19 @@ class RequestHandler extends Thread {
         int no = Integer.parseInt(paramMap.get("no"));
         String password = paramMap.get("password");
         out.writeObject(boardDao.selectOne(no, password));
+      
+      } else if (paramMap.get("path").equals("/board/delete.do")) {
+        int no = Integer.parseInt(paramMap.get("no"));
+        out.writeObject(boardDao.delete(no));
         
+      } else if (paramMap.get("path").equals("/board/update.do")) {
+        Board board = new Board();
+        board.setNo(Integer.parseInt(paramMap.get("no")));
+        board.setTitle(paramMap.get("title"));
+        board.setContents(paramMap.get("contents"));
+        
+        out.writeObject(boardDao.update(board));
+      
       } else {
         out.writeObject(new Exception("해당 명령을 지원하지 않습니다."));
       }
@@ -47,6 +61,7 @@ class RequestHandler extends Thread {
       
     } catch (Exception e) {
       System.out.println("클라이언트 요청을 처리하는 중에 오류 발생!");
+      e.printStackTrace();
       
     } finally {
       try {socket.close();} catch (Exception e) {}

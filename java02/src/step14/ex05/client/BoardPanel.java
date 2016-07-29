@@ -150,9 +150,10 @@ public class BoardPanel extends Panel implements ActionListener {
         return;
 
       try {
-        //boardDao.delete(getSelectedBoardNo());
+        send("/board/delete.do?no=" + getSelectedBoardNo());
         
       } catch (Exception ex) {
+        ex.printStackTrace();
         JOptionPane.showMessageDialog(null, "DB의 데이터 삭제 중 오류가 발생했습니다.");
       }
       cleanForm();
@@ -170,7 +171,8 @@ public class BoardPanel extends Panel implements ActionListener {
       board.setContents(contentTA.getText());
       
       try {
-        //boardDao.update(board);
+        send("/board/update.do?no=" + board.getNo() +
+             "&title=" + board.getTitle() + "&contents=" + board.getContents());
       } catch (Exception ex) {
         JOptionPane.showMessageDialog(null, "DB의 데이터 변경 중 오류가 발생했습니다.");
       }
