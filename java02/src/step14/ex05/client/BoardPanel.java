@@ -181,7 +181,9 @@ public class BoardPanel extends Panel implements ActionListener {
 
   private boolean checkAuth() {
     try {
-      Board board = null; //boardDao.selectOne(getSelectedBoardNo(), passwordTF.getText());
+      // => "/board/auth.do?no=9&password=1111"
+      Board board = (Board) send("/board/auth.do?no=" + getSelectedBoardNo() +
+                                 "&password=" + passwordTF.getText());
       if (board != null)
         return true;
     } catch (Exception ex) {

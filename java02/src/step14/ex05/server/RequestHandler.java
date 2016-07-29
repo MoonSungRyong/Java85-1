@@ -31,9 +31,14 @@ class RequestHandler extends Thread {
       if (paramMap.get("path").equals("/board/list.do")) {
         out.writeObject(boardDao.selectList());
         
-      } else if(paramMap.get("path").equals("/board/detail.do")) {
+      } else if (paramMap.get("path").equals("/board/detail.do")) {
         int no = Integer.parseInt(paramMap.get("no"));
         out.writeObject(boardDao.selectOne(no));
+        
+      } else if (paramMap.get("path").equals("/board/auth.do")) {
+        int no = Integer.parseInt(paramMap.get("no"));
+        String password = paramMap.get("password");
+        out.writeObject(boardDao.selectOne(no, password));
         
       } else {
         out.writeObject(new Exception("해당 명령을 지원하지 않습니다."));
