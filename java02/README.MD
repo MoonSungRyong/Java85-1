@@ -266,7 +266,10 @@
   CalcServer04.java : 4단계 - 동시 연결 허용
   CalcServer.java : 5단계 - Connectionful 방식을 Connectionless 방식으로 전환
 ### ex05/* : 게시판 => Application Server 도입
-  
+### ex06/* : 게시판 => 프록시 패턴 적용
+                       서버의 BoardDao를 직접 사용하는 듯한 효과를 얻기
+                       => BoardDao처럼 작업할 대리인(BoardDaoImpl)을 생성한다.
+                            
 - Exam093_*.java : 스레드 사용법
 - Exam094_*.java : 동기화, 세마포어(Semaphore), 뮤텍스(Mutex), 
                    크리티컬 섹션(Critical Section)

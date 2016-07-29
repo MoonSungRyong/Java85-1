@@ -123,8 +123,11 @@ public class BoardPanel extends Panel implements ActionListener {
       board.setPassword(passwordTF.getText());
       
       try {
-        //boardDao.insert(board);
+        send("/board/add.do?password=" + board.getPassword() +
+            "&title=" + board.getTitle() + "&contents=" + board.getContents());
+        
       } catch (Exception ex) {
+        ex.printStackTrace();
         JOptionPane.showMessageDialog(null, "DB에 저장하는 중 오류가 발생했습니다.");
       }
 
