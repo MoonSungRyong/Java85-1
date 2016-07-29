@@ -10,8 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import step14.ex05.MainApp;
-
 public class ClientApp extends Frame implements ActionListener {
   private static final long serialVersionUID = 1L;
   
@@ -87,7 +85,7 @@ public class ClientApp extends Frame implements ActionListener {
   }
   
   public static void main(String[] args) {
-    MainApp app = new MainApp();
+    ClientApp app = new ClientApp();
     app.setVisible(true);
   }
   

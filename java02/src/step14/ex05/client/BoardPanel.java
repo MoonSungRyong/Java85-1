@@ -226,7 +226,7 @@ public class BoardPanel extends Panel implements ActionListener {
   private void loadForm(int listItemIndex) {
     int no = Integer.parseInt(boardLST.getItem(listItemIndex).split(",")[0]);
     try {
-      Board board = null; //boardDao.selectOne(no);
+      Board board = (Board)send("/board/detail.do?no=" + no);
       if (board == null) 
         return;
       
@@ -253,13 +253,18 @@ public class BoardPanel extends Panel implements ActionListener {
   private Object send(String command) throws Exception {
     try (
       Socket socket = new Socket("localhost", 8888);
-      ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
       ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+      ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
     ) {
       out.writeUTF(command);
       out.flush();
       
-      return in.readObject();
+      Object result = in.readObject();
+      if (result instanceof Exception) {
+        throw (Exception)result;
+      }
+      
+      return result;
     } 
   }
 }
