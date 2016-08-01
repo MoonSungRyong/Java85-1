@@ -1,10 +1,4 @@
-//2단계: 명령어가 추가될 때 마다 그 명령어를 처리하는 메서드와 조건문을   
-//       추가해야 하는 문제 해결
-//       => 명령어를 처리하는 메서드를 객체화 시킨다.
-//       => 즉 명령어를 처리하는 메서드를 클래스로 단위로 포장한다.
-//       => 이점? 명령어를 추가할 때 마다 기존 코드의 변경을 최소화한다.
-//       => "Command" 패턴
-//
+//1단계: 요청을 처리하는 코드를 별도의 메서드로 분리하여 관리
 package step14.ex07.server;
 
 import java.io.IOException;
@@ -16,7 +10,7 @@ import java.util.Map;
 
 import step14.ex07.vo.Board;
 
-class RequestHandler extends Thread {
+class RequestHandler01 extends Thread {
   BoardDaoImpl boardDao;
   Socket socket;
   
@@ -66,6 +60,48 @@ class RequestHandler extends Thread {
     } finally {
       try {socket.close();} catch (Exception e) {}
     }
+  }
+
+  private void error(ObjectOutputStream out) throws IOException {
+    out.writeObject(new Exception("해당 명령을 지원하지 않습니다."));
+  }
+
+  private void boardAdd(ObjectOutputStream out, Map<String, String> paramMap) throws IOException, Exception {
+    Board board = new Board();
+    board.setPassword(paramMap.get("password"));
+    board.setTitle(paramMap.get("title"));
+    board.setContents(paramMap.get("contents"));
+    
+    out.writeObject(boardDao.insert(board));
+  }
+
+  private void boardUpdate(ObjectOutputStream out, Map<String, String> paramMap) throws IOException, Exception {
+    Board board = new Board();
+    board.setNo(Integer.parseInt(paramMap.get("no")));
+    board.setTitle(paramMap.get("title"));
+    board.setContents(paramMap.get("contents"));
+    
+    out.writeObject(boardDao.update(board));
+  }
+
+  private void boardDelete(ObjectOutputStream out, Map<String, String> paramMap) throws IOException, Exception {
+    int no = Integer.parseInt(paramMap.get("no"));
+    out.writeObject(boardDao.delete(no));
+  }
+
+  private void boardAuth(ObjectOutputStream out, Map<String, String> paramMap) throws IOException, Exception {
+    int no = Integer.parseInt(paramMap.get("no"));
+    String password = paramMap.get("password");
+    out.writeObject(boardDao.selectOne(no, password));
+  }
+
+  private void boardDetail(ObjectOutputStream out, Map<String, String> paramMap) throws IOException, Exception {
+    int no = Integer.parseInt(paramMap.get("no"));
+    out.writeObject(boardDao.selectOne(no));
+  }
+
+  private void boardList(ObjectOutputStream out) throws IOException, Exception {
+    out.writeObject(boardDao.selectList());
   }
 
   private Map<String, String> parseCommand(String command) {

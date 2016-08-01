@@ -269,6 +269,13 @@
 ### ex06/* : 게시판 => 프록시 패턴 적용
                        서버의 BoardDao를 직접 사용하는 듯한 효과를 얻기
                        => BoardDao처럼 작업할 대리인(BoardDaoImpl)을 생성한다.
+### ex07/* : 게시판 
+1단계) 각 요청을 처리하는 코드를 별도의 메서드로 분리한다.
+       => RequestHandler01.java 
+
+
+
+
                                 
 - Exam093_*.java : 스레드 사용법
 - Exam094_*.java : 동기화, 세마포어(Semaphore), 뮤텍스(Mutex), 
