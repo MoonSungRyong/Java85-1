@@ -269,7 +269,7 @@
 ### ex06/* : 게시판 => 프록시 패턴 적용
                        서버의 BoardDao를 직접 사용하는 듯한 효과를 얻기
                        => BoardDao처럼 작업할 대리인(BoardDaoImpl)을 생성한다.
-                            
+                                
 - Exam093_*.java : 스레드 사용법
 - Exam094_*.java : 동기화, 세마포어(Semaphore), 뮤텍스(Mutex), 
                    크리티컬 섹션(Critical Section)
@@ -300,6 +300,7 @@
 ## singleton : 싱글톤 패턴 소개
 - *.java
 
+## proxy : 프록시 패턴 소개
 
 # 알고리즘(java02/src/algorithms)
 ## sort.quick : 퀵 소트 소개
@@ -359,4 +360,22 @@ update boards set password = password('1111');
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   
+   
+   
    
