@@ -265,14 +265,24 @@
   CalcServer03.java : 3단계 - 순차적으로 여러 번의 연결 허용
   CalcServer04.java : 4단계 - 동시 연결 허용
   CalcServer.java : 5단계 - Connectionful 방식을 Connectionless 방식으로 전환
+
 ### ex05/* : 게시판 => Application Server 도입
+
 ### ex06/* : 게시판 => 프록시 패턴 적용
                        서버의 BoardDao를 직접 사용하는 듯한 효과를 얻기
                        => BoardDao처럼 작업할 대리인(BoardDaoImpl)을 생성한다.
-### ex07/* : 게시판 
+
+### ex07/* : 게시판 => 커맨드 패턴 적용 
 1단계) 각 요청을 처리하는 코드를 별도의 메서드로 분리한다.
        => RequestHandler01.java 
+2단계) 메서드를 클래스로 포장한다. 
+       => RequestHandler.java
+       => command/*Command.java
+       => ServerApp.java
 
+### ex08/* : 게시판 => 리플랙션 API 적용
+       => command-map.properties 파일 생성
+       => ServerApp.java 객체 자동 생성       
 
 
 
