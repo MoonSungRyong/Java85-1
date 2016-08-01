@@ -1,19 +1,15 @@
 package step14.ex08.server;
 
+import java.io.FileInputStream;
+import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
-
-import step14.ex08.server.command.BoardAddCommand;
-import step14.ex08.server.command.BoardAuthCommand;
-import step14.ex08.server.command.BoardDeleteCommand;
-import step14.ex08.server.command.BoardDetailCommand;
-import step14.ex08.server.command.BoardListCommand;
-import step14.ex08.server.command.BoardUpdateCommand;
-import step14.ex08.server.command.ErrorCommand;
+import java.util.Properties;
+import java.util.Set;
 
 public class ServerApp {
   BoardDaoImpl boardDao;
@@ -29,32 +25,32 @@ public class ServerApp {
     
     commandMap = new HashMap<>();
     
-    BoardListCommand boardListCommand = new BoardListCommand();
-    boardListCommand.setBoardDao(boardDao);
-    commandMap.put("/board/list.do", boardListCommand);
+    //1) command-map.properties 파일 읽기 
+    Properties props = new Properties();
+    props.load(new FileInputStream("command-map.properties"));
     
-    BoardAddCommand boardAddCommand = new BoardAddCommand();
-    boardAddCommand.setBoardDao(boardDao);
-    commandMap.put("/board/add.do", boardAddCommand);
+    //2) 프로퍼티 파일에서 읽은 클래스 이름으로 객체를 생성한 후 commandMap에 저장한다.
+    Set<Object> keySet = props.keySet();
+    String className;
+    Class<?> clazz;
+    Object obj;
+    Method m;
     
-    BoardUpdateCommand boardUpdateCommand = new BoardUpdateCommand();
-    boardUpdateCommand.setBoardDao(boardDao);
-    commandMap.put("/board/update.do", boardUpdateCommand);
+    for (Object key : keySet) {
+      className = ((String)props.get(key)).trim();
+      clazz = Class.forName(className);
+      obj = clazz.newInstance();
+      commandMap.put((String)key, (Command)obj);
+      
+      //boardDao를 주입한다.
+      //=> setBoardDao() 메서드를 찾아서 호출한다.
+      try {
+        m = clazz.getMethod("setBoardDao", BoardDao.class);
+        m.invoke(obj, boardDao); // ==> obj.setBoardDao(boardDao)
+      } catch (Exception e) {} // 메서드를 못 찾으면 예외 발생! ==> 무시한다.
+    }
     
-    BoardDeleteCommand boardDeleteCommand = new BoardDeleteCommand();
-    boardDeleteCommand.setBoardDao(boardDao);
-    commandMap.put("/board/delete.do", boardDeleteCommand);
     
-    BoardDetailCommand boardDetailCommand = new BoardDetailCommand();
-    boardDetailCommand.setBoardDao(boardDao);
-    commandMap.put("/board/detail.do", boardDetailCommand);
-    
-    BoardAuthCommand boardAuthCommand = new BoardAuthCommand();
-    boardAuthCommand.setBoardDao(boardDao);
-    commandMap.put("/board/auth.do", boardAuthCommand);
-    
-    ErrorCommand errorCommand = new ErrorCommand();
-    commandMap.put("error", errorCommand);
   }
   
   private void execute() throws Exception {
