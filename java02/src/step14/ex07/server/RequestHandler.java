@@ -7,25 +7,22 @@
 //
 package step14.ex07.server;
 
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import step14.ex07.vo.Board;
-
 class RequestHandler extends Thread {
-  BoardDaoImpl boardDao;
   Socket socket;
-  
-  public void setBoardDao(BoardDaoImpl boardDao) {
-    this.boardDao = boardDao;
-  }
+  Map<String,Command> commandMap;
   
   public void setSocket(Socket socket) {
     this.socket = socket;
+  }
+
+  public void setCommandMap(Map<String, Command> commandMap) {
+    this.commandMap = commandMap;
   }
 
   @Override
@@ -35,28 +32,15 @@ class RequestHandler extends Thread {
       ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
     ) {
       Map<String,String> paramMap = parseCommand(in.readUTF());
+      Command command = commandMap.get(paramMap.get("path"));
       
-      if (paramMap.get("path").equals("/board/list.do")) {
-        boardList(out);
+      if (command != null) {
+        command.service(out, paramMap);
         
-      } else if (paramMap.get("path").equals("/board/detail.do")) {
-        boardDetail(out, paramMap);
-        
-      } else if (paramMap.get("path").equals("/board/auth.do")) {
-        boardAuth(out, paramMap);
-      
-      } else if (paramMap.get("path").equals("/board/delete.do")) {
-        boardDelete(out, paramMap);
-        
-      } else if (paramMap.get("path").equals("/board/update.do")) {
-        boardUpdate(out, paramMap);
-      
-      } else if (paramMap.get("path").equals("/board/add.do")) {
-        boardAdd(out, paramMap);
-      
       } else {
-        error(out);
+        commandMap.get("error").service(out, paramMap);
       }
+      
       out.flush(); // 소켓 내부의 버퍼에 출력된 값을 클라이언트로 방출한다.
       
     } catch (Exception e) {
