@@ -283,13 +283,11 @@
 ### ex08/* : 게시판 => 리플랙션 API 적용
        => command-map.properties 파일 생성
        => ServerApp.java 객체 자동 생성       
-
-
-
                                 
 - Exam093_*.java : 스레드 사용법
 - Exam094_*.java : 동기화, 세마포어(Semaphore), 뮤텍스(Mutex), 
                    크리티컬 섹션(Critical Section)
+- Exam095_*.java : 리플랙션 API 사용법
 
 
 
