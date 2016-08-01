@@ -318,6 +318,11 @@
 - *.java
 
 ## proxy : 프록시 패턴 소개
+- *.java
+
+## command : 커맨드 패턴 소개
+- *.java
+
 
 # 알고리즘(java02/src/algorithms)
 ## sort.quick : 퀵 소트 소개
