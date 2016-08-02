@@ -319,7 +319,7 @@
 - *.java
 
 ## proxy : 프록시 패턴 소개
-- *.java
+- *.java 
 
 ## command : 커맨드 패턴 소개
 - *.java
