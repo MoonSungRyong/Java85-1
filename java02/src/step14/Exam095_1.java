@@ -10,7 +10,10 @@
 package step14;
 
 public class Exam095_1 {
+  //static Class class = Class.forName("step14.Exam095_1");
+  
   static class Student {
+    //static Class class = Class.forName("step14.Exam095_1$Student");
     String name;
     String tel;
     String email;
@@ -30,6 +33,7 @@ public class Exam095_1 {
     //3) 모든 클래스가 갖고 있는 기본 스태틱 변수를 통해 얻기 - class 변수
     Class c3 = Student.class;
     System.out.println(c3.getName());
+    System.out.println(Student.class.getName());
   }
 }
 

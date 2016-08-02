@@ -34,7 +34,8 @@ public class ServerApp {
     String className;
     Class<?> clazz;
     Object obj;
-    Method m;
+    Method[] methods;
+    Class[] paramTypes;
     
     for (Object key : keySet) {
       className = ((String)props.get(key)).trim();
@@ -42,11 +43,28 @@ public class ServerApp {
       obj = clazz.newInstance();
       commandMap.put((String)key, (Command)obj);
       
-      //boardDao를 주입한다.
-      //=> setBoardDao() 메서드를 찾아서 호출한다.
+      //Dao를 주입한다.
+      //=> 셋터 메서드를 찾아서 호출한다.
       try {
-        m = clazz.getMethod("setBoardDao", BoardDao.class);
-        m.invoke(obj, boardDao); // ==> obj.setBoardDao(boardDao)
+        methods = clazz.getMethods();
+        for (Method m : methods) {
+          if (!m.getName().startsWith("set"))
+            continue;
+          
+          paramTypes = m.getParameterTypes();
+          if (paramTypes.length != 1)
+            continue;
+          
+          if (paramTypes[0] == BoardDao.class) {
+            m.invoke(obj, boardDao);
+          } /*else if (paramTypes[0] == ProjectDao.class) {
+            m.invoke(obj, projectDao);
+          } else if (paramTypes[0] == MemberDao.class) {
+            m.invoke(obj, memberDao);
+          } else if (paramTypes[0] == ContactDao.class) {
+            m.invoke(obj, contactDao);
+          }*/
+        }
       } catch (Exception e) {} // 메서드를 못 찾으면 예외 발생! ==> 무시한다.
     }
     

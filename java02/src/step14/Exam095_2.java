@@ -26,6 +26,12 @@ public class Exam095_2 {
     for (Field f : fields) {
       System.out.printf("%s: %s\n", f.getName(), f.getType().getName());
     }
+    System.out.println("-----------------------");
+    
+    fields = c2.getFields();
+    for (Field f : fields) {
+      System.out.printf("%s: %s\n", f.getName(), f.getType().getName());
+    }
   }
 }
 
@@ -36,6 +42,10 @@ public class Exam095_2 {
  * => 클래스에 선언된 모든 필드의 정보를 리턴한다.
  * => 단 상속받은 필드는 제외한다.
  * => public, protected, default, private 필드 모두 리턴한다. 
+ * 
+ * Class.getFields()
+ * => 클래스에 선언된 모든 public 필드의 정보를 리턴한다.
+ * => 수퍼클래스로부터 상속받은 필드도 포함한다. 
  */
 
 
