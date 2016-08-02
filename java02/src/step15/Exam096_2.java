@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Exam091_6 {
+public class Exam096_2 {
 
   public static void main(String[] args) {
     Connection con = null;

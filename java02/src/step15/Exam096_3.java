@@ -25,7 +25,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public class Exam091_12 {
+public class Exam096_3 {
 
   public static void main(String[] args) {
     Scanner keyScan = new Scanner(System.in);
