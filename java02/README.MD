@@ -289,6 +289,9 @@
                    크리티컬 섹션(Critical Section)
 - Exam095_*.java : 리플랙션 API 사용법
 
+## step15(java02/src/step15)
+- Exam096_*.java : Mybatis 프레임워크 사용법
+
 
 
 # 디자인 패턴(java02/src/designpatterns)
@@ -320,6 +323,10 @@
 
 ## command : 커맨드 패턴 소개
 - *.java
+
+## builder : 빌더 패턴 소개
+
+
 
 
 # 알고리즘(java02/src/algorithms)
