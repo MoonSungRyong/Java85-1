@@ -1,5 +1,10 @@
 package designpatterns.builder;
 
 public abstract class Sunroof {
-  String model;
+  protected String model;
+
+  @Override
+  public String toString() {
+    return "Sunroof [model=" + model + "]";
+  }
 }

@@ -1,6 +1,11 @@
 package designpatterns.builder;
 
 public abstract class Engine {
-  String model;
-  int cc;
+  protected String model;
+  protected int cc;
+  
+  @Override
+  public String toString() {
+    return "Engine [model=" + model + ", cc=" + cc + "]";
+  }
 }
