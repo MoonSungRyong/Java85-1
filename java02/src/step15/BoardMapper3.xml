@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="step15sql">
+  <resultMap type="step15.Board" id="boardMap">
+    <!-- PK 컬럼은 id 태그를 사용해 정의한다. -->
+    <id column="no" property="no"/> 
+    
+    <!-- 컬럼이름과 프로퍼티 이름이 같을 경우 선언하지 않아도 된다. -->
+    <!--  
+    <result column="title" property="title"/> 
+    <result column="writer" property="writer"/>
+    <result column="password" property="password"/>
+    -->
+    
+    <!-- 컬럼 이름과 프로퍼티 이름이 다를 경우 다음과 같이 연결 정보를 설정한다. -->
+    <result column="conts" property="contents"/>
+    <result column="cre_dt" property="createdDate"/>
+    <result column="vw_cnt" property="viewCount"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="boardMap">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+  </select>
+  
+  <select id="selectList2" resultMap="boardMap">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+  </select>
+  
+  <select id="selectOne" resultMap="boardMap">
+    select no,title,cre_dt,vw_cnt,conts
+    from boards
+    where no = 1
+  </select>
+  
+  <select id="selectOne2" resultMap="boardMap" parameterType="int">
+    select no,title,cre_dt,vw_cnt,conts
+    from boards
+    where no = #{haha}
+  </select>
+  
+  <insert id="insert" parameterType="board">
+    insert into boards(title, conts, password, cre_dt)
+    values(#{title}, #{contents}, #{password}, now())
+  </insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

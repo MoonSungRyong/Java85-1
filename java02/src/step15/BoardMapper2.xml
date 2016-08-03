@@ -3,29 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="step15sql">
-  <select id="selectList" resultType="step15.Board">
+  <select id="selectList" resultType="board">
     select no,title,cre_dt,vw_cnt 
     from boards
   </select>
   
-  <select id="selectList2" resultType="step15.Board">
+  <select id="selectList2" resultType="board">
     select no, title, cre_dt as createdDate, vw_cnt viewCount 
     from boards
   </select>
   
-  <select id="selectOne" resultType="step15.Board">
+  <select id="selectOne" resultType="board">
     select no, title, cre_dt as createdDate, vw_cnt viewCount, conts contents
     from boards
     where no = 1
   </select>
   
-  <select id="selectOne2" resultType="step15.Board" parameterType="int">
+  <select id="selectOne2" resultType="board" parameterType="int">
     select no, title, cre_dt as createdDate, vw_cnt viewCount, conts contents
     from boards
     where no = #{haha}
   </select>
   
-  <insert id="insert" parameterType="step15.Board">
+  <insert id="insert" parameterType="board">
     insert into boards(title, conts, password, cre_dt)
     values(#{title}, #{contents}, #{password}, now())
   </insert>
