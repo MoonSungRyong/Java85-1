@@ -1,6 +1,5 @@
-/* 주제: Mybatis - 입력하기
- */
-package step15;
+/* 주제: Mybatis - 변경하기 */
+package step15.ex01;
 
 import java.io.InputStream;
 
@@ -9,22 +8,23 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class Exam096_3 {
+public class BoardUpdate {
 
   public static void main(String[] args) throws Exception {
-    InputStream inputStream = Resources.getResourceAsStream("step15/mybatis-config.xml");
+    InputStream inputStream = Resources.getResourceAsStream("step15/ex01/mybatis-config.xml");
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
     
     Board board = new Board();
-    board.setTitle("테스트입니다.");
-    board.setContents("내용입니다....");
+    board.setNo(32);
+    board.setTitle("테스트입니다.xxxxx");
+    board.setContents("내용입니다....xxxxx");
     board.setPassword("1111");
     
-    sqlSession.insert("step15sql.insert", board);
+    sqlSession.update("step15sql.update", board);
     
     sqlSession.close();
-    System.out.println("입력 성공입니다!");
+    System.out.println("변경 성공입니다!");
   }
 
 }

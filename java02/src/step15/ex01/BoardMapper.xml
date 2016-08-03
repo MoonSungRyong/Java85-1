@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="step15sql">
+  <insert id="insert" parameterType="step15.ex01.Board">
+	  insert into boards(title, conts, cre_dt, password) 
+	  values(#{title}, #{contents}, now(), password(#{password}))
+  </insert>
+  
+  <select id="selectList" resultType="step15.ex01.Board">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+  </select>
+  
+  <!-- 컬럼의 별명을 지정한다. 객체의 프로퍼티 이름과 같게 한다. -->
+  <select id="selectList2" resultType="step15.ex01.Board">
+    select no, title, cre_dt as createdDate, vw_cnt as viewCount 
+    from boards
+  </select>
+  
+  <select id="selectOne" resultType="step15.ex01.Board" parameterType="int">
+    select no,title,conts,cre_dt,vw_cnt 
+    from boards 
+    where no=#{value}
+  </select>
+  
+  <select id="selectOneByPassword" resultType="step15.ex01.Board" parameterType="map">
+    select no,title,conts,cre_dt,vw_cnt 
+    from boards 
+    where no=#{no} and password=password(#{password})
+  </select>
+  
+  <update id="update" parameterType="step15.ex01.Board">
+    update boards set 
+      title=#{title}, 
+      conts=#{contents} 
+    where no=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from boards 
+    where no=#{value}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

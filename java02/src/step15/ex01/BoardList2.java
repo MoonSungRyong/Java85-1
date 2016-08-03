@@ -1,6 +1,6 @@
 /* 주제: Mybatis - 결과를 가져오기(컬럼과 프로퍼티 이름이 다른 경우 해결책)
  */
-package step15;
+package step15.ex01;
 
 import java.io.InputStream;
 import java.util.List;
@@ -10,10 +10,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class Exam096_2x {
+public class BoardList2 {
 
   public static void main(String[] args) throws Exception {
-    InputStream inputStream = Resources.getResourceAsStream("step15/mybatis-config.xml");
+    InputStream inputStream = Resources.getResourceAsStream("step15/ex01/mybatis-config.xml");
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     SqlSession sqlSession = sqlSessionFactory.openSession();
     

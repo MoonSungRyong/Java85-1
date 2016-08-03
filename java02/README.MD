@@ -290,6 +290,7 @@
 - Exam095_*.java : 리플랙션 API 사용법
 
 ## step15(java02/src/step15)
+### ex01/* : 게시판 예제에 Mybatis 프레임워크 적용
 - Exam096_*.java : Mybatis 프레임워크 사용법
 
 

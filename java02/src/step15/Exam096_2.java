@@ -1,4 +1,4 @@
-/* 주제: Mybatis - 결과를 가져오기 */
+/* 주제: Mybatis - SQL 실행하기 */
 package step15;
 
 import java.io.InputStream;
@@ -12,29 +12,24 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class Exam096_2 {
 
   public static void main(String[] args) throws Exception {
-    InputStream inputStream = Resources.getResourceAsStream("step15/mybatis-config.xml");
-    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(
+          Resources.getResourceAsStream("step15/mybatis-config.xml"));
     SqlSession sqlSession = sqlSessionFactory.openSession();
     
-    // SELECT 문 실행
-    // 1) selectList()  => 결과가 여러 개일 경우에 사용. List를 리턴한다.
-    // 2) selectOne()   => 결과가 단 한 개일 때 사용. 지정된 객체를 리턴한다.
+    // 1) selectList("SQL 아이디", 데이터객체) 
+    //    => SELECT 문을 실행할 때 사용한다.
+    //    => 리턴 값은 List 객체이다.
+    //    => SQL 아이디 = [SQL Mapper 파일의 namespace] + "." + [SQL 태그의 아이디]
     //
-    // 파라미터 문법
-    // => "네임스페이스이름.SQL아이디"
-    //
-    // 결과 
-    // => 컬럼 값은 컬럼 이름과 일치하는 프로퍼티에 저장한다.
-    // => 만약 컬럼 이름과 일치하는 프로퍼티를 찾을 수 없다면 그 컬럼의 값은 객체에 저장되지 않는다.
-    // 
-    // 컬럼 이름과 프로퍼티 이름이 다른 경우,
-    // => 컬럼에 프로퍼티 이름과 같은 별명을 부여하라!
-    //
-    // 다음 코드는 컬럼과 프로퍼티 이름이 같지 않는 경우이다.
-    // 예) cre_dt ---> createdDate, vw_cnt ---> viewCount
-    // 그래서 게시물 등록일과 조회수가 제대로 출력되지 않는다.
     List<Board> list = sqlSession.selectList("step15sql.selectList");
     
+    // 2) 리턴 값 "List"에 저장된 개체(Board)는 어떻게 결정되는가?
+    //    => SQL 맵퍼 파일의 <select> 태그에서 resultType 또는 resultMap 속성에 
+    //       지정한 클래스가 List에 저장되는 객체이다.
+    //    => mybatis는 select를 실행한 후 그 결과를 resultType 또는 resultMap에 지정한 
+    //       객체 담는다. 
+    //       그리고 그 객체를 List에 담아서 리턴한다.
+    //       
     for (Board b : list) {
       System.out.printf("%d, %s, %s, %d\n", 
             b.getNo(), b.getTitle(), b.getCreatedDate(), b.getViewCount());
@@ -46,7 +41,23 @@ public class Exam096_2 {
 }
 
 
-
+/* SQL 맵퍼 파일의 namespace?
+ * 예) <mapper namespace="step15sql">
+ * 
+ * SQL 태그의 아이디?
+ * 예) <select id="selectList" ...>
+ * 
+ * SQL 아이디?
+ * => "step15sql" + "." + "selectList" => "step15sql.selectList"
+ * 
+ * SQL 맵퍼 파일이 namespace가 존재하는 이유?
+ * => SQL문을 그룹으로 묶어 관리하기 위함.
+ * 
+ * selectList()가 리턴한 List에 저장되는 값은?
+ * => <select> 태그의 resultType/resultMap 속성에 지정된 객체이다.
+ * 예) <select ... resultType="step15.Board">
+ * 
+ */
 
 
 
