@@ -1,5 +1,5 @@
-/* 주제: Mybatis - 조건에 따라 검색 조건 바꾸기 
- * => SQL문을 동적으로 만들기
+/* 주제: Mybatis - 조건에 따라 정렬 조건 바꾸기 
+ * => order by SQL문을 동적으로 만들기
  */
 package step15;
 
@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class Exam096_13 {
+public class Exam096_14 {
 
   public static void main(String[] args) throws Exception {
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(
@@ -19,10 +19,9 @@ public class Exam096_13 {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     
     HashMap<String,Object> params = new HashMap<>();
-    params.put("title", "목");
-    params.put("writer", "홍길동");
+    //params.put("noOrder", "asc");
     
-    List<Board> list = sqlSession.selectList("step15sql.selectList6", params);
+    List<Board> list = sqlSession.selectList("step15sql.selectList7", params);
     
     for (Board b : list) {
       System.out.printf("%d, %s, %s, %d\n", 

@@ -65,6 +65,37 @@
     order by no desc
   </select>
   
+  <!-- 동적 SQL 문 만들기
+    => 조건에 따라 SQL문을 추가하고 삭제할 수 있다. 
+    => 그러기 위해서는 mybatis에서 제공하는 특별한 태그를 사용해야 한다.
+   -->
+  <select id="selectList6" resultMap="boardMap" parameterType="map">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+    <where>
+      <if test="title != null">title like concat('%', #{title}, '%')</if>
+      <if test="writer != null">and writer like concat('%', #{writer}, '%')</if>
+    </where>
+    order by no desc
+  </select>
+  
+  <!-- 동적 SQL문 만들기2 -->
+  <select id="selectList7" resultMap="boardMap" parameterType="map">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+    order by 
+    <choose>
+      <when test="titleOrder == 'asc'">title asc</when>
+      <when test="titleOrder == 'desc'">title desc</when>
+      <when test="writerOrder == 'asc'">writer asc</when>
+      <when test="writerOrder == 'desc'">writer desc</when>
+      <when test="viewCountOrder == 'asc'">vw_cnt asc</when>
+      <when test="viewCountOrder == 'desc'">vw_cnt desc</when>
+      <when test="noOrder == 'asc'">no asc</when>
+      <otherwise>no desc</otherwise>
+    </choose>
+  </select>
+  
   <select id="selectOne" resultMap="boardMap">
     select no,title,cre_dt,vw_cnt,conts
     from boards
