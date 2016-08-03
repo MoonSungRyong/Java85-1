@@ -7,6 +7,23 @@
     select no,title,cre_dt,vw_cnt 
     from boards
   </select>
+  
+  <select id="selectList2" resultType="step15.Board">
+    select no, title, cre_dt as createdDate, vw_cnt viewCount 
+    from boards
+  </select>
+  
+  <select id="selectOne" resultType="step15.Board">
+    select no, title, cre_dt as createdDate, vw_cnt viewCount, conts contents
+    from boards
+    where no = 1
+  </select>
+  
+  <select id="selectOne2" resultType="step15.Board" parameterType="int">
+    select no, title, cre_dt as createdDate, vw_cnt viewCount, conts contents
+    from boards
+    where no = #{haha}
+  </select>
 </mapper>
 
 
