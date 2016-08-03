@@ -30,6 +30,41 @@
     from boards
   </select>
   
+  <!-- 페이지 처리 추가 
+       limit [시작인덱스], [결과 개수]
+  -->
+  <select id="selectList3" resultMap="boardMap" parameterType="map">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+    order by no desc
+    limit #{startIndex}, #{length}
+  </select>
+  
+  <!-- 검색 조건 추가 
+    1) like 'test'     => 제목이 'test'인 것을 찾는다.
+    2) like 'test%'    => 제목이 'test'로 시작하는 것을 찾는다.
+    3) like '%test'    => 제목이 'test'로 끝나는 것을 찾는다.
+    4) like '%test%'   => 제목에 'test' 문자열을 포함하는 것을 찾는다. 
+  -->
+  <select id="selectList4" resultMap="boardMap" parameterType="map">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+    where title like concat('%',#{search},'%')
+    order by no desc
+  </select>
+  
+  <!-- 정렬 조건 추가하기 
+    order by 컬럼명 (asc)  => 오름차순 정렬
+    order by 컬럼명 asc    => 오름차순 정렬
+    order by 컬럼명 desc   => 내림차순 정렬
+    order by 컬럼명 정렬타입, 컬럼명 정렬타입, 컬럼명 정렬타입, ...
+  -->
+  <select id="selectList5" resultMap="boardMap" parameterType="map">
+    select no,title,cre_dt,vw_cnt 
+    from boards
+    order by no desc
+  </select>
+  
   <select id="selectOne" resultMap="boardMap">
     select no,title,cre_dt,vw_cnt,conts
     from boards
