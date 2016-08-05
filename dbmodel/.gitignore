@@ -1,0 +1,9 @@
+/bin/
+/.settings/
+/.gradle/
+/.classpath
+/.project
+*.out
+*.dat
+*.pdf
+*.jpg
