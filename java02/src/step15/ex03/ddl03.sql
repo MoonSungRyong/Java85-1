@@ -36,6 +36,11 @@ insert into test008 values('u1', 'aaa', 'aaa@test.com');
 insert into test008 values('u2', 'bbb', 'bbb@test.com');
 insert into test008 values('u3', 'ccc', 'aaa@test.com');
 
+insert into test008 values('u4', '류세현', 'ryu@bitcamp.com');
+insert into test008 values('u5', '손덕현', 'son@bitcamp.com');
+insert into test008 values('u6', '한동수', 'han@bitcamp.com');
+insert into test008 values('u7', '홍길동', 'hong@bitcamp.com');
+insert into test008 values('u8', '임꺽정', 'leem@bitcamp.com');
 
 
 
