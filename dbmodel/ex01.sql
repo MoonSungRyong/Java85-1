@@ -87,7 +87,7 @@ CREATE TABLE BIT_STDS (
 	SCHL     VARCHAR(50)  NOT NULL COMMENT '학교명', -- 학교명
 	ED_DT    DATE         NOT NULL COMMENT '졸업년도', -- 졸업년도
 	WORK     CHAR(1)      NOT NULL COMMENT '재직여부', -- 재직여부
-	COMP     VARCHAR(50)  NOT NULL COMMENT '회사명', -- 회사명
+	COMP     VARCHAR(50)  NULL COMMENT '회사명', -- 회사명
 	POSI     VARCHAR(50)  NULL     COMMENT '직급', -- 직급
 	CTEL     VARCHAR(30)  NULL     COMMENT '회사전화', -- 회사전화
 	CFAX     VARCHAR(30)  NULL     COMMENT '회사팩스', -- 회사팩스
