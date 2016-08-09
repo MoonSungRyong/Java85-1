@@ -294,7 +294,7 @@
 ### ex01/* : 게시판 예제에 Mybatis 프레임워크 적용
 ### ex02/* : AWT 게시판에 Mybatis 프레임워크 적용
 ### ex03/* : SQL 사용법 - DDL, DML, DQL
-### ex04/* : 조인과 서브쿼리 
+### ex04/* : 조인과 서브쿼리, 그룹 및 집계 함수 
 
 
 # 디자인 패턴(java02/src/designpatterns)
