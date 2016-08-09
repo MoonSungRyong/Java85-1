@@ -22,6 +22,9 @@ DROP TABLE IF EXISTS BIT_APPLS RESTRICT;
 -- 과정학습모듈
 DROP TABLE IF EXISTS BIT_CO_MODS RESTRICT;
 
+-- 회원사진
+DROP TABLE IF EXISTS BIT_MEMB_PHOS RESTRICT;
+
 -- 교육과정
 CREATE TABLE BIT_COURS (
 	CONO  INTEGER      NOT NULL COMMENT '교육과정번호', -- 교육과정번호
@@ -87,7 +90,7 @@ CREATE TABLE BIT_STDS (
 	SCHL     VARCHAR(50)  NOT NULL COMMENT '학교명', -- 학교명
 	ED_DT    DATE         NOT NULL COMMENT '졸업년도', -- 졸업년도
 	WORK     CHAR(1)      NOT NULL COMMENT '재직여부', -- 재직여부
-	COMP     VARCHAR(50)  NULL COMMENT '회사명', -- 회사명
+	COMP     VARCHAR(50)  NULL     COMMENT '회사명', -- 회사명
 	POSI     VARCHAR(50)  NULL     COMMENT '직급', -- 직급
 	CTEL     VARCHAR(30)  NULL     COMMENT '회사전화', -- 회사전화
 	CFAX     VARCHAR(30)  NULL     COMMENT '회사팩스', -- 회사팩스
@@ -172,11 +175,6 @@ ALTER TABLE BIT_APPLS
 			CONO  -- 교육과정번호
 		);
 
--- 강사배정
-CREATE TABLE TABLE8 (
-)
-COMMENT '강사배정';
-
 -- 과정학습모듈
 CREATE TABLE BIT_CO_MODS (
 	CONO INTEGER NOT NULL COMMENT '교육과정번호', -- 교육과정번호
@@ -192,6 +190,24 @@ ALTER TABLE BIT_CO_MODS
 			CONO, -- 교육과정번호
 			SMNO  -- 학습모듈번호
 		);
+
+-- 회원사진
+CREATE TABLE BIT_MEMB_PHOS (
+	MPNO      INTEGER      NOT NULL COMMENT '회원사진번호', -- 회원사진번호
+	MNO       INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
+	PHOT_PATH VARCHAR(255) NOT NULL COMMENT '사진' -- 사진
+)
+COMMENT '회원사진';
+
+-- 회원사진
+ALTER TABLE BIT_MEMB_PHOS
+	ADD CONSTRAINT PK_BIT_MEMB_PHOS -- 회원사진 Primary key
+		PRIMARY KEY (
+			MPNO -- 회원사진번호
+		);
+
+ALTER TABLE BIT_MEMB_PHOS
+	MODIFY COLUMN MPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원사진번호';
 
 -- 교육과정
 ALTER TABLE BIT_COURS
@@ -281,4 +297,14 @@ ALTER TABLE BIT_CO_MODS
 		)
 		REFERENCES BIT_TCHS ( -- 강사
 			TNO -- 강사번호
+		);
+
+-- 회원사진
+ALTER TABLE BIT_MEMB_PHOS
+	ADD CONSTRAINT FK_BIT_MEMBS_TO_BIT_MEMB_PHOS -- 회원 -> 회원사진
+		FOREIGN KEY (
+			MNO -- 회원번호
+		)
+		REFERENCES BIT_MEMBS ( -- 회원
+			MNO -- 회원번호
 		);
