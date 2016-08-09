@@ -1,0 +1,29 @@
+/* OUTER 조인
+ * =>  
+ */
+
+/* BIT_MEMBS(회원정보) --- BIT_MEMB_PHOS(회원사진)
+ * => 모든 회원의 이름과 사진 파일명을 출력하라!
+ */
+SELECT T1.MNO, T1.MNM, T2.PHOT_PATH
+FROM BIT_MEMBS T1, BIT_MEMB_PHOS T2
+WHERE T1.MNO = T2.MNO;
+
+SELECT T1.MNO, T1.MNM, T2.PHOT_PATH
+FROM BIT_MEMBS T1 LEFT OUTER JOIN BIT_MEMB_PHOS T2 ON T1.MNO = T2.MNO;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
