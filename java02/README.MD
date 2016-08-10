@@ -296,6 +296,11 @@
 ### ex03/* : SQL 사용법 - DDL, DML, DQL
 ### ex04/* : 조인과 서브쿼리, 그룹 및 집계 함수 
 
+## step16(java02/src/step16)
+=> Spring IoC Container를 이용하여 객체 관리하기
+### ex01/* : IoC Container 만들기
+### ex02/* : Spring IoC Container 적용하기
+
 
 # 디자인 패턴(java02/src/designpatterns)
 ## factorymethod : 팩토리 메서드 패턴 소개
