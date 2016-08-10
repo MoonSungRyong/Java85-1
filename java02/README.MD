@@ -299,7 +299,9 @@
 ## step16(java02/src/step16)
 => Spring IoC Container를 이용하여 객체 관리하기
 ### ex01/* : IoC Container 만들기
-### ex02/* : Spring IoC Container 적용하기
+- Exam097_*.java : 애노테이션 사용법
+### ex02/* : IoC Container에 애노테이션 적용하기
+### ex03/* : Spring IoC Container 적용하기
 
 
 # 디자인 패턴(java02/src/designpatterns)
