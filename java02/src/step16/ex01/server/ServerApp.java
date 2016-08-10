@@ -1,77 +1,16 @@
 package step16.ex01.server;
 
-import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class ServerApp {
-  BoardDaoImpl boardDao;
-  Map<String,Command> commandMap;
+  ApplicationContext iocContainer ;
   
   public ServerApp() throws Exception {
-    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(
-        Resources.getResourceAsStream("step16/ex01/server/mybatis-config.xml")); 
-    
-    boardDao = new BoardDaoImpl();
-    boardDao.setSqlSessionFactory(sqlSessionFactory); 
-    
-    commandMap = new HashMap<>();
-    
-    ApplicationContext ctx = new ApplicationContext("step16/ex01/server/command-map.properties");
-    
-    //1) command-map.properties 파일 읽기 
-    Properties props = new Properties();
-    props.load(Resources.getResourceAsStream("step16/ex01/server/command-map.properties"));
-    
-    //2) 프로퍼티 파일에서 읽은 클래스 이름으로 객체를 생성한 후 commandMap에 저장한다.
-    Set<Object> keySet = props.keySet();
-    String className;
-    Class<?> clazz;
-    Object obj;
-    Method[] methods;
-    Class[] paramTypes;
-    
-    for (Object key : keySet) {
-      className = ((String)props.get(key)).trim();
-      clazz = Class.forName(className);
-      obj = clazz.newInstance();
-      commandMap.put((String)key, (Command)obj);
-      
-      //Dao를 주입한다.
-      //=> 셋터 메서드를 찾아서 호출한다.
-      try {
-        methods = clazz.getMethods();
-        for (Method m : methods) {
-          if (!m.getName().startsWith("set"))
-            continue;
-          
-          paramTypes = m.getParameterTypes();
-          if (paramTypes.length != 1)
-            continue;
-          
-          if (paramTypes[0] == BoardDao.class) {
-            m.invoke(obj, boardDao);
-          } /*else if (paramTypes[0] == ProjectDao.class) {
-            m.invoke(obj, projectDao);
-          } else if (paramTypes[0] == MemberDao.class) {
-            m.invoke(obj, memberDao);
-          } else if (paramTypes[0] == ContactDao.class) {
-            m.invoke(obj, contactDao);
-          }*/
-        }
-      } catch (Exception e) {} // 메서드를 못 찾으면 예외 발생! ==> 무시한다.
-    }
-    
-    
-  }
+    // IoC Container 준비하기
+    iocContainer = new ApplicationContext("step16/ex01/server/application-context.properties");
+    //iocContainer.print();
+   }
   
   private void execute() throws Exception {
     ServerSocket serverSocket = new ServerSocket(8888);
@@ -85,7 +24,7 @@ public class ServerApp {
 
       handler = new RequestHandler();
       handler.setSocket(socket); // 클라이언트와 통신할 소켓을 주입하고,
-      handler.setCommandMap(commandMap); // 명령어 처리 객체가 들어있는 맵을 전달한다.
+      handler.setApplicationContext(iocContainer); // 명령어 처리 객체가 들어있는 IoC 컨테이너를 전달한다.
       handler.start();
     }
     

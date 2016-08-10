@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
@@ -82,21 +83,50 @@ public class ApplicationContext {
     
     String className;
     Class<?> clazz;
+    Object instance;
     
     for (Object key : keyList) {
       className = (String)props.get(key);
-      clazz = Class.forName(className);
-      beanContainer.put((String)key, clazz.newInstance());
+      clazz = Class.forName(className.trim());
+      instance = clazz.newInstance();
+      
+      // FactoryBean 구현체인 경우, 
+      // 그 구현체를 직접 저장하기 보다는
+      // 그 구현체가 생성한 객체를 사용해야 한다.
+      if (FactoryBean.class.isInstance(instance)) {
+        beanContainer.put((String)key, ((FactoryBean)instance).getObject());
+      } else {
+        beanContainer.put((String)key, instance);
+      }
     }
   }
 
-
-
   public void addBean(String key, Object instance) {
-    
+    beanContainer.put(key, instance);
   }
   
   public Object getBean(String key) {
-    return null;
+    return beanContainer.get(key);
+  }
+  
+  public void print() {
+    Set<Entry<String,Object>> entrySet = beanContainer.entrySet();
+    for (Entry<String,Object> entry : entrySet) {
+      System.out.printf("%s=%s\n", entry.getKey(), entry.getValue().getClass().getName());
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

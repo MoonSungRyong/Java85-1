@@ -15,14 +15,14 @@ import java.util.Map;
 
 class RequestHandler extends Thread {
   Socket socket;
-  Map<String,Command> commandMap;
+  ApplicationContext applicationContext;
   
   public void setSocket(Socket socket) {
     this.socket = socket;
   }
 
-  public void setCommandMap(Map<String, Command> commandMap) {
-    this.commandMap = commandMap;
+  public void setApplicationContext(ApplicationContext applicationContext) {
+    this.applicationContext = applicationContext;
   }
 
   @Override
@@ -32,13 +32,13 @@ class RequestHandler extends Thread {
       ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
     ) {
       Map<String,String> paramMap = parseCommand(in.readUTF());
-      Command command = commandMap.get(paramMap.get("path"));
+      Command command = (Command)applicationContext.getBean(paramMap.get("path"));
       
       if (command != null) {
         command.service(out, paramMap);
         
       } else {
-        commandMap.get("error").service(out, paramMap);
+        ((Command)applicationContext.getBean("error")).service(out, paramMap);
       }
       
       out.flush(); // 소켓 내부의 버퍼에 출력된 값을 클라이언트로 방출한다.
