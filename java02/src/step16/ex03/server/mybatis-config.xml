@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- 값 객체로 사용할 클래스에 대해 짧은 별명을 지정한다. -->
+  <typeAliases>
+    <typeAlias type="step16.ex03.vo.Board" alias="board"/>
+  </typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/java85db"/>
+        <property name="username" value="java85"/>
+        <property name="password" value="1111"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers> <!-- SQL이 들어있는 파일의 경로. 기준 디렉토리는 classpath 이다. -->
+    <mapper resource="step16/ex03/server/BoardMapper.xml"/>
+  </mappers>
+</configuration>
+
+
+
+
+
+
