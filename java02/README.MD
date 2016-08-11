@@ -302,6 +302,9 @@
 ### ex02/* : 애노테이션 사용법
 ### ex03/* : IoC Container에 애노테이션 적용하기
 ### ex04/* : Spring IoC Container 적용하기
+- spring-context 라이브러리 다운로드
+- 프로젝트 build path에 spring-context 라이브러리 경로 추가
+- ServerApp.java 에 spring-context 적용 
 
 
 # 디자인 패턴(java02/src/designpatterns)
