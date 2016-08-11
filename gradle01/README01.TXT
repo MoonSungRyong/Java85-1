@@ -1,0 +1,27 @@
+[Gradle 자바 프로젝트 폴더 만들기]
+1. 소스 폴더 생성
+=> Gradle 기본 소스 폴더 구조에 맞춰 디렉토리를 생성한다.
+=> Gradle 기본 소스 폴더 구조
+  src/main   => 자바 애플리케이션을 위한 소스 폴더
+          /java         => .java 소스 파일을 두는 폴더
+          /resources    => .properties, .xml, .txt 등 기타 파일 두는 폴더
+     /test   => 단위 테스트 관련 파일을 두는 폴더
+          /java         => 단위 테스트 자바 소스 파일을 두는 폴더
+          /resources    => 단위 테스트 관련 기타 파일을 두는 폴더
+2. 소스 폴더 커스터마이징
+만약 Gradle 기본 소스 폴더와 다른 구조로 만들고 싶다면
+다음과 같이 Gradle 설정 파일에 그 구조를 등록해야 한다.
+  sourceSets {
+      main {
+          java {
+              srcDir 'src'
+          }
+          resources {
+              srcDir 'src'
+          }
+      }
+  }
+
+* 제안
+- Gradle은 Maven과 동일한 소스 폴더 구조를 갖는다.
+- 다른 개발자와 원활한 의사소통을 위하여 가능한 기본 폴더 구조를 유지하라.
