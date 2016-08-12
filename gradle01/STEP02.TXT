@@ -1,0 +1,54 @@
+[자바 컴파일하기]
+1. 자바 컴파일할 때 사용할 작업을 추가해야 한다.
+=> build.gradle(설정파일)에 자바 빌드 관련 "Gradle 플러그인"을 추가한다.
+=> 플러그인을 추가하면 그 플러그인에 정의된 작업을 실행할 수 있다.
+=> 사용할 수 있는 모든 작업 목록 보기
+  > gradle tasks --all
+
+2. 'java' 플러그인 작업들
+=> compileJava
+  - src/main/java 폴더에 있는 소스 파일을 컴파일하여
+    build/classes/main 폴더에 .class 파일을 놓는다.
+=> clean
+  - build 폴더를 삭제한다.
+=> processResources
+  - src/main/resources 폴더에 있는 모든 파일을
+    build/resources/main 폴더에 복사한다.
+=> classes
+  - compileJava + processResource 명령 실행
+=> compileTestJava
+  - src/test/java 폴더에 있는 소스 파일을 컴파일하여
+    build/classes/test 폴더에 .class 파일을 놓는다.
+  - 포함 작업
+    compileJava -> processResources -> classes
+=> processTestResources
+  - src/test/resources 폴더에 있는 모든 파일을
+    build/resources/test 폴더에 복사한다.
+  - 포함작업
+    없다
+=> jar
+  - compileJava + processResources + classes
+  - build/libs/프로젝트명.jar 파일 생성
+=> build
+  - 빌드 모든 과정을 수행한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

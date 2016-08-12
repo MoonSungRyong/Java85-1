@@ -25,3 +25,26 @@
 * 제안
 - Gradle은 Maven과 동일한 소스 폴더 구조를 갖는다.
 - 다른 개발자와 원활한 의사소통을 위하여 가능한 기본 폴더 구조를 유지하라.
+
+3. Gradle 설정 파일을 만든다.
+=> 프로젝트폴더/build.gradle
+
+4. Gradle 실행
+=> Gradle 작업 실행하기
+  gradle 작업명
+=> 현재 Gradle로 작업 가능한 목록을 알아내기
+  gradle tasks
+=> Gradle 기본 설정 파일을 자동 생성하기
+  gradle init
+
+
+
+
+
+
+
+
+
+
+
+//

@@ -1,0 +1,4 @@
+//apply plugin: 'Gradle 플러그인 이름'
+//apply plugin: "Gradle 플러그인 이름"
+//Groovy 언어에서는 문자열을 표현할 때 작은 따옴표도 사용한다.
+apply plugin: 'java'  // 자바 Gradle 플러그인 추가 
