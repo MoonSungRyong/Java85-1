@@ -1,0 +1,2 @@
+apply plugin: 'java'      // 자바 Gradle 플러그인 추가
+apply plugin: 'eclipse'   // 이클립스 Gradle 플러그인 추가

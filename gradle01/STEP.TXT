@@ -1,44 +1,9 @@
-[이클립스 프로젝트로 만들기]
-=> 이클립스 관련 파일을 생성해야 한다.
-   예) .project, .classpath, .settings/ 등
-1. 이클립스 작업을 추가해야 한다.
-=> build.gradle(설정파일)에 이클립스 플러그인 추가한다.
-=> 사용할 수 있는 모든 작업 목록 보기
-  > gradle tasks --all
+[컴파일 옵션 지정하기]
 
-2. 'eclipse' 프러그인 작업들
-=> eclipseProject
-  - 이클립스에서 사용할 .project 파일 생성
-=> cleanEclipseProject
-  - .project 파일 삭제
-=> eclipseClasspath
-  - 자바 클래스경로를 지정하는 .classpath 파일 생성
-=> cleanEclipseClasspath
-  - .classpath 파일 삭제
-=> eclipseJdt
-  - 이클립스의 JDT 플러그인에 대한 설정 파일(.settings/*) 생성
-=> cleanEclipseJdt
-  - .settings/* 파일 삭제
-=> eclipse
-  - eclipseProject + eclipseClasspath + eclipseJdt
-=> cleanEclipse
-  - cleanEclipseXxx 작업들 실행
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+1. 소스 파일의 인코딩 지정하기
+=> build.gradle 파일에 컴파일 옵션을 추가한다.
+// 컴파일 옵션 지정하기
+compileJava {
+  options.encoding = 'UTF-8'  // 소스 파일의 인코딩 문자집합을 지정한다.
+  sourceCompatibility = '1.7' // 소스 파일의 문법을 검사할 때 사용할 자바 버전을 지정한다.
+}
