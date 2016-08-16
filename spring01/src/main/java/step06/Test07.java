@@ -18,6 +18,7 @@ public class Test07 {
     
     if (iocContainer.getBean("step06.Book#0") == iocContainer.getBean("step06.Book"))
       System.out.println("같은 객체이다");
+     
     
     // 타입으로 찾아서 꺼내기
     // => 예외 발생! 

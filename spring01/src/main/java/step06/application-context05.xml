@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean name="b1 bx by bz" class="step06.Book"/>
+  <bean name="b2 ba bb bc" class="step06.Book"/>
+  
+  <!-- 아이디는 여러 개를 지정할 수 없다. 
+       만약 다음과 같이 지정한다면 "b3 b4 b5"가 그냥 한 이름이 된다. -->
+  <bean id="b3 b4 b5" class="step06.Book"/>
+</beans>
+
+
+
+

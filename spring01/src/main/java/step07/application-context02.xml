@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="b1" class="step07.Book">
+    <property name="title"><value>자바 프로그래밍</value></property>
+    <property name="author"><value>홍길동</value></property>
+    <property name="pages"><value>380</value></property>
+    <property name="local"><value>true</value></property>
+    <!-- String을 원시타입으로 자동 변환 가능. 그러나 다른 타입으로 자동 변환 불가능! -->
+    <!-- 실행 오류! 
+    <property name="releaseDate"><value>2016-08-16</value></property>
+    -->
+  </bean>
+  
+</beans>
+
+
+
+
