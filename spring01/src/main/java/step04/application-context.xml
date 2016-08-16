@@ -7,15 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
   
-  <bean class="step02.Book">
-    <property name="title" value="자바프로그래밍"/>
-    <property name="author" value="홍길동"/>
-  </bean>
+  <context:component-scan base-package="step04"  />
   
-  <bean class="step02.Press">
-    <property name="name" value="비트출판사"/>
-    <property name="tel" value="1111-1111"/>
-  </bean>
 </beans>
 
 

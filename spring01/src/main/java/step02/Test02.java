@@ -11,8 +11,8 @@ public class Test02 {
     ApplicationContext iocContainer = new FileSystemXmlApplicationContext(
         "bin/step02/application-context.xml");
     
-    Book b = (Book)iocContainer.getBean("b1");
-    Press p = (Press)iocContainer.getBean("p1");
+    Book b = (Book)iocContainer.getBean(Book.class);
+    Press p = (Press)iocContainer.getBean(Press.class);
     
     System.out.println(b);
     System.out.println(p);
