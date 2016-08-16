@@ -1,4 +1,4 @@
-/* 주제: 애노테이션을 통해 객체를 준비하기
+/* AnnotationConfigApplicationContext와 AppConfig
  * => 스프링 설정 정보를 갖고 있는 외부 객체 사용하기
  */
 package step03;

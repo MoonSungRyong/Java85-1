@@ -1,4 +1,4 @@
-/* 주제: 설정 파일을 통해 객체를 준비하기
+/* 주제: 스프링 IoC 컨테이너의 컴포넌트 스캔 -ClassPathXmlApplicationContext 와 <context:component-scan> 태그
  */
 package step04;
 

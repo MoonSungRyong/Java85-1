@@ -1,4 +1,4 @@
-/* 주제: 애노테이션을 통해 객체를 준비하기
+/* 주제: IoC 컨테이너 사용법 - AnnotationConfigApplicationContext를 이용한 객체 생성
  */
 package step02;
 

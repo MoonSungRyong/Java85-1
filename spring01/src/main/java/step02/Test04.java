@@ -1,5 +1,5 @@
-/* 주제: 애노테이션을 통해 객체를 준비하기
- * => 스프링 설정 정보를 갖고 있는 외부 객체 사용하기
+/* 주제: IoC 컨테이너 사용법 - AnnotationConfigApplicationContext + AppConfig 클래스를 이용한 객체 생성
+ * => 스프링 설정 정보를 갖고 있는 클래스 사용하기
  */
 package step02;
 
