@@ -1,10 +1,27 @@
 # 스프링 사용법 - IoC 컨테이너
 ## step01 : 스프링 IoC 컨테이너 준비하기
-## step02 : IoC 컨테이너 유형별 객체를 준비하는 방법
-## step03 : IoC 컨테이너 유형별 객체를 준비하는 방법2
-## step04 : IoC 컨테이너 유형별 객체를 준비하는 방법3
-## step05 : IoC 컨테이너를 사용하여 객체를 준비하는 실무 기법 예 
-## step06 : XML 설정 파일을 통해 객체를 다루는 법  
+- Test01.java : ClassPathXmlApplicationContext 사용법
+- Test02.java : FileSystemXmlApplicationContext 사용법
+- Test03.java : AnnotationConfigApplicationContext 사용법
+
+## step02 : IoC 컨테이너 사용법
+- Test01.java : ClassPathXmlApplicationContext를 이용한 객체 생성
+- Test02.java : FileSystemXmlApplicationContext를 이용한 객체 생성
+- Test03.java : AnnotationConfigApplicationContext를 이용한 객체 생성
+- Test04.java : AnnotationConfigApplicationContext + AppConfig 클래스를 이용한 객체 생성
+
+## step03 : AnnotationConfigApplicationContext와 AppConfig
+- Test01.java : AppConfig + @ComponentScan 애노테이션 사용법
+
+## step04 : 스프링 IoC 컨테이너의 컴포넌트 스캔 
+- Test01.java : @ComponentScan 대신 scan() 메서드 사용
+- Test02.java : ClassPathXmlApplicationContext 와 <context:component-scan> 태그
+
+## step05 : AnnotationConfigApplicationContext의 AppConfig 실무 설정법 
+- Test01.java
+
+## step06 : ClassPathXmlApplicationContext와 XML 파일을 설정하는 방법
+  
    
    
    
