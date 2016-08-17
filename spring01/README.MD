@@ -22,7 +22,18 @@
 
 ## step06 : ClassPathXmlApplicationContext와 XML 파일을 설정하는 방법
 ## step07 : 셋터 호출하기
-## step08 : 생성자 호출하기   
+## step08 : 생성자 호출하기
+## step09 : 객체(주소) 주입하기  
+## step10 : 객체 목록 주입하기 
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="b1" class="step09.Book">
+    <property name="title" value="자바 프로그래밍"/>
+    <property name="author" value="홍길동"/>
+    <property name="pages" value="500"/>
+    <property name="local" value="true"/>
+    
+    <!-- 객체를 주입하려면 ref 속성을 사용해야 한다.
+         ref="객체이름" -->
+    <property name="press" ref="p1"/>
+  </bean>
+  
+  <bean id="p1" class="step09.Press">
+    <property name="name" value="비트출판사"/>
+    <property name="tel" value="1111-1111"/>
+  </bean>
+  
+  <!-- <ref> 태그를 사용하여 객체 주입하기 -->
+  <bean id="b2" class="step09.Book">
+    <property name="press">
+      <ref bean="p1"/>
+    </property>
+  </bean>
+  
+  <!-- p 네임스페이스를 사용하여 객체 주입하기
+       p:프로퍼티명-ref="객체명"
+   -->
+  <bean id="b3" class="step09.Book" p:press-ref="p1"/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
