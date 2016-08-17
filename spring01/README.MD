@@ -26,7 +26,7 @@
 ## step09 : 객체(주소) 주입하기  
 ## step10 : 컬렉션 객체(배열, 리스트, 맵) 주입하기 
 ## step11 : 객체 생성 범위(singleton, prototype, session, request)   
-## step12 : 팩토리 객체를 통해 객체를 준비하기   
+## step12 : 팩토리 객체를 통해 인스턴스 준비하기   
    
    
    

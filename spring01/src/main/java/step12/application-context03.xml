@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 인스턴스 팩토리 메서드를 호출하려면 먼저 공작 객체를 만든 후 
+       팩토리를 메서드를 호출한다.-->
+       
+  <!-- 1) 공장 객체 만들기 -->
+  <bean id="f1" class="step12.PressFactory3"/>  
+ 
+  <!-- 2) 공장 객체로부터 인스턴스 얻기 
+       => 팩토리 메서드가 스태틱이 아닌 경우, factory-bean 속성에 
+          공장 객체를 지정해야 한다.--> 
+  <bean id="p1" factory-bean="f1" factory-method="createInstance">
+    <constructor-arg value="오호라출판사2"/>
+    <constructor-arg value="1111-2222"/>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

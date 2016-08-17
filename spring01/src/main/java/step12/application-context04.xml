@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 스프링 규칙에 따라 공장 객체를 만든 경우 
+       일반 객체 생성하듯이 설정하면 된다. -->
+       
+  <!-- 겉으로는 꼭 PressFactory4 객체를 생성하는 것처럼 보이지만,
+       스프링 IoC 컨테이너는 PressFactory4가 FactoryBean 구현체임을 알기 때문에
+       이 클래스의 getObject()를 호출하여 그 리턴 값을 p1이라는 이름으로 저장한다. -->
+  <bean id="p1" class="step12.PressFactory4">
+    <property name="name" value="오호라출판사3"/>
+    <property name="tel" value="1111-3333"/>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

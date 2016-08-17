@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- PressFactory1 객체를 생성한다. -->
+  <bean id="p0" class="step12.PressFactory1"/>
+  
+  <!-- 스태틱 메서드 createInstance()가 리턴한 객체를 보관하기 -->  
+  <bean id="p1" class="step12.PressFactory1" 
+        factory-method="createInstance"/>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
