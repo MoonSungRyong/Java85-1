@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="b1" class="step10.Book4">
+    <property name="title" value="자바 프로그래밍"/>
+    <property name="authors"> <!-- String 배열 -->
+      <array>
+        <value>홍길동</value>
+        <value>임꺽정</value>
+        <value>유관순</value>
+      </array>
+    </property>
+    <property name="sizes"> <!-- int 배열 -->
+      <list> <!-- array 대신 list를 사용해도 된다. -->
+        <value>15</value>
+        <value>23</value>
+      </list>
+    </property>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- List 타입 프로퍼티 주입하기 : <array> 태그 사용법 -->
+  <bean id="b1" class="step10.Book2">
+    <property name="title" value="자바 프로그래밍"/>
+    <property name="authors">
+      <array>
+        <bean class="step10.Author" p:name="홍길동" p:email="hong@test.com" p:tel="101"/>
+        <bean class="step10.Author" p:name="임꺽정" p:email="leem@test.com" p:tel="102"/>
+        <bean class="step10.Author" p:name="유관순" p:email="yoo@test.com" p:tel="103"/>
+      </array>
+    </property>
+  </bean>
+  
+  <!-- List 타입 프로퍼티 주입하기 : <list> 태그 사용법 -->
+  <bean id="b2" class="step10.Book2">
+    <property name="title" value="자바 프로그래밍2"/>
+    <property name="authors">
+      <list>
+        <bean class="step10.Author" p:name="홍길동2" p:email="hong@test.com" p:tel="101"/>
+        <bean class="step10.Author" p:name="임꺽정2" p:email="leem@test.com" p:tel="102"/>
+        <bean class="step10.Author" p:name="유관순2" p:email="yoo@test.com" p:tel="103"/>
+      </list>
+    </property>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,19 +1,21 @@
 package step10;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Book3 {
+public class Book4 {
   String title;
-  Map<String,Author> authorMap;
+  String[] authors;
+  int[] sizes;
   int pages;
   boolean local;
   Date releaseDate;
   Press press;
   
-  public Book3() {
-    System.out.println("Book3()");
+  public Book4() {
+    System.out.println("Book4()");
   }
 
   public String getTitle() {
@@ -24,12 +26,20 @@ public class Book3 {
     this.title = title;
   }
 
-  public Map<String, Author> getAuthorMap() {
-    return authorMap;
+  public String[] getAuthors() {
+    return authors;
   }
 
-  public void setAuthorMap(Map<String, Author> authorMap) {
-    this.authorMap = authorMap;
+  public void setAuthors(String[] authors) {
+    this.authors = authors;
+  }
+
+  public int[] getSizes() {
+    return sizes;
+  }
+
+  public void setSizes(int[] sizes) {
+    this.sizes = sizes;
   }
 
   public int getPages() {
@@ -66,9 +76,11 @@ public class Book3 {
 
   @Override
   public String toString() {
-    return "Book3 [title=" + title + ", authorMap=" + authorMap + ", pages=" + pages + ", local=" + local
-        + ", releaseDate=" + releaseDate + ", press=" + press + "]";
+    return "Book4 [title=" + title + ", authors=" + Arrays.toString(authors) + ", sizes=" + Arrays.toString(sizes)
+        + ", pages=" + pages + ", local=" + local + ", releaseDate=" + releaseDate + ", press=" + press + "]";
   }
+
+  
 
   
     
