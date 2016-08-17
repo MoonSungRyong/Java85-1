@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="b1" class="step10.Book5">
+    <property name="title" value="자바 프로그래밍"/>
+    <property name="authorMap">
+      <map>
+        <entry key="제1저자" value="홍길동"/>
+        <entry key="제2저자" value="임꺽정"/>
+        <entry key="제3저자" value="유관순"/>
+      </map>
+    </property>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

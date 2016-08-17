@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- prototype : getBean()을 호출할 때마다 새 객체를 생성해서 리턴한다. -->
+  <bean id="p1" class="step11.Press" scope="prototype">
+    <constructor-arg name="name" value="비트출판사"/>
+    <constructor-arg name="tel" value="1111-1111"/>
+  </bean> 
+  
+  <!-- Spring IoC 컨테이너가 생성될 때, 다음 객체는 준비된다. -->
+  <bean id="p2" class="step11.Press" scope="singleton">
+    <constructor-arg name="name" value="비트출판사2"/>
+    <constructor-arg name="tel" value="1111-2222"/>
+  </bean>  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

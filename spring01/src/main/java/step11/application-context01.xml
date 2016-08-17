@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="p1" class="step11.Press">
+    <property name="name" value="비트출판사"/>
+    <property name="tel" value="1111-1111"/>
+  </bean> 
+  
+  <!-- scope 속성의 기본 값은 singleton 이다. 
+       => 즉 객체를 한 개만 생성한다.
+       => score 속성을 생략하면 singleton 이다. -->
+  <bean id="p2" class="step11.Press" scope="singleton">
+    <property name="name" value="비트출판사"/>
+    <property name="tel" value="1111-1111"/>
+  </bean>  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
