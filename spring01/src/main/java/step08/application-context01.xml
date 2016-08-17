@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- 기본 생성자 호출 -->
+  <bean id="b1" class="step08.Book"/>
+  
+  <!-- Book(String) 생성자 호출하기 -->
+  <bean id="b2" class="step08.Book">
+    <constructor-arg value="자바 프로그래밍"/>
+  </bean>
+  
+  <!-- Book(String) 생성자 호출하기
+       => XML의 모든 값은 String 이다.
+       => 따라서 String 값을 받는 생성자가 있으면 그것을 우선으로 호출한다. -->
+  <bean id="b3" class="step08.Book">
+    <constructor-arg value="560"/>
+  </bean>
+  
+  <!-- Book(String,String) : String 타입의 생성자가 우선이다. -->
+  <bean id="b4" class="step08.Book">
+    <constructor-arg value="자바 웹 프로그래밍"/>
+    <constructor-arg value="560"/>
+  </bean>
+  
+  <!-- Book(String,String) : String 타입의 생성자가 우선이다. -->
+  <bean id="b5" class="step08.Book">
+    <constructor-arg value="560"/>
+    <constructor-arg value="자바 웹 프로그래밍"/>
+  </bean>
+  
+</beans>
+
+
+
+

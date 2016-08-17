@@ -1,4 +1,4 @@
-package step07;
+package step08;
 
 import java.util.Date;
 
@@ -11,6 +11,35 @@ public class Book {
   
   public Book() {
     System.out.println("Book()");
+  }
+  
+  public Book(int pages) {
+    System.out.println("Book(int)");
+    this.pages = pages;
+  }
+  
+  public Book(String title) {
+    System.out.println("Book(String)");
+    this.title = title;
+  }
+  
+
+  public Book(String title, String author) {
+    System.out.println("Book(String,String)");
+    this.title = title;
+    this.author = author;
+  }
+  
+  public Book(String title, int pages) {
+    System.out.println("Book(String,int)");
+    this.title = title;
+    this.pages = pages;
+  }
+  
+  public Book(int pages, String title) {
+    System.out.println("Book(int,String)");
+    this.title = title;
+    this.pages = pages;
   }
   
   public String getTitle() {

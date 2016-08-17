@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- c 네임스페이스를 이용하여 <bean> 태그의 속성 값으로 호출될 생성자를 지정한다. -->
+  <bean id="b1" class="step08.Book" c:title="자바 프로그래밍"/>
+  
+  <bean id="b2" class="step08.Book" c:pages="800"/>
+  
+  <!-- 생성자 중에서 파라미터 값을 한 개 받으면서, 그 파라미터의 이름이 author인 것을 
+       찾지 못하기 때문에 실행 오류가 발생한다.   -->
+  <!-- 실행오류 
+  <bean id="b3" class="step08.Book" c:author="홍길동"/>
+  -->
+  
+  <!-- 만약 순서는 다르지만 타입과 개수가 같은 생성자가 여러 개 있을 경우,
+       생성자가 선언된 순서에 따라 선택이 달라진다.
+       생성자가 선언된 순서에 의존하는 것은 유지보수에 바람직하지 않다.-->
+  <bean id="b4" class="step08.Book" c:title="자바 프로그래밍" c:pages="800"/>  
+    
+  <!-- 생성자에 전달할 파라미터의 순서를 지정하기 
+       단 파라미터의 순서는 지정할 수 있어도 타입이나 이름은 지정할 수 없다.
+       따라서 String 타입 생성자를 우선으로 호출하고,
+       만약 타입은 같고 순서가 다른 생성자가 여러 개 있을 경우, 
+       생성자가 호출된 순서에 따라 결정된다. 
+       이런 애매한 상황을 피하고 싶다면, <constructor-arg> 태그를 사용하라!
+       -->  
+  <bean id="b5" class="step08.Book" c:_0="자바 프로그래밍" c:_1="800"/>
+  
+  <!-- 호출될 생성자를 명확히 지정하고 싶다면,
+       다음과 같이 파라미터 이름, 인덱스 순서를 지정하라! -->
+  <bean id="b6" class="step08.Book">
+    <constructor-arg name="title" index="0" value="자바 프로그래밍"/>
+    <constructor-arg name="pages" index="1" value="800"/>
+  </bean>   
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

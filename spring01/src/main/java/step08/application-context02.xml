@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- 파라미터 타입을 사용하여 호출할 생성자 지정하기 -->
+  <!-- Book(String,int) 또는 Book(int,String) : 생성자가 선언된 순서에 따라 다르다.-->
+  <bean id="b1" class="step08.Book">
+    <constructor-arg type="java.lang.String" value="자바 웹 프로그래밍"/>
+    <constructor-arg type="int" value="560"/>
+  </bean>
+  
+  <!-- Book(String,int) 또는 Book(int,String) : 생성자가 선언된 순서에 따라 다르다.-->
+  <bean id="b2" class="step08.Book">
+    <constructor-arg type="int" value="560"/>
+    <constructor-arg type="java.lang.String" value="자바 웹 프로그래밍"/>
+  </bean>
+</beans>
+
+
+
+
