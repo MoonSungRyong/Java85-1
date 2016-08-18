@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <!-- java.util.Date 타입의 프로퍼티 값 설정 -->
+  <bean id="b1" class="step13.Book">
+    <property name="title" value="자바 프로그래밍"/>
+    <property name="pages" value="800"/>
+    <!-- 스프링 IoC 컨테이너는 String 값을 원시 타입으로 자동 변환해준다.
+         그러나 다른 타입에 대해서는 변환해주지 않는다. 
+         그래서 다음 태그는 실행오류를 발생시킨다. -->
+    <!--  
+    <property name="releaseDate" value="2016-08-18"/>
+    -->
+    
+    <property name="releaseDate">
+      <bean factory-bean="dateFormat" factory-method="parse">
+        <constructor-arg value="2016-08-18"/>
+      </bean>
+    </property>
+    <!-- 위의 XML 코드를 자바 코드를 표현?
+         => obj.setReleaseDate(dateFormat.parse("2016-08-18"));
+     -->
+  </bean>
+  
+  <!-- 해결책? yyyy-MM-dd 형식으로 된 문자열을 java.util.Date 객체로 만들어주는
+       클래스의 도움을 받는다. -->
+  <bean id="dateFormat" class="java.text.SimpleDateFormat">
+    <constructor-arg value="yyyy-MM-dd"/>
+  </bean>
+  
+  
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

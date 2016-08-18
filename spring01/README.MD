@@ -27,6 +27,7 @@
 ## step10 : 컬렉션 객체(배열, 리스트, 맵) 주입하기 
 ## step11 : 객체 생성 범위(singleton, prototype, session, request)   
 ## step12 : 팩토리 객체를 통해 인스턴스 준비하기   
+## step13 : 프로퍼티 에디터 사용법
    
    
    

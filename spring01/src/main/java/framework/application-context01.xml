@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  
+  <bean id="car" class="framework.Car">
+    <!-- 어떤 기능을 쓰고 싶은가? 그렇다면 해당 기능을 하는 객체를 꼽아라! -->
+    <!--  
+    <property name="motor">
+      <bean class="framework.BitMotor"/>
+    </property>
+    -->
+    
+    <!-- 이렇게 객체를 꼽으면 내부에서 그 객체를 사용하여 처리할 것이다. -->
+    <property name="sensors">
+      <array>
+        <bean class="framework.SafetyBeltSensor"/>
+        <bean class="framework.EngineOilSensor"/>
+      </array>
+    </property>
+  </bean>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
