@@ -8,21 +8,31 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
   
-  <!-- java.util.Date 타입의 프로퍼티 값 설정 -->
+  <!-- 문자열을 step13.Press 객체로 변환하기 -->
   <bean id="b1" class="step13.Book">
     <property name="title" value="자바 프로그래밍"/>
     <property name="pages" value="800"/>
     <property name="releaseDate" value="2016-08-18"/>
+    
+    <!-- 커스텀 에디터를 사용하기 전
+         "press" 프로퍼티에 직접 Press 객체를 만들어 꼽는다.
+     -->
+    <!--  
+    <property name="press">
+      <bean class="step13.Press">
+        <property name="name" value="비트출판사"/>
+        <property name="tel" value="1111-1111"/>
+      </bean>
+    </property>
+    -->
+    <property name="press" value="오호라출판사,111-3333"/>
   </bean>
   
-  <!-- 커스텀 데이터를 등록하기 위해서는 먼저 
-       스프링 IoC 컨테이너에 커스텀 에디터를 관리해주는 객체를 꼽아야 한다. 
-       => 스프링 IoC 컨테이너를 위한 플러그인을 꼽고 싶으면,
-          스프링 문서에 정의된 대로 해당 객체를 선언하면 된다.-->
   <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
     <property name="customEditors">
        <map>
          <entry key="java.util.Date" value="step13.MyDateEditor"/>
+         <entry key="step13.Press" value="step13.PressEditor"/>
        </map>
     </property>
   </bean>
