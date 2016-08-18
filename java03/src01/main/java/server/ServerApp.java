@@ -33,7 +33,6 @@ package server;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
