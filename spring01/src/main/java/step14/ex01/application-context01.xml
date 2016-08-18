@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="book" class="step14.ex01.Book"/>
+  <bean id="press" class="step14.ex01.Press"/>
+  
+  <!-- @Autowired 애노테이션을 처리할 플러그인을 장착하면,
+       스프링 IoC 컨테이너는 그 플러그인을 사용하여 @Autowired 애노테이션을 처리한다. -->
+  <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+  
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+

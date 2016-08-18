@@ -28,6 +28,7 @@
 ## step11 : 객체 생성 범위(singleton, prototype, session, request)   
 ## step12 : 팩토리 객체를 통해 인스턴스 준비하기   
 ## step13 : 프로퍼티 에디터 사용법
+## step14 : 애노테이션을 이용한 객체 관리
    
    
    
