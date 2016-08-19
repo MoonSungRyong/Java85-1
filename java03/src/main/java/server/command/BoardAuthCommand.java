@@ -1,6 +1,7 @@
 package server.command;
 
 import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,11 @@ public class BoardAuthCommand implements Command {
   
   @Override
   public void service(ObjectOutputStream out, Map<String, String> paramMap) throws Exception {
-    int no = Integer.parseInt(paramMap.get("no"));
-    String password = paramMap.get("password");
-    out.writeObject(boardDao.selectOne(no, password));
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("no", Integer.parseInt(paramMap.get("no")));
+    map.put("password", paramMap.get("password"));
+    
+    out.writeObject(boardDao.selectOneByPassword(map));
   }
 }
 

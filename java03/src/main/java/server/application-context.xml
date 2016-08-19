@@ -45,7 +45,12 @@
 		  <property name="typeAliasesPackage" value="vo" />
 		            
 		</bean>
-            
+          
+          
+    <!-- DAO 구현체를 자동으로 생성해주는 MapperScannerConfigurer 객체 생성 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		  <property name="basePackage" value="server" />
+		</bean>        
 </beans>
 
 

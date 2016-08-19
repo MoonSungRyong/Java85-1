@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -194,7 +195,11 @@ public class BoardPanel extends Panel implements ActionListener {
 
   private boolean checkAuth() {
     try {
-      Board board = boardDao.selectOne(getSelectedBoardNo(), passwordTF.getText());
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("no", getSelectedBoardNo());
+      paramMap.put("password", passwordTF.getText());
+      
+      Board board = boardDao.selectOneByPassword(paramMap);
       
       if (board != null)
         return true;
@@ -223,7 +228,12 @@ public class BoardPanel extends Panel implements ActionListener {
     boardLST.removeAll();
     
     try {
-      List<Board> boards = boardDao.selectList(1, 10); 
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("pageNo", 1);
+      paramMap.put("length", 10);
+      
+      List<Board> boards = boardDao.selectList(paramMap);
+       
       for (Board board : boards) {
         boardLST.add(
             board.getNo() + "," +

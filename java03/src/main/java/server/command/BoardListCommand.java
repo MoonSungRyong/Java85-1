@@ -1,6 +1,7 @@
 package server.command;
 
 import java.io.ObjectOutputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,12 @@ public class BoardListCommand implements Command {
     if (paramMap.get("length") != null) {
       length = Integer.parseInt(paramMap.get("length"));
     }
-    out.writeObject(boardDao.selectList(pageNo, length));
+    
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    
+    out.writeObject(boardDao.selectList(map));
   }
 }
 

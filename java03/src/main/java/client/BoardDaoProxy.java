@@ -4,6 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.List;
+import java.util.Map;
 
 import server.BoardDao;
 import vo.Board;
@@ -42,8 +43,9 @@ public class BoardDaoProxy implements BoardDao {
   }
 
   @Override
-  public List<Board> selectList(int pageNo, int length) throws Exception {
-    return (List<Board>) send("/board/list.do?pageNo=" + pageNo + "&length=" + length);
+  public List<Board> selectList(Map<String,Object> paramMap) throws Exception {
+    return (List<Board>) send("/board/list.do?pageNo=" + 
+         paramMap.get("pageNo") + "&length=" + paramMap.get("length"));
   }
 
   @Override
@@ -52,9 +54,10 @@ public class BoardDaoProxy implements BoardDao {
   }
 
   @Override
-  public Board selectOne(int no, String password) throws Exception {
+  public Board selectOneByPassword(Map<String,Object> paramMap) throws Exception {
     // => "/board/auth.do?no=9&password=1111"
-    return (Board)send("/board/auth.do?no=" + no + "&password=" + password);
+    return (Board)send("/board/auth.do?no=" + 
+        paramMap.get("no") + "&password=" + paramMap.get("password"));
   }
 
   @Override

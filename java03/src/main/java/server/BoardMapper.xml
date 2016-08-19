@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="BoardDao">
+<mapper namespace="server.BoardDao">
   <resultMap type="board" id="boardMap">
     <id column="no" property="no"/> 
     <result column="conts" property="contents"/>
@@ -37,7 +37,7 @@
     where no = #{value}
   </select>
   
-  <select id="selectOneByPassword" resultType="board" parameterType="map">
+  <select id="selectOneByPassword" resultMap="boardMap" parameterType="map">
     select no,title,conts,cre_dt,vw_cnt 
     from boards 
     where no=#{no} and password=password(#{password})
