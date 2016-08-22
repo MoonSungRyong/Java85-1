@@ -1,5 +1,20 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
+//apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp' // 'eclipse' 플러그인을 포함한다.
+apply plugin: 'war' // 웹 애플리케이션 배치 관련 파일을 생성하는 플러그인.
+
+// 웹 애플리케이션을 위한 설정 정보 추가
+// 이클립스 WTP의 설정 파일을 만들 때 제공할 정보.
+eclipse {
+  wtp {
+    facet {
+      facet name: 'jst.web', version: '3.1'    // 사용할 서블릿 기술 버전
+      facet name: 'jst.java', version: '1.8'   // 웹 앱을 컴파일할 때 사용할 자바 버전
+    }
+  }
+}
+
+
 
 compileJava {
   options.encoding = 'UTF-8'  
