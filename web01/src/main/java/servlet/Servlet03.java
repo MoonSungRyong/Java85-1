@@ -1,9 +1,19 @@
-/* 주제: 서블릿 생성자 vs init() 메서드
-- 생성자에서는 서블릿 관련 정보를 얻을 수 없다.
-- init()는 파라미터로 ServletConfig 객체를 받는다.
-  ServletConfig 객체로 web.xml 파일에 저장된 값들을 조회할 수 있다.
-  따라서 서블릿이 필요한 자원을 준비할 때 생성자에서 준비하는 것 보다는
-  init()에서 준비하는 것이 더 편리하다.  
+/* 주제: <load-on-startup>
+- 서블릿 객체는 최초 요청 시 생성된다.
+- 그런데 서블릿이 사용할 자원을 준비시키는데(생성자를 호출하거나 init()를 호출하는 것)
+  시간이 오래걸린다면, 최소로 요청하는 사용자는 늦게 응답을 받을 수 있다.
+- 더 중요한 것은, 자원을 준비하는 코드에 잠재적인 오류가 있다 하더라도
+  그것은 최초 요청할 때까지 알 수 없다. 이것이 문제다!
+- 즉 최초 요청할 때 오류를 발견된다면 업무에 대단한 차질을 빚을 수 있다.
+- 해결책?
+  => 서블릿을 요청하지 않아도, 서버를 실행할 때 서블릿 객체를 미리 생성할 수 있다면
+     서버 실행 중에 오류를 미리 발견하여 조치를 취할 수 있을 것이다.
+  => web.xml에 서블릿을 등록할 때 설정하라!
+     서버 실행할 때 서블릿을 생성하라고 설정하라!
+  => 문법
+     <load-on-startup>순번</load-on-startup>
+     생성될 서블릿이 여러 개이고, 그 생성 순서가 중요하다면 
+     순번으로 조정하라. 중요하지 않다면 그냥 아무 숫자를 집어 넣어라!
 
 */
 package servlet;
@@ -21,41 +31,23 @@ import javax.servlet.ServletResponse;
 public class Servlet03 implements Servlet {
   ServletConfig config;
 
-  public Servlet03() {
-    // 서블릿이 사용할 자원을 준비시키는 코드...
-    try {
-      String driver = ""; // 이 값을 어떻게 얻을 것인가?
-      String jdbcUrl = ""; // FileReader와 같은 I/O 클래스를 사용하여 값을 읽어 들일 것인가?
-      String username = ""; 
-      String password = "";
-      
-      Class.forName(driver);
-      Connection con = DriverManager.getConnection(jdbcUrl, username, password);
-    } catch (Exception e) {}
-  }
-  
   @Override
   public void init(ServletConfig config) throws ServletException {
     System.out.println("init()");
     this.config = config;
     
-    // 서블릿이 사용할 자원을 준비시키는 코드...
     try {
-      // ServletConfig 객체를 사용하면 web.xml에 기록된 파라미터 값을 조회할 수 있다.
-      // 이것이 생성자가 아닌 init()에서 자원을 준비하는 이유이다.
       String driver = config.getInitParameter("driver");
       String jdbcUrl = config.getInitParameter("jdbcUrl");
       String username = config.getInitParameter("username"); 
       String password = config.getInitParameter("password");
       
-      System.out.println(driver);
-      System.out.println(jdbcUrl);
-      System.out.println(username);
-      System.out.println(password);
-      
       Class.forName(driver);
       Connection con = DriverManager.getConnection(jdbcUrl, username, password);
-    } catch (Exception e) {}
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     
   }
 
