@@ -8,7 +8,7 @@ apply plugin: 'war' // 웹 애플리케이션 배치 관련 파일을 생성하�
 eclipse {
   wtp {
     facet {
-      facet name: 'jst.web', version: '3.1'    // 사용할 서블릿 기술 버전
+      facet name: 'jst.web', version: '3.0'    // 사용할 서블릿 기술 버전
       facet name: 'jst.java', version: '1.8'   // 웹 앱을 컴파일할 때 사용할 자바 버전
     }
   }
