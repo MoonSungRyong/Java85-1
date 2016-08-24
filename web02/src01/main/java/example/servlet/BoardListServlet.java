@@ -62,12 +62,11 @@ public class BoardListServlet extends GenericServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>게시물 목록조회</h1>");
-    out.println("<p><a href='form.html'>새 글</a></p>");
     
     try {
       List<Board> list = boardDao.selectList(map);
       for (Board b : list) {
-        out.printf("%d, <a href='detail.do?no=%1$d'>%s</a>, %s, %s, %d<br>\n", 
+        out.printf("%d, %s, %s, %s, %d<br>\n", 
             b.getNo(), b.getTitle(), b.getWriter(), b.getCreatedDate(), b.getViewCount());
       }
       
