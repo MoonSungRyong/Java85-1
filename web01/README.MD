@@ -15,7 +15,9 @@
 - Servlet13.java : HTTP 요청과 응답 
 - Servlet14.java : 요청 방식과 응답 - GET, POST, HEAD
 - Servlet15.java : POST 요청으로 데이터를 보낼 때 한글 깨짐 문제
-   
+
+
+## ex01/*.java : 게시물 목록조회   
 
    
    
