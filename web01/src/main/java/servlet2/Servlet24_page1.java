@@ -24,7 +24,7 @@ public class Servlet24_page1 extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int age = Integer.parseInt(request.getParameter("age"));
     
-    if (age < 18) {
+    if (age < 19) {
       response.setHeader("Refresh", "1;url=servlet24_page2");
     } else {
       response.setHeader("Refresh", "1;url=servlet24_page3");

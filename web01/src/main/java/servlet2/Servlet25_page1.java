@@ -27,7 +27,7 @@ public class Servlet25_page1 extends HttpServlet {
     out.println("<head>");
     out.println("<title>Refresh 테스트</title>");
     
-    if (age < 18) {
+    if (age < 19) {
       out.printf("<meta http-equiv='Refresh' content='1;url=servlet24_page2'>");
     } else {
       out.printf("<meta http-equiv='Refresh' content='1;url=servlet24_page3'>");
