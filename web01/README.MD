@@ -36,11 +36,15 @@
   servlet20.html
 - Servlet21.java : HttpGenericServlet 도우미 클래스 사용하기
   HttpGenericServlet.java
+  servlet21.html
 - Servlet22.java : HttpGenericServlet2 도우미 클래스 사용하기
-  HttpGenericServlet2.java  
-
-
-
+  HttpGenericServlet2.java
+  servlet22.html
+- Servlet23.java : 오리지날 도우미 클래스(HttpServlet) 사용하기    
+  servlet23.html
+- Servlet24_*.java : 리프래시(Refresh)하는 방법과 용도 
+  Servlet25_*.java
+- Servlet26.java : 리다이렉트(Redirect)하는 방법과 용도
 
 
 
