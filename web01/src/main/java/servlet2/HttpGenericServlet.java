@@ -1,3 +1,6 @@
+/* 주제: service()의 파라미터를 원래의 타입으로 형변환시킨 클래스 사용하기 
+ * 
+ */
 package servlet2;
 
 import java.io.IOException;
@@ -13,6 +16,7 @@ public abstract class HttpGenericServlet extends GenericServlet {
   @Override
   public void service(ServletRequest request, ServletResponse response) 
       throws ServletException, IOException {
+    System.out.println("service(ServletRequest,ServletResponse)");
     // 파라미터로 넘어온 값을 원래의 타입으로 형변환한다.
     HttpServletRequest httpRequest = (HttpServletRequest)request;
     HttpServletResponse httpResponse = (HttpServletResponse)response;

@@ -30,6 +30,28 @@
 - Listener02.java : ServletRequestListener 사용법 및 @WebListener 애노테이션을 이용한 리스너 등록
   Servlet18.java
    
+## HTTP 프로토콜과 서블릿
+- Servlet19.java : HttpServletRequest와 HttpServletResponse
+- Servlet20.java : GET 요청과 POST 요청 구분하기
+  servlet20.html
+- Servlet21.java : HttpGenericServlet 도우미 클래스 사용하기
+  HttpGenericServlet.java
+- Servlet22.java : HttpGenericServlet2 도우미 클래스 사용하기
+  HttpGenericServlet2.java  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
    
    
