@@ -45,6 +45,9 @@
 - Servlet24_*.java : 리프래시(Refresh)하는 방법과 용도 
   Servlet25_*.java
 - Servlet26.java : 리다이렉트(Redirect)하는 방법과 용도
+- Servlet27_*.java : 포워딩(forwarding)
+- Servlet28_*.java : 인클루딩(including)
+- Servlet29_*.java : 포워딩과 인클루딩 활용
 
 
 
