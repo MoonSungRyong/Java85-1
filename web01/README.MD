@@ -49,6 +49,15 @@
 - Servlet28_*.java : 인클루딩(including)
 - Servlet29_*.java : 포워딩과 인클루딩 활용
 
+## 보관소
+- Servlet30.java : ServletContext 보관소와 ServletRequest 보관소
+  Servlet31.java
+  Servlet32.java
+  
+- Servlet33_*.java : ServletContext 보관소 사용 시 주의할 점
+
+- Servlet34_*.java : HttpSession 보관소를 이용하여 클라이언트 별 데이터 관리
+
 
 
 
