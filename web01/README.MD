@@ -30,7 +30,7 @@
 - Listener02.java : ServletRequestListener 사용법 및 @WebListener 애노테이션을 이용한 리스너 등록
   Servlet18.java
    
-## HTTP 프로토콜과 서블릿
+## HTTP 프로토콜과 서블릿 - servlet2
 - Servlet19.java : HttpServletRequest와 HttpServletResponse
 - Servlet20.java : GET 요청과 POST 요청 구분하기
   servlet20.html
@@ -49,16 +49,17 @@
 - Servlet28_*.java : 인클루딩(including)
 - Servlet29_*.java : 포워딩과 인클루딩 활용
 
-## 보관소
+## 보관소 - servlet3
 - Servlet30.java : ServletContext 보관소와 ServletRequest 보관소
   Servlet31.java
-  Servlet32.java
-  
+  Servlet32.java 
 - Servlet33_*.java : ServletContext 보관소 사용 시 주의할 점
-
 - Servlet34_*.java : HttpSession 보관소를 이용하여 클라이언트 별 데이터 관리
 
-
+## 쿠키와 세션 - servlet4
+- Servlet35.java : 클라이언트에게 데이터를 보관시키는 방법 - "쿠키(cookie)"
+- Servlet36.java : 쿠키 값 꺼내기
+- Servlet37.java : 쿠키를 사용할 수 있는 범위(URL)을 지정하기 
 
 
 
