@@ -56,14 +56,23 @@
 - Servlet33_*.java : ServletContext 보관소 사용 시 주의할 점
 - Servlet34_*.java : HttpSession 보관소를 이용하여 클라이언트 별 데이터 관리
 
-## 쿠키와 세션 - servlet4
+## 쿠키 - servlet4
 - Servlet35.java : 클라이언트에게 데이터를 보관시키는 방법 - "쿠키(cookie)"
 - Servlet36.java : 쿠키 값 꺼내기
 - Servlet37.java : 쿠키를 사용할 수 있는 범위(URL)을 지정하기 
+- Servlet38.java : 쿠키 값 꺼내기 - /web01/
+- Servlet39.java : 쿠키 값 꺼내기 - /web01/test
+- Servlet40.java : 쿠키 값 꺼내기 - /web01/test/okok/haha
+- Servlet41.java : 쿠키 값 꺼내기 - /web01/test2
+- Servlet42.java : 쿠키의 유효기간 지정하기
+- Servlet43.java : 유효기간에 따른 쿠키 정보 추출 가능 여부
 
-
-
-
+## 세션 - servlet5
+- Servlet44.java : 세션 생성하기
+- Servlet45.java : 기존 세션 사용하기
+- Servlet46.java : 세션에 데이터 저장하기 
+- Servlet47.java : 세션에 저장된 데이터 사용하기
+- Servlet48.java : 세션 무효화시키기
 
 
 

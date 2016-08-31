@@ -1,9 +1,8 @@
-/* 주제: 쿠키를 사용할 수 있는 범위(URL)을 지정하기
- * => 쿠키의 사용 범위를 지정하게 되면,
- *    웹 브라우저가 서버에 요청할 때 그 요청 범위의 해당되는 쿠키만 보낸다.
- * => 범위는 URL의 경로이다.
- * 
- *        
+/* 주제: 쿠키의 유효기간 지정하기
+ * => 쿠키에 유효기간을 지정하지 않으면 웹 브라우저가 실행되는 동안만 유지된다.
+ *    즉 웹 브라우저를 종료하면 쿠키가 모두 삭제된다.
+ * => 쿠키의 유효기간을 지정하면 그 기간 동안은 임시 캐시 폴더에 저장된다.
+ *    웹브라우저를 종료하거나 OS을 종료하더라도 유지된다.
  *  
  */
 package servlet4;
@@ -19,33 +18,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/test/servlet37")
-public class Servlet37 extends HttpServlet {
+@WebServlet("/test/servlet42")
+public class Servlet42 extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    //1) 쿠키를 만든다.
+    //쿠키의 유효기간 지정하기
     Cookie c1 = new Cookie("name", URLEncoder.encode("홍길동", "UTF-8"));
-    // 쿠키의 사용 범위를 지정하지 않으면 쿠키를 보내는 서블릿의 경로가 사용 범위이다. 
+    // 쿠키의 유효기간을 지정하지 않으면 웹브라우저가 실행되는 동안만 유지된다. 
     
     Cookie c2 = new Cookie("email", "test@test.com");
-    c2.setPath("/web01/test"); // 쿠키의 사용 범위를 지정한다.
-    // 사용범위를 지정할 때는 웹 애플리케이션 루트(컨텍스트 루트)가 아닌
-    // 웹 서버 루트를 기준으로 경로를 지정해야 한다.
+    c2.setMaxAge(30); // 30초 동안 유지하기
     
     Cookie c3 = new Cookie("age", "20");
-    c3.setPath("/web01/test2"); // 쿠키의 사용 범위를 지정한다.
+    c3.setMaxAge(60); // 1분 동안 유지하기 
     
-    //2) 쿠키를 응답 헤더에 싣는다.
     response.addCookie(c1);
     response.addCookie(c2);
     response.addCookie(c3);
 /* 예)
-Set-Cookie:name=%ED%99%8D%EA%B8%B8%EB%8F%99
-Set-Cookie:email="test@test.com"; Version=1; Path=/web01/test
-Set-Cookie:age=20; Path=/web01/test2
+Set-Cookie: name=%ED%99%8D%EA%B8%B8%EB%8F%99
+Set-Cookie: email="test@test.com"; Version=1; Max-Age=30; Expires=Wed, 31-Aug-2016 05:36:06 GMT
+Set-Cookie: age=20; Expires=Wed, 31-Aug-2016 05:36:36 GMT
 */
     
-    //3) 간단한 응답
     response.setContentType("text/plain;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("웹브라우저로 쿠키를 보냈습니다. HTTP 응답을 확인하세요.");
