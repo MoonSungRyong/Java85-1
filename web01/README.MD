@@ -74,7 +74,8 @@
 - Servlet47.java : 세션에 저장된 데이터 사용하기
 - Servlet48.java : 세션 무효화시키기
 
-
+# JSP 프로그래밍
+- /webapp/jsp1/Test01.jsp : 
 
 
 
