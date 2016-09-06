@@ -13,3 +13,20 @@
 - Test05.java : @RequestMapping 과 요청 헤더
 
 - Test06.java : 파라미터 값 받기
+- Test07.java : 자바 원시 타입의 값으로 파라미터 받기
+- Test08.java : Value Object로 요청 파라미터의 값을 받기 
+- Test09.java : 커스텀 에디터 사용
+- Test10.java : 글로벌 커스텀 에디터 사용
+  MyWebBindingInitializer.java : 2.5, 3.2 방식
+  MyControllerAdvice.java : 4 방식   
+- Test11.java : 요청 핸들러에서 기타 파라미터로 받을 수 있는 객체  
+
+- Test12.java : 페이지 컨트롤러에서 JSP로 값 전달하기
+- Test13.java : 요청 핸들러에서 직접 클라이언트로 출력하기
+
+
+
+
+
+
+ 

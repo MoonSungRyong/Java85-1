@@ -44,7 +44,9 @@ public class Test06 {
   //요청 파라미터 이름과 메서드의 파라미터 변수 이름이 같다면 @RequestParam을 생략할 수 있다.
   //생략한다면, @RequestParam(required=false)와 같다.
   @RequestMapping("/m4")
-  public String m4(String name, String age, 
+  public String m4(
+      String name, 
+      String age, 
       @RequestParam(value="first-name") String firstname) { 
     // 변수명으로 사용할 수 없는 파라미터명인 경우 @RequestParam을 사용하여 명시적으로 지정하라!
     
