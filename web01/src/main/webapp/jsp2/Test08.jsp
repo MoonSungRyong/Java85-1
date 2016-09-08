@@ -21,7 +21,9 @@ if (pageContext.getAttribute("board") != null) { // 기본으로 JspContext에�
 board: <%=board%>
 JspContext: <%=pageContext.getAttribute("board", PageContext.PAGE_SCOPE)%>
 board == JspContext: <%=pageContext.getAttribute("board", PageContext.PAGE_SCOPE) == board%>
-
+ServletRequest: <%=request.getAttribute("board")%>
+HttpSession: <%=session.getAttribute("board")%>
+ServletContext: <%=application.getAttribute("board")%>
 
 
 
