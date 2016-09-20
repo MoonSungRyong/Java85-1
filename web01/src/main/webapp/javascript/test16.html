@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 변수의 타입2
+// => 기타 변수 타입
+
+var a
+
+a = new Object();
+console.log(a, typeof a) // 객체 주소를 의미하는 object
+
+a = function() {}
+console.log(a, typeof a) // 함수 주소를 의미하는 function
+
+// 자바스크립트 상수 값과 데이터 타입
+a = null;
+console.log(a, typeof a) // 객체 주소가 없음을 의미하는 특별한 값, null
+
+a = undefined;
+console.log(a, typeof a) // 변수의 값이 없고 타입이 없음을 의미하는 특별한 값, undefined
+
+a = NaN;
+console.log(a, typeof a) // 숫자가 아님을 의미하는 특별한 값, number
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

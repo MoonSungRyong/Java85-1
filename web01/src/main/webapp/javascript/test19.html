@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 자바스크립트에서 변수를 다루는 방법
+// => 자바의 Map 객체에 저장하는 것과 유사하다.
+// => 그렇기 때문에 같은 이름으로 다양한 값을 저장할 수 있는 것이다.
+
+// java: HashMap window = new HashMap();
+
+window.a = 20  // java => window.put("a", 20);
+console.log(window.a)
+
+window.a = "문자열" // java => window.put("a", "문자열");
+console.log(window.a)
+
+window["a"] = true
+console.log(window.a)
+
+window['a'] = false
+console.log(window.a)
+
+// 변수를 가리킬 때 대괄호 []를 사용하는 경우
+// => 변수 이름이 될 수 없는 것을 사용하려 할 때
+//window.a^^ ㅋㅋ = 100 // 변수 이름으로 사용할 수 없다! 실행 오류!
+window["a^^ ㅋㅋ"] = 100        // java: window.put("a^^ ㅋㅋ", 100);
+console.log(window['a^^ ㅋㅋ']) // java: System.out.println(window.get("a^^ ㅋㅋ"));
+
+// => 변수 이름을 변수에 담아 전달 할 수 있다.
+var name = "a^^ ㅋㅋ"         // java: String name = "a^^ ㅋㅋ";
+console.log(window[name]);    // java: System.out.println(window.get(name));
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

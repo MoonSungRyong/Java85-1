@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 익명 함수 
+// => 익명 함수를 선언할 때 그 주소를 변수에 별도로 보관해야만 
+//    그 함수를 사용할 수 있다.
+
+var f1 = function(a, b) { // 함수를 만들고 그 주소를 f1 변수에 저장한다.
+	return a - b
+}
+
+var f2 = function(a, b) { // 함수를 만들고 그 주소를 f2 변수에 저장한다.
+  return a * b
+}
+
+// 익명함수는 일반 함수와 똑 같다. => 따라서 사용법도 똑같다. 
+console.log(f1(10, 5))
+console.log(f2(10, 5))
+console.log(window.f1(10, 5))
+console.log(window.f2(10, 5))
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

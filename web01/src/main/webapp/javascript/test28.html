@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 익명 함수와 호이스팅 
+// => 익명함수는 할당 문을 통해 저장되기 때문에 호이스팅 대상이 아니다.
+
+console.log(f1(10, 5)) // 실행 오류! 
+                       // f1 변수는 호이스팅 규칙에 따라 위로 끌어올려 졌지만,
+                       // 익명 함수 선언은 할당 문과 함께 있기 때문에 
+                       // f1 변수에는 어떤 값도 들어 있지 않다.
+
+var f1 = function(a, b) { // 함수를 만들고 그 주소를 f1 변수에 저장한다.
+	return a - b
+}
+// 위의 함수 선언은 두 개의 문장이 결합된 것이다. 분리하면 다음과 같다.
+// var f1
+// f1 = function(a, b) {...}
+// 따라서 호이스팅(hosting) 대상은 var f1 이다.
+
+console.log(f1(10, 5))
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

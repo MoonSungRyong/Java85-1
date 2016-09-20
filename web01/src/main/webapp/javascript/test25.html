@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 변수의 호이스팅(hosting)
+// => script 태그를 실행할 때 먼저 변수 선언과 함수 선언을 실행한다.  
+//    "varirables or functions hoisting" 문법이라 부른다.
+
+console.log(a);
+
+var a = 20  // 이 문장은 두 개의 문장을 한 줄에 표현한 것이다. 원래 두 개의 문장이다.
+// var a   <== 변수 선언. 이 문장이 위로 올라가서 먼저 실행된다. 
+// a = 20  <== 값 할당. 이 문장은 현 위치에 남아서 순서에 따라 실행된다.
+
+console.log(a);
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

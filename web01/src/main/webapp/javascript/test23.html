@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 함수의 내장 변수 arguments
+// => 함수를 호출할 때 넘어온 모든 값은 arguments 배열 변수에 보관된다.
+// => 파라미터가 있어도 보관된다.
+
+function plus() {
+	return arguments[0] + arguments[1]
+}
+var result = plus(100, 200)
+console.log(result)
+
+function plus2(a) {
+	return a + arguments[1];
+}
+console.log(plus2(111, 222));
+
+// 파라미터의 개수와 상관없이 값을 넘길 수 있다.
+// => 그래서 자바스크립트는 오버로딩(overloading) 문법이 존재하지 않는다.
+console.log(plus2(10, 20, 30, 40, 50, 60));
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
