@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 자바스크립트 내장 객체 - Number
+
+// 생성
+var v1 = new Number(100);
+var v2 = 100;
+
+console.log(v1, typeof v1); // object
+console.log(v2, typeof v2); // number
+
+// Number의 프로퍼티
+console.log(Number.MIN_VALUE);
+console.log(Number.MAX_VALUE);
+
+// Number() 함수 
+// => Number 객체의 생성자 함수를 언제든지 직접 호출할 수 있다.
+// => 왜? Number()는 그냥 함수일 뿐이다.
+// => 클래스 아닌가? 자바스크립트는 클래스 문법이 없다.
+// => 자바스크립트의 함수
+//    => 함수이기 때문에 언제든지 호출할 수 있다.
+//    => 객체이기 때문에 언제든지 값을 저장할 수 있다. 
+console.log(Number("123"), typeof Number("123"));
+console.log(Number("3.14"), typeof Number("3.14"));
+console.log(Number(""), typeof Number(""));
+console.log(Number("0x11"), typeof Number("0x11"));
+console.log(Number("0b11"), typeof Number("0b11"));
+console.log(Number("0o11"), typeof Number("0o11"));
+console.log(Number("ohora"), typeof Number("ohora"));
+console.log(Number("100$"), typeof Number("100$"));
+
+// Number는 또한 객체이기 때문에 자체 인스턴스 함수를 갖고 있다.
+console.log(v1.toString(), typeof v1.toString());
+console.log(v1.valueOf(), typeof v1.valueOf()); // Number 객체 --> number 원시 타입 값 
+
+// Number는 또한 객체이기 때문에 스태틱 함수를 갖고 있다.
+console.log(Number.parseInt("1234"), typeof Number.parseInt("1234"))
+console.log(Number.parseInt("1234$"), typeof Number.parseInt("1234$"))
+</script>
+
+
+</body>
+</html>
+
+
+
+
