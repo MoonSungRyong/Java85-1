@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 사용자가 만든 객체 : 객체에 프로퍼티 추가하기
+// => 자바스크립트는 객체 설계도가 없다. 즉 클래스라는 문법이 없다.
+// => 변수나 함수가 필요하다면 그때 그때 넣어서 사용하라!
+// => 기본 객체를 복제한 후 필요한 변수나 함수를 넣어서 사용하는 것이 
+//    자바스크립트의 특징이다.
+
+var obj = new Object();
+obj.userName = "홍길동"
+obj["email"] = "hong@test.com"
+obj['tel'] = "111-1111"
+obj.plus = function(a, b) {
+	return a + b;
+}
+obj.minus = okok
+
+function okok(a, b) {
+	return a - b;
+}
+
+console.log(obj.userName)
+console.log(obj.email)
+console.log(obj.tel)
+console.log(obj.plus(10, 20))
+console.log(obj.minus(10, 20))
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
