@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 사용자가 만든 객체 : 여러 개의 객체 만들기 + 팩토리 함수
+// => 
+
+function createStudent(pName, pKor, pEng, pMath) {
+	return {
+		    name: pName, 
+		    kor: pKor, 
+		    eng: pEng, 
+		    math: pMath,
+		    sum: function() {
+		      return this.kor + this.eng + this.math
+		    },
+		    aver: function() {
+		      var result = this.sum();
+		      return result / 3;
+		    }
+	};
+}
+
+var s1 = createStudent("홍길동", 100, 100, 100)
+var s2 = createStudent("임꺽정", 90, 90, 90)
+var s3 = createStudent("유관순", 80, 80, 80)
+
+console.log(s1, s1.sum(), s1.aver());
+console.log(s2, s2.sum(), s2.aver());
+console.log(s3, s3.sum(), s3.aver());
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
