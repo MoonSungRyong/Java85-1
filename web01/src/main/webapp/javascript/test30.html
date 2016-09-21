@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 자바스크립트 내장 객체 - String
+
+// 생성
+var v1 = "String은 문자열을 다루는 객체입니다.\n" +
+         "String 자체가 함수이기 때문에 호출할 수 있습니다.";
+var v2 = "String은 문자열을 \
+다루는 객체입니다.\n\
+String 자체가 함수이기 때문에 호출할 수 있습니다.";
+          
+console.log(v1, typeof v1); // 
+console.log(v2, typeof v2); // 
+
+// String() 함수
+var v3 = "abcdef가"
+console.log(v3.charAt(2))
+console.log("abcdef".charAt(2)) // 상수 문자열(string literal) 자체가 String 객체이다. 
+console.log(v3.charCodeAt(2)) // 문자의 2바이트 유니코드(UTF-16) 값 리턴 
+console.log(v3.charCodeAt(6)) // 문자의 2바이트 유니코드(UTF-16) 값 리턴
+console.log("ABCabc".indexOf("ab"))
+console.log("S001".startsWith("S0"))
+console.log("S001".startsWith("X0"))
+console.log("S001".endsWith("1"))
+console.log("S001".endsWith("001"))
+console.log("S001".endsWith("2"))
+console.log("abcdefghijk".substr(3)) // 3부터 끝까지 추출
+console.log("abcdefghijk".substr(3, 4)) // 3부터 4개 문자만 추출
+console.log("abcdefghijk".substring(3)) // 3부터 끝까지 추출
+console.log("abcdefghijk".substring(3, 6)) // 3부터 6전까지 추출
+var v4 = "abcdefghijk"
+console.log(v4.replace("def", "xxx"), v4)
+console.log(v4.replace("def", ""))
+</script>
+
+
+</body>
+</html>
+
+
+
+

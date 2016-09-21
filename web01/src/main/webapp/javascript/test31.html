@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 자바스크립트 내장 객체 - Array
+
+// 생성
+var v1 = new Array("홍길동", "임꺽정", "유관순")
+var v2 = ["홍길동", "임꺽정", "유관순"]  // 배열 객체를 만드는 단축 문법
+
+console.log(v1, typeof v1)
+console.log(v2, typeof v2)
+
+// 값 조회
+console.log(v1[1])
+console.log(v2[2])
+
+console.log(v1.length)
+console.log(v2.length)
+
+// 값 저장
+v1[10] = "오호라"
+v2[97] = "우헤헤"
+
+console.log(v1.length)
+console.log(v2.length)
+
+// 함수
+// => push(), pop() : 스택 기능 
+var v3 = []; // new Array();
+v3.push("홍길동")
+v3.push("임꺽정")
+v3.push("유관순")
+v3.push("안중근")
+v3.push("안창호")
+v3.push("윤봉길")
+v3.push("김구")
+
+console.log("-----------------------")
+
+while (v3.length > 0) {
+	console.log(v3.pop())
+}
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

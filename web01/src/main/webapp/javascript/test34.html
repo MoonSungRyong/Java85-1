@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 자바스크립트 내장 객체 - Array
+
+// 생성
+var v3 = []; 
+v3.push("홍길동")
+v3.push("임꺽정")
+v3.push("유관순")
+v3.push("안중근")
+v3.push("안창호")
+v3.push("윤봉길")
+v3.push("김구")
+
+console.log("-----------------------")
+
+
+forEach(v3, function(value, index) {
+  console.log(index, ":", value)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function forEach(arr, func) {
+	for (var i = 0; i < arr.length; i++) {
+		func(arr[i], i)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
