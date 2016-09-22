@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그 생성하기 + 사용자 정의 속성 추가하기
+// => 원래 태그 객체에 없는 속성을 추가할 수 있다.
+//    목적 => 자바스크립트에서 사용하기 위해서 임의 속성을 추가하는 경우가 있다.
+//
+var tag = document.querySelector("#footer")
+
+var aTag = document.createElement("a")
+aTag.textContent = "비트캠프"
+aTag.href = "http://www.bitcamp.co.kr"
+
+// 임의 속성 추가하기
+// => 임의 속성의 이름은 기존의 이름과 충돌나지 않도록 해야 한다.
+//    그래서 개발자들 사이에 관례에 따라 data-xxx 식으로 속성의 이름을 짓는다.
+aTag["data-no"] = 20
+aTag["data-title"] = "하하하"
+
+// 안타깝게도 태그 객체의 경우 "태그객체명.속성명" 식으로 
+// 임의의 태그를 추가할 수 없게 막혀있다.
+// 해결책? 태그에 없는 속성을 추가할 때는 다음과 같이 함수를 통해 등록하라!
+aTag.setAttribute("data-no", 20)
+aTag.setAttribute("data-title", "호호호")
+
+
+tag.appendChild(aTag);
+</script>
+
+
+</body>
+</html>
+
+
+
+

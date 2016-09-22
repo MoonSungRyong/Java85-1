@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그의 콘텐츠(시작태그와 끝태그 사이에 있는 값) 조회하기 
+// => Node.textContent : 순수한 텍스트. 
+//                       만약 자식 태그가 있다면 자식 태그는 무시하고 
+//                       그 안에 있는 텍스트만 추출한다.
+// => Element.innerHTML : 태그 안에 있는 내용 모두 그대로 추출한다.
+//
+var tag = document.querySelector("#footer") 
+
+console.log(tag.textContent)
+console.log("-------------------------------------")
+
+console.log(tag.innerHTML)
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

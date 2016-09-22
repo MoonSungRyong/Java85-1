@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그 생성하기 
+//
+var tag = document.querySelector("#footer")
+
+// => innerHTML을 사용하여 자식 태그를 생성할 수 있다.
+//tag.innerHTML = "<a href='http://www.bitcamp.co.kr'>비트캠프</a>"
+
+// => DOM API를 사용하여 태그를 만들고 붙이기
+var aTag = document.createElement("a")
+aTag.textContent = "비트캠프"
+aTag.href = "http://www.bitcamp.co.kr"
+
+// => 만든 태그를 기존 태그의 자식으로 붙이기
+tag.appendChild(aTag);
+</script>
+
+
+</body>
+</html>
+
+
+
+

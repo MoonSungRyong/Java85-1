@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그 삭제하기
+//
+var tag = document.querySelector("#footer")
+
+window.alert("삭제 전.....");
+
+// 태그를 삭제하려면 부모 태그를 알아야 한다.
+tag.parentElement.removeChild(tag)
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
