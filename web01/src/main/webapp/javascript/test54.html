@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 클로저 : 사용 후
+// => 이자율을 클로저 내부 메모리에 보관한다.
+
+// => 이자를 계산하는 함수 만들기
+function createInterestFunc(rate) {
+	return function(money) {
+		return money * rate / 12;
+	}
+}
+
+var calc1 = createInterestFunc(0.015);
+var calc2 = createInterestFunc(0.025);
+var calc3 = createInterestFunc(0.04);
+
+// 예금 상품 1
+console.log(calc1(1000000000));
+console.log(calc1(100000000));
+console.log(calc1(10000000));
+
+// 예금 상품 2
+console.log(calc2(1000000000));
+
+// 예금 상품 3
+console.log(calc3(1000000000));
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

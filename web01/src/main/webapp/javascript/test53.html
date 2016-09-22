@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 클로저 : 사용 전
+
+// => 이자를 계산하는 함수 만들기
+function computeInterest(money, rate) {
+	return money * rate / 12;
+}
+
+// 예금 상품 1
+console.log(computeInterest(1000000000, 0.015));
+console.log(computeInterest(100000000, 0.015));
+console.log(computeInterest(10000000, 0.015));
+
+// 예금 상품 2
+console.log(computeInterest(1000000000, 0.025));
+
+// 예금 상품 3
+console.log(computeInterest(1000000000, 0.04));
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

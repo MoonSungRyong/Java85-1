@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+"use strict"
+// 클로저
+// => 함수 안에 선언된 내부 함수를 말한다.
+// => 자체 메모리 영역을 사용하여 바깥 함수의 로컬 변수를 복제해 관리한다.
+
+function outerFunc() {
+	return function() {
+		console.log("haha")
+	}
+}
+
+var f1 = outerFunc(); // 내부에서 생성한 함수(클로저,closure)를 리턴한다.
+var f2 = outerFunc(); // 내부에서 생성한 함수(클로저,closure)를 리턴한다.
+
+// 매번 익명 객체를 생성하기 때문에 당연히 그 함수는 서로 다른 객체이다.
+if (f1 == f2) {
+	alert('f1 == f2')
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
