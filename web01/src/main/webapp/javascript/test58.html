@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 잠깐! 
+// => for ... in 문법
+// => for var a in 배열/객체
+// => 배열일 경우, a는 배열의 인덱스이다.
+// => 객체일 경우, a는 객체의 프로퍼티 명이다.
+
+//배열인 경우
+var names = ["자바", "C/C++", "자바스크립트", "파이썬"];
+
+console.log("----------------------------------")
+for (var a in names) {
+	console.log(a)
+}
+
+//객체인 경우
+var obj = {
+		name: "홍길동",
+		age: 18,
+		kor: 100,
+		eng: 80,
+		math: 90,
+		sum: function() {},
+		aver: function() {}
+}
+
+console.log("----------------------------------")
+for (var a in obj) {
+	console.log(a)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

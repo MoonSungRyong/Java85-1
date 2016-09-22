@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 잠깐! 
+// => 자바스크립트 반복문
+
+//배열인 경우 for ... in... 문법을 사용할 수 있다.
+var names = ["자바", "C/C++", "자바스크립트", "파이썬"];
+
+console.log("----------------------------------")
+for (var i = 0; i < names.length; i++) {
+	console.log(names[i])
+}
+
+console.log("----------------------------------")
+for (var i in names) {
+	console.log(names[i])
+}
+
+console.log("----------------------------------")
+for (var value of names) {
+  console.log(value)
+}
+
+console.log("----------------------------------")
+names.forEach(function(value){
+	console.log(value)
+})
+</script>
+
+
+</body>
+</html>
+
+
+
+

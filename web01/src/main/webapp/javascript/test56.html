@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그 이름으로 찾기
+// => 리턴 값은 HTMLCollection 이다.
+
+var tagList = document.getElementsByTagName("div")  // return : HTMLCollection
+
+console.log(tagList.constructor)  // 객체를 초기화시킨 생성자를 알고 싶을 때
+
+//HTMLCollection은 배열이 아니다. 따라서 다음과 같이 반복문을 사용해야 한다.
+for (var i = 0; i < tagList.length; i++) {
+	console.log(tagList[i])
+}
+
+//HTMLCollection은 배열이 아니다. 만약 다음과 같이 사용한다면 
+//태그 이외의 기타 프로퍼티도 출력한다.
+console.log("----------------------------------")
+for (var i in tagList) {
+	console.log(tagList[i])
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

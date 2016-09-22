@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// DOM API 사용법: 태그 찾기
+// => window.document 객체를 사용하여 태그를 다룬다.
+
+// => id로 태그 찾기
+var tag1 = window.document.getElementById("header")
+var tag2 = document.getElementById("footer")
+var tag3 = document.getElementById("title")
+
+console.log(tag1)
+console.log(tag2)
+console.log(tag3)
+
+console.log(typeof tag1) // 태그는 모두 객체(object) 타입이다.
+console.log(typeof tag2) // 태그는 모두 객체(object) 타입이다.
+console.log(typeof tag3) // 태그는 모두 객체(object) 타입이다.
+
+// 태그는 객체 타입이다.
+// 궁금?
+// => 그럼 어떤 생성자가 그 객체를 초기화시켰는가?
+// => instanceof 연산자를 사용하여 그 객체를 초기화시키는데 관여한 생성자를 확인할 수 있다.
+//    사용법: 객체 instanceof 생성자명
+// => 관여한?
+//    => 아니 객체를 생성하는데 한 개의 생성자가 아니라 여러 개가 관여할 수 있다는 것인가? 
+//       예!
+//    => 일종의 상속 개념과 같이 여러 생성자를 거쳐서 원하는 형태로 객체를 초기화시킬 수 있다.
+console.log(tag1 instanceof Object)  // Object
+console.log(tag1 instanceof Node)    // Node 생성자 함수에 의해 초기화 되었음
+console.log(tag1 instanceof Element) // Element 생성자 함수에 의해 초기화 되었음
+console.log(tag1 instanceof HTMLElement) // HTMLElement 생성자 함수에 의해 초기화 되었음
+console.log(tag1 instanceof HTMLDivElement) // HTMLDivElement 생성자 함수에 의해 초기화 되었음
+console.log(tag1 instanceof HTMLParagraphElement) // false
+</script>
+
+
+</body>
+</html>
+
+
+
+
