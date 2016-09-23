@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 이벤트와 리스너 : 
+// => 각각의 태그 객체는 고유의 이벤트가 있다.
+// => 이벤트가 발생했을 때 호출될 함수의 이름을 정해놓았다.
+// => 개발자가 할일?
+//    - 이벤트가 발생했을 때 뭔가를 하고 싶다면,
+//    - 그 작업을 수행할 함수를 만들고,
+//    - 그 함수를 태그 객체에 정해진 이름으로 등록하라!
+//
+var tag = document.querySelector("div#header button[type=button]")
+
+/*
+function clickListener(event) {
+	alert("눌렀네..")
+}
+tag.onclick = clickListener
+*/
+
+tag.onclick = function(event) {
+	alert("눌렀네..")
+	console.log(event)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

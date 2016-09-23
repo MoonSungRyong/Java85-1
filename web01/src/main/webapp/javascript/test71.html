@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 이벤트와 리스너 : 주요 이벤트 확인
+//
+var tag = document.querySelector("#header")
+
+// 마우스 커서가 태그 영역에 진입할 때
+// => 자식 태그 영역에 있다가 나올 때는 무시한다.
+tag.onmouseenter = function(event) { 
+	console.log("onmouseenter")
+}
+
+// 마우스 커서가 태그 영역에 진입할 때
+// => 자식 태그 영역이든 바깥이든 현재 태그의 표면에 진입하면 발생한다.
+tag.onmouseover = function(event) { 
+  console.log("onmouseover")
+}
+
+// 마우스 커서가 태그 영역에서 나올 때 
+// => 자식 태그 영역에 있다가 나올 때는 무시한다.
+tag.onmouseleave = function(event) { 
+  console.log("onmouseleave")
+}
+
+//마우스 커서가 태그 영역에서 나올 때 
+//=> 자식 태그 영역이든 바깥이든 현재 태그의 표면에서 벗어날 때 발생한다.
+tag.onmouseout = function(event) { 
+console.log("onmouseout")
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

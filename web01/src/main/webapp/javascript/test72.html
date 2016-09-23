@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 이벤트와 리스너 : 이벤트가 전달되는 원리
+// 예) DOM
+//  BODY
+//    -> DIV
+//        -> BUTTUN
+// 버튼 클릭을 클릭할 때 이벤트가 전달되는 경로!
+// 1) 캡처단계(capture phase)
+//    BODY --> DIV 
+// 2) 타겟단계(target phase)
+//    DIV --> BUTTON  
+// 3) 버블단계(bubble phase)
+//    BUTTON --> DIV --> BODY
+//
+// tag.onxxxx = function(event) {...}
+// 위와 같은 방식으로 리스너를 등록하면 타겟 단계와 버블 단계에서 호출된다.
+//
+
+document.body.onclick = function(event) { 
+	console.log("body.onclick")
+}
+
+document.querySelector("#main").onclick = function(event) { 
+  console.log("div#main.onclick")
+}
+	
+document.querySelector("#header").onclick = function(event) { 
+  console.log("div#header.onclick")
+}
+
+document.querySelector("#header > button").onclick = function(event) { 
+  console.log("#header > button.onclick")
+}
+</script>
+
+
+</body>
+</html>
+
+
+
+
