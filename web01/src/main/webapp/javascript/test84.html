@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청 - 서버에서 JSON 형식의 문자열을 받아서 자바스크립트로 바꾼 후 작업 수행
+//
+document.querySelector("#loginBtn").onclick = function(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(result) {
+    if (xhr.readyState != 4)
+    	return;
+    
+    if (xhr.status != 200) {
+    	alert("서버에 잘못 요청했습니다.")
+    	return;
+    }
+    
+    // JSON 형식의 문자열을 해석하여 자바스크립트 객체로 만들기
+    var arr = JSON.parse(xhr.responseText)
+    //console.log(arr)
+    
+    var ulTag = document.querySelector("#contents > ul")
+    
+    var contents = ""
+    
+    for (var i in arr) {
+    	contents += "<li>" + arr[i] + "</li>\n"
+    }
+    
+    //console.log(contents)
+    ulTag.innerHTML = contents
+  }
+  xhr.open("GET", "test84.jsp", true)
+  xhr.send() 
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

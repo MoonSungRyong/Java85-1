@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청 - 서버에서 JSON 형식의 문자열을 받아서 
+//               DOM API를 사용하여 태그 객체를 만든 후 기존 태그에 붙인다.
+//
+document.querySelector("#loginBtn").onclick = function(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(result) {
+    if (xhr.readyState != 4)
+    	return;
+    
+    if (xhr.status != 200) {
+    	alert("서버에 잘못 요청했습니다.")
+    	return;
+    }
+    
+    var arr = JSON.parse(xhr.responseText)
+    
+    var ulTag = document.querySelector("#contents > ul")
+    var li;
+    for (var i in arr) {
+    	li = document.createElement("li") // 태그 객체 생성
+    	li.innerHTML = arr[i]             // 태그 객체에 콘텐츠 저장
+    	ulTag.appendChild(li)             // li 태그 객체를 ul의 자식 태그로 붙인다.
+    }
+    
+  }
+  xhr.open("GET", "test84.jsp", true)
+  xhr.send() 
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
