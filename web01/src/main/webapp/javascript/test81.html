@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청 - onreadystatechange 이벤트
+// => 이 이벤트는 요청 상태가 바뀔 때 마다 호출된다.
+// => 상태
+//    0 : 객체 생성
+//    1 : open() 호출되었다.
+//    2 : send() 호출되었다.
+//    3 : 서버로부터 데이터를 받는 중이다.
+//    4 : 서버 응답이 완료되었다.
+//
+// => 서버로부터 응답이 완료된 후 어떤 작업을 하고 싶다면,
+//    4번 상태일 때 수행하라!
+//
+document.querySelector("#loginBtn").onclick = function(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(result) {
+    // 상태 값 출력 
+    console.log(xhr.readyState)
+    
+    if (xhr.readyState == 4) {
+    	console.log(xhr.responseText)
+    }
+  }
+  xhr.open("GET", "test79.jsp", true)
+  xhr.send() 
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
