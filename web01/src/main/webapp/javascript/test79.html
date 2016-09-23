@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청 - 동기 요청의 문제점
+// => 서버에서 응답이 올 때까지 다른 작업을 수행할 수 없다.
+//
+
+document.querySelector("#loginBtn").onclick = function(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "test79.jsp", false)
+  xhr.send() // 서버에서 응답이 와야만 리턴하기 때문이다.
+  console.log(xhr.responseText)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
