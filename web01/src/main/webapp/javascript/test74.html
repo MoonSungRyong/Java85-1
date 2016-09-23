@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 이벤트와 리스너 : 여러 개의 리스너 등록하기
+// => onxxxx 프로퍼티에는 오직 한 개의 리스너만 등록할 수 있다.
+// => 여러 개의 리스너를 등록하려면 다음의 함수를 사용해야 한다. 
+//    addEventListener(이벤트명, 리스너)
+
+document.body.addEventListener("click", function(event) { 
+	console.log("body.onclick")
+})
+
+document.querySelector("#main").addEventListener("click", function(event) { 
+  console.log("div#main.onclick")
+})
+	
+document.querySelector("#header").addEventListener("click", function(event) { 
+  console.log("div#header.onclick")
+})
+
+var btn = document.querySelector("#header > button") 
+
+btn.addEventListener("click", function(event) { 
+  console.log("#header > button.onclick - 1111")
+  event.stopPropagation();
+})
+
+btn.addEventListener("click", function(event) { 
+  console.log("#header > button.onclick - 2222")
+  event.stopPropagation();
+})
+
+btn.addEventListener("click", function(event) { 
+  console.log("#header > button.onclick - 3333")
+  event.stopPropagation();
+})
+
+var span = document.querySelector("#header > span")
+
+span.addEventListener("click", function(event) { 
+  console.log("#header > span.onclick - 1111")
+  event.stopPropagation();
+})
+
+span.addEventListener("click", function(event) { 
+  console.log("#header > span.onclick - 2222")
+  event.stopPropagation();
+})
+
+span.addEventListener("click", function(event) { 
+  console.log("#header > span.onclick - 3333")
+  event.stopPropagation();
+})
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청(AJAX; Asynchronous JavaScript and XML)
+// => XMLHttpRequest() 생성자를 통해 만든 객체를 사용한다.
+// => HTTP 요청을 수행할 수 있다.
+// => 동기 또는 비동기로 요청할 수 있다.
+// => GET 또는 POST, DELETE 등 요청 가능.
+//
+
+// 1) 비동기 요청을 수행할 객체를 준비한다.
+var xhr = new XMLHttpRequest();
+
+// 2) 서버에 연결한다.
+// open(요청, URL, 비동기여부)
+xhr.open("GET", "test77.jsp", false)
+
+// 3) 서버에 요청을 보낸다.
+// => 동기(synchronous) 방식으로 요청할 때는 서버 응답이 완료되어야만 리턴한다. 
+xhr.send()
+
+// 4) 서버가 보낸 값을 출력해보자!
+console.log(xhr.responseText)
+</script>
+
+
+</body>
+</html>
+
+
+
+

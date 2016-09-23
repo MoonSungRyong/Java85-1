@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 비동기 요청(AJAX; Asynchronous JavaScript and XML)
+// => XMLHttpRequest() 생성자를 통해 만든 객체를 사용한다.
+// => HTTP 요청을 수행할 수 있다.
+// => 동기 또는 비동기로 요청할 수 있다.
+// => GET 또는 POST, DELETE 등 요청 가능.
+//
+
+document.querySelector("#loginBtn").onclick = function(event) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "test77.jsp", false)
+  xhr.send()
+  console.log(xhr.responseText)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

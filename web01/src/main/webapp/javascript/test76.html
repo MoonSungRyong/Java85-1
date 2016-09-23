@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  border: 1px red solid;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul {
+  border: 1px blue solid;
+  padding: 20px;
+}
+
+li {
+  border: 1px black solid;
+  margin: 20px;
+}
+
+h1 {
+  border: 1px green solid;
+}
+
+span {
+  border: 1px gray dashed;
+}
+
+body {
+  border: 2px orange dotted;
+}
+</style>
+</head>
+<body>
+
+<div id="main">
+<div id="header">
+  <span id="title">비트캠프</span>
+  <button id="loginBtn" type="button">로그인</button>
+</div>
+
+<div id="contents">
+  <h1>강의</h1>
+  <ul>
+    <li class="long">자바프로그래밍</li>
+    <li class="long">윈도우프로그래밍</li>
+    <li class="short">리눅스프로그래밍</li>
+  </ul>
+</div>
+
+<div id="footer">
+  <p>비트 캠프 자바85기입니다.</p>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+"use strict"
+// 임의로 이벤트 발생시키기 : event.dispatchEvent()
+// => 애플리케이션에서 임의로 특정 태그 객체에 대해 이벤트를 발생시킬 수 있다.
+
+var h1 = document.querySelector("#contents > h1") 
+
+h1.addEventListener("click", function(event) { 
+	h1.style["background-color"] = "red";
+})
+
+h1.onmouseleave = function(event) {
+	h1.style.backgroundColor = "white"
+}
+
+document.querySelector("#loginBtn").onclick = function(event) {
+	//1) click 이벤트 객체를 준비한다.
+	var event = new Event("click")
+	
+	//2) 위에서 준비한 이벤트 객체를 h1 태그에게 전달한다.
+	h1.dispatchEvent(event)
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
