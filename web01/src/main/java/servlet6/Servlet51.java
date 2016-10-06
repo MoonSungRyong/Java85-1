@@ -49,7 +49,7 @@ public class Servlet51 extends HttpServlet {
           String newFilename = getNewFilename(item.getName());
           String path = this.getServletContext().getRealPath("/upload/" + newFilename);
           item.write(new File(path)); // path 경로에 파일을 저장한다.
-          
+           
           paramMap.put(
               item.getFieldName(), // 파라미터 명 
               //item.getName() // 파라미터 값(업로드 파일 명)
