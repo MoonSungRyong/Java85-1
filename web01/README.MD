@@ -78,8 +78,13 @@
 - /webapp/jsp1/Test01.jsp : 
 - /webapp/jsp2/Test05.jsp : JSP 액션 태그 - <jsp:useBean>
 
-
-
+# 파일 업로드 - servlet6
+- /webapp/servlet49.html : 멀티파트 적용 전
+  Servlet49.java
+- /webapp/servlet50.html : 멀티파트 적용 후
+  Servlet50.java
+- /webapp/servlet51.html : 아파치 fileupload 라이브러리 사용
+  Servlet51.java
    
    
    
