@@ -53,6 +53,16 @@
 		    <property name="maxUploadSize" value="10000000"/>
 		</bean>
     
+    
+    <!-- 인터셉터 등록하기 
+         예) 로그인 검증하는 인터셉터, 국제화처리, 암호화 등 
+    -->
+    <mvc:interceptors>
+		    <mvc:interceptor>
+		        <mvc:mapping path="/test18/*"/>
+		        <bean class="web.Test18Interceptor"/>
+		    </mvc:interceptor>
+		</mvc:interceptors>
 </beans>
 
 
