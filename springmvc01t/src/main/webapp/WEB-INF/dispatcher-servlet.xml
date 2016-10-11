@@ -3,12 +3,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 특정 자바 패키지를 뒤져서 @Component, @Controller, @Service, @Repository
          애노테이션이 붙은 클래스를 찾아, 그 클래스의 인스턴스를 생성한다. -->
@@ -63,6 +66,10 @@
 		        <bean class="web.Test18Interceptor"/>
 		    </mvc:interceptor>
 		</mvc:interceptors>
+		
+		<!-- @AspectJ 애노테이션 기능 활성화
+		     => @AspectJ 애노테이션을 처리할 객체를 추가 -->
+		<aop:aspectj-autoproxy/>
 </beans>
 
 

@@ -45,7 +45,27 @@
 => 인터셉터 생성 : Test18Interceptor.java
 => 인터셉터를 스프링 설정 파일에 등록: dispatcher-servlet.xml
  
-  
+## AOP(Aspect-Oriented Programming; 관점지향 프로그래밍) 
+=> 논리적으로 특정 메서드를 그룹으로 묶어 필터링 하는 기법
+   즉 관심 분야에 따라 클래스나 메서드를 분류하여 해당 메서드를 실행하기 
+   전,후에 특정 작업을 실행시키도록 하는 기법
+=> spring-aop, aspectjweaver 라이브러리 추가
+   1) gradle eclipse 실행
+   2) 프로젝트 리프래시
+   3) 톰캣 서버 재시작
+=> @AspectJ 애노테이션을 처리할 객체를 등록한다.
+   1) aop XML 네임스페이스 추가
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        ...
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd"
+   2) 스프링 설정 파일에 설정 추가
+   <aop:aspectj-autoproxy/>
+=> AOP 객체 생성
+   Test19.java : AOP를 테스트할 페이지 컨트롤러
+   Test19Dao.java : AOP를 테스트할 DAO
+   Test19AOP.java : AOP 객체 생성 
   
   
   
