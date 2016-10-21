@@ -8,9 +8,9 @@ var mysql = require('mysql'); // mysql 연동 라이브러리 객체 준비
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'java76',
+  user     : 'java85',
   password : '1111',
-  database : 'java76db'
+  database : 'java85db'
 });
 
 connection.connect();

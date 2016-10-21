@@ -7,9 +7,9 @@ var url = require('url');
 //1) DB 커넥션 준비 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'java76',
+  user     : 'java85',
   password : '1111',
-  database : 'java76db'
+  database : 'java85db'
 });
 
 connection.connect();
@@ -24,7 +24,7 @@ var httpServer = http.createServer(function(request, response) {
 	if (urlInfo.pathname == '/board/list.do') {
 		// 게시물 목록을 가져온 후에 클라이언트에게 응답한다.
 		connection.query(
-		  'select bno, title, views, cre_dt from board', 
+		  'select no as bno, title, vw_cnt as views, cre_dt from boards',
 		  function(err, rows, fields) { 
 			  if (err) throw err;
 			  response.write("<!DOCTYPE html>\n");

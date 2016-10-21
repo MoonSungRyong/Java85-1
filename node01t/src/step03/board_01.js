@@ -7,9 +7,9 @@ var url = require('url');
 //1) DB 커넥션 준비 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'java76',
+  user     : 'java85',
   password : '1111',
-  database : 'java76db'
+  database : 'java85db'
 });
 
 connection.connect();
@@ -33,7 +33,7 @@ var httpServer = http.createServer(function(request, response) {
 	
 		// 게시물 목록 가져오기
 		connection.query(
-		  'select bno, title, views, cre_dt from board', 
+		  'select no as bno, title, vw_cnt as views, cre_dt from boards', 
 		  function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
 			  if (err) throw err;
 			  response.write("<table>\n");
